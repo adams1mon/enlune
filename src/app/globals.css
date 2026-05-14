@@ -50,6 +50,16 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@keyframes pricing-ribbon-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -323,5 +333,231 @@
   .value-card__content {
     position: relative;
     z-index: 1;
+  }
+
+  .value-carousel__handle {
+    position: relative;
+    width: min(9rem, 28vw);
+    height: 0.1875rem;
+    margin: 1rem auto 0;
+    border-radius: var(--radius-pill);
+    background: rgba(18, 18, 18, 0.06);
+    overflow: hidden;
+    transition:
+      height 140ms ease,
+      background-color 140ms ease;
+  }
+
+  .value-carousel__handle-thumb {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: var(--radius-pill);
+    background: rgba(18, 18, 18, 0.18);
+    transition:
+      left 160ms ease-out,
+      background-color 140ms ease;
+    cursor: grab;
+  }
+
+  .value-carousel__handle:hover {
+    height: 1.2rem;
+  }
+
+  .value-carousel__handle:hover .value-carousel__handle-thumb {
+    background: rgba(18, 18, 18, 0.28);
+  }
+
+  .value-carousel__handle-thumb:active {
+    cursor: grabbing;
+  }
+
+  .pricing-ribbon {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    overflow: hidden;
+  }
+
+  .pricing-ribbon::before,
+  .pricing-ribbon::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    width: 4rem;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .pricing-ribbon::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--page-background) 0%, rgba(243, 242, 240, 0) 100%);
+  }
+
+  .pricing-ribbon::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--page-background) 0%, rgba(243, 242, 240, 0) 100%);
+  }
+
+  .pricing-ribbon__track {
+    display: flex;
+    width: max-content;
+    gap: 0.8rem;
+    align-items: center;
+    padding-block: 0.35rem;
+    animation: pricing-ribbon-scroll 28s linear infinite;
+  }
+
+  .pricing-ribbon__pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.7rem;
+    padding-inline: 0.85rem;
+    border: 1px solid rgba(89, 102, 200, 0.16);
+    border-radius: var(--radius-pill);
+    background: #4e5eb5;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 2px 3px rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.74rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .pricing-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-panel);
+    background: #100c32;
+    min-height: 22rem;
+    padding: 1.6rem;
+  }
+
+  .pricing-panel__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    max-width: 32rem;
+    flex-direction: column;
+  }
+
+  .pricing-panel__list {
+    margin: 1.75rem 0 0;
+    padding-left: 1.45rem;
+    list-style: disc;
+    color: var(--text-muted-inverse);
+    font-size: 1rem;
+    line-height: 1.95;
+  }
+
+  .pricing-panel__list li + li {
+    margin-top: 0.3rem;
+  }
+
+  .pricing-panel__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .pricing-panel__button {
+    min-width: 9.4rem;
+  }
+
+  .pricing-contact {
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-inverse);
+  }
+
+  .pricing-contact__icon-wrap {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .pricing-contact__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    min-height: 2.3rem;
+  }
+
+  .pricing-contact__label {
+    font-size: 0.82rem;
+    line-height: 1.15;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .pricing-contact__email {
+    font-size: 0.68rem;
+    line-height: 1.15;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .pricing-contact__arrow-wrap {
+    margin-left: 0.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.98);
+  }
+
+  .pricing-panel__moon {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: min(48%, 28rem);
+    pointer-events: none;
+  }
+
+  .pricing-panel__moon-image {
+    object-fit: cover;
+    object-position: left center;
+    opacity: 0.96;
+    mix-blend-mode: screen;
+    transform: scale(1.22) translateX(14%);
+  }
+
+  @media (max-width: 900px) {
+    .pricing-panel {
+      padding: 1.35rem;
+    }
+
+    .pricing-panel__moon {
+      width: 58%;
+      opacity: 0.55;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pricing-ribbon__track {
+      gap: 0.65rem;
+      animation-duration: 24s;
+    }
+
+    .pricing-panel {
+      min-height: auto;
+      padding: 1.25rem;
+    }
+
+    .pricing-panel__content {
+      max-width: none;
+    }
+
+    .pricing-panel__moon {
+      width: 82%;
+      inset: auto -8% -20% auto;
+      height: 72%;
+    }
+
+    .pricing-panel__footer {
+      align-items: flex-start;
+    }
   }
 }

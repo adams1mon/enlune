@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { NavChip } from "@/components/ui/nav-chip";
 import { ValueCarousel } from "@/components/ui/value-carousel";
+import Image from "next/image";
 
 const navItems: Array<{ label: string; active?: boolean }> = [
   { label: "Services" },
@@ -71,6 +72,27 @@ const valueCards = [
     hue: 290,
     starsPosition: "10% 70%",
   },
+] as const;
+
+const pricingExamples = [
+  "Customer-facing Apps",
+  "Operations",
+  "Customer Support",
+  "Internal Tools",
+  "Dashboards",
+  "Marketing",
+  "Content & SEO",
+  "Knowledge Base",
+  "RAG",
+] as const;
+
+const pilotFeatures = [
+  "One workflow selected for the pilot",
+  "Clear scope, timeline, and success criteria",
+  "Custom software built around your business",
+  "Backend, frontend, AI automation as needed",
+  "Working pilot your team can test and use",
+  "Review session with recommendations for what to build next",
 ] as const;
 
 export default function Home() {
@@ -177,6 +199,93 @@ export default function Home() {
 
           <div className="mt-12 md:mt-16">
             <ValueCarousel cards={valueCards} />
+          </div>
+        </section>
+
+        <section className="overflow-hidden py-16 sm:py-20 md:py-24">
+          <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+            <h2 className="max-w-[16ch] text-balance font-display text-4xl font-medium tracking-tight text-ink sm:text-5xl md:text-[3.5rem] md:leading-[1.02]">
+              Your ticket to working software
+            </h2>
+          </div>
+
+          <div className="pricing-ribbon mt-10">
+            <div className="pricing-ribbon__track">
+              {[...pricingExamples, ...pricingExamples].map((label, index) => (
+                <span key={`${label}-${index}`} className="pricing-ribbon__pill">
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 sm:mt-10">
+            <article className="pricing-panel">
+              <div className="pricing-panel__content">
+                <h3 className="font-display text-3xl font-medium tracking-tight text-inverse sm:text-[2.25rem]">
+                  Start a pilot today
+                </h3>
+
+                <div className="mt-8  text-inverse">
+                  <span className="text-base text-muted-inverse">starting from</span>
+                  &nbsp;
+                  <span className="font-display font-regular text-3xl leading-none">$1000</span>
+                </div>
+
+                <ul className="pricing-panel__list">
+                  {pilotFeatures.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+
+                <div className="pricing-panel__footer">
+                  <Button
+                    href="mailto:hello@enlune.com?subject=Book%20a%20call"
+                    className="pricing-panel__button"
+                  >
+                    Book a call
+                  </Button>
+
+                  <a
+                    href="mailto:hello@enlune.com"
+                    className="pricing-contact"
+                  >
+                    <span className="pricing-contact__icon-wrap">
+                      <Image
+                        src="/send_email.svg"
+                        alt=""
+                        width={30}
+                        height={30}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span className="pricing-contact__text">
+                      <span className="pricing-contact__label">Prefer to email?</span>
+                      <span className="pricing-contact__email">hello@enlune.com</span>
+                    </span>
+                    <span className="pricing-contact__arrow-wrap">
+                      <Image
+                        src="/arrow.svg"
+                        alt=""
+                        width={30}
+                        height={30}
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="pricing-panel__moon" aria-hidden="true">
+                <Image
+                  src="/moon.png"
+                  alt=""
+                  fill
+                  sizes="(max-width: 1024px) 70vw, 38vw"
+                  className="pricing-panel__moon-image"
+                />
+              </div>
+            </article>
           </div>
         </section>
       </Container>
