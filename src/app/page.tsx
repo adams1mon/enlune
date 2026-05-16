@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { NavChip } from "@/components/ui/nav-chip";
 import { ValueCarousel } from "@/components/ui/value-carousel";
 import Image from "next/image";
+import Booker from "@/components/ui/booker";
 
 const navItems: Array<{ label: string; active?: boolean }> = [
   { label: "Services" },
@@ -119,7 +120,7 @@ export default function Home() {
                 </NavChip>
               ))}
               <Button
-                href="#"
+                href="#booking"
                 size="sm"
                 variant="surface"
               >
@@ -145,7 +146,7 @@ export default function Home() {
 
             <Button
               className="mt-8"
-              href=""
+              href="#booking"
             >
               Book a 30-min call
             </Button>
@@ -202,92 +203,107 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="overflow-hidden py-16 sm:py-20 md:py-24">
-          <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <h2 className="max-w-[16ch] text-balance font-display text-4xl font-medium tracking-tight text-ink sm:text-5xl md:text-[3.5rem] md:leading-[1.02]">
-              Your ticket to working software
-            </h2>
-          </div>
+        <section className="pricing-stage">
+          <div className="pricing-stage__sticky">
+            <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+              <h2 className="max-w-[16ch] text-balance font-display text-4xl font-medium tracking-tight text-ink sm:text-5xl md:text-[3.5rem] md:leading-[1.02]">
+                Your ticket to working software
+              </h2>
+            </div>
 
-          <div className="pricing-ribbon mt-10">
-            <div className="pricing-ribbon__track">
-              {[...pricingExamples, ...pricingExamples].map((label, index) => (
-                <span key={`${label}-${index}`} className="pricing-ribbon__pill">
-                  {label}
-                </span>
-              ))}
+            <div className="pricing-ribbon mt-10">
+              <div className="pricing-ribbon__track">
+                {[...pricingExamples, ...pricingExamples].map((label, index) => (
+                  <span key={`${label}-${index}`} className="pricing-ribbon__pill">
+                    {label}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="pricing-stage__panel-wrap">
+              <article className="pricing-panel">
+                <div className="pricing-panel__content">
+                  <h3 className="font-display text-3xl font-medium tracking-tight text-inverse sm:text-[2.25rem]">
+                    Start a pilot today
+                  </h3>
+
+                  <div className="mt-8  text-inverse">
+                    <span className="text-base text-muted-inverse">starting from</span>
+                    &nbsp;
+                    <span className="font-display font-regular text-3xl leading-none">$1000</span>
+                  </div>
+
+                  <ul className="pricing-panel__list">
+                    {pilotFeatures.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+
+                  <div className="pricing-panel__footer">
+                    {/* <Button
+                      href="#booking"
+                      className="pricing-panel__button"
+                    >
+                      Book a call
+                    </Button> */}
+
+                    <a
+                      href="mailto:contact@enlune.com"
+                      className="pricing-contact"
+                    >
+                      <span className="pricing-contact__icon-wrap">
+                        <Image
+                          src="/send_email.svg"
+                          alt=""
+                          width={30}
+                          height={30}
+                          aria-hidden="true"
+                        />
+                      </span>
+                      <span className="pricing-contact__text">
+                        <span className="pricing-contact__label">Prefer to email?</span>
+                        <span className="pricing-contact__email">contact@enlune.com</span>
+                      </span>
+                      <span className="pricing-contact__arrow-wrap">
+                        <Image
+                          src="/arrow.svg"
+                          alt=""
+                          width={30}
+                          height={30}
+                          aria-hidden="true"
+                        />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="pricing-panel__moon" aria-hidden="true">
+                  <Image
+                    src="/moon.png"
+                    alt=""
+                    fill
+                    sizes="(max-width: 1024px) 70vw, 38vw"
+                    className="pricing-panel__moon-image"
+                  />
+                </div>
+
+              </article>
+
+              { /*
+              <div id="booking" className="pricing-booker-wrap">
+              </div>
+              */
+              }
+
+              <div className="pricing-booker-shell">
+                <Booker />
+              </div>
+
             </div>
           </div>
-
-          <div className="mt-8 sm:mt-10">
-            <article className="pricing-panel">
-              <div className="pricing-panel__content">
-                <h3 className="font-display text-3xl font-medium tracking-tight text-inverse sm:text-[2.25rem]">
-                  Start a pilot today
-                </h3>
-
-                <div className="mt-8  text-inverse">
-                  <span className="text-base text-muted-inverse">starting from</span>
-                  &nbsp;
-                  <span className="font-display font-regular text-3xl leading-none">$1000</span>
-                </div>
-
-                <ul className="pricing-panel__list">
-                  {pilotFeatures.map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
-
-                <div className="pricing-panel__footer">
-                  <Button
-                    href="mailto:hello@enlune.com?subject=Book%20a%20call"
-                    className="pricing-panel__button"
-                  >
-                    Book a call
-                  </Button>
-
-                  <a
-                    href="mailto:hello@enlune.com"
-                    className="pricing-contact"
-                  >
-                    <span className="pricing-contact__icon-wrap">
-                      <Image
-                        src="/send_email.svg"
-                        alt=""
-                        width={30}
-                        height={30}
-                        aria-hidden="true"
-                      />
-                    </span>
-                    <span className="pricing-contact__text">
-                      <span className="pricing-contact__label">Prefer to email?</span>
-                      <span className="pricing-contact__email">hello@enlune.com</span>
-                    </span>
-                    <span className="pricing-contact__arrow-wrap">
-                      <Image
-                        src="/arrow.svg"
-                        alt=""
-                        width={30}
-                        height={30}
-                        aria-hidden="true"
-                      />
-                    </span>
-                  </a>
-                </div>
-              </div>
-
-              <div className="pricing-panel__moon" aria-hidden="true">
-                <Image
-                  src="/moon.png"
-                  alt=""
-                  fill
-                  sizes="(max-width: 1024px) 70vw, 38vw"
-                  className="pricing-panel__moon-image"
-                />
-              </div>
-            </article>
-          </div>
         </section>
+
       </Container>
     </main>
   );

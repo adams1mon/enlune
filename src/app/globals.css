@@ -163,10 +163,6 @@
       box-shadow 150ms ease;
   }
 
-  .button-pill:hover {
-    transform: translateY(-1px);
-  }
-
   .button-pill--md {
     min-height: 3rem;
     padding-inline: 1.25rem;
@@ -182,7 +178,6 @@
   .button-pill--primary {
     background: var(--button-primary);
     color: var(--text-inverse);
-    box-shadow: 0 10px 24px rgba(99, 87, 232, 0.2);
   }
 
   .button-pill--primary:hover {
@@ -202,9 +197,6 @@
     min-height: 24.25rem;
     padding: 1.5rem;
     border-radius: var(--radius-card);
-    /* box-shadow: */
-    /*   inset 0 1px 0 rgba(255, 255, 255, 0.2), */
-    /*   0 18px 48px rgba(34, 24, 74, 0.18); */
   }
 
   .process-card::before {
@@ -217,16 +209,6 @@
     background-position: center;
     pointer-events: none;
   }
-
-  /* .process-card::after { */
-  /*   content: ""; */
-  /*   position: absolute; */
-  /*   inset: 0; */
-  /*   background: */
-  /*     linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 28%), */
-  /*     linear-gradient(180deg, rgba(34, 27, 72, 0.06) 0%, rgba(20, 16, 42, 0.42) 100%); */
-  /*   pointer-events: none; */
-  /* } */
 
   .process-card--left {
     --card-image: url("/card_1.jpg");
@@ -282,7 +264,6 @@
     isolation: isolate;
     display: flex;
     flex-direction: column;
-    /* flex: 0 0 19.3125rem; */
     flex: 0 0 300px;
     aspect-ratio: 309 / 320;
     overflow: hidden;
@@ -290,9 +271,6 @@
     border-radius: var(--radius-card);
     user-select: none;
     -webkit-user-select: none;
-    /* box-shadow: */
-    /*   inset 0 1px 0 rgba(255, 255, 255, 0.12), */
-    /*   0 18px 44px rgba(52, 34, 92, 0.14); */
   }
 
   .value-card::before {
@@ -391,12 +369,12 @@
 
   .pricing-ribbon::before {
     left: 0;
-    background: linear-gradient(90deg, var(--page-background) 0%, rgba(243, 242, 240, 0) 100%);
+    background: linear-gradient(90deg, var(--page-background) 0%, rgba(255, 255, 255, 0) 100%);
   }
 
   .pricing-ribbon::after {
     right: 0;
-    background: linear-gradient(270deg, var(--page-background) 0%, rgba(243, 242, 240, 0) 100%);
+    background: linear-gradient(270deg, var(--page-background) 0%, rgba(255, 255, 255, 0) 100%);
   }
 
   .pricing-ribbon__track {
@@ -426,12 +404,40 @@
     white-space: nowrap;
   }
 
-  .pricing-panel {
+  .pricing-stage {
     position: relative;
+    min-height: 190svh;
+    padding-block: 5rem 0;
+  }
+
+  .pricing-stage__sticky {
+    position: sticky;
+    top: 5.25rem;
+  }
+
+  .pricing-stage__panel-wrap {
+    margin-top: 2rem;
+
+    display: flex;
     overflow: hidden;
+    flex-direction: column;
+    gap: 1.35rem;
     border-radius: var(--radius-panel);
     background: #100c32;
-    min-height: 22rem;
+    padding: 1.6rem;
+  }
+
+  .pricing-booker-wrap {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    padding-top: 0.25rem;
+  }
+
+  .pricing-panel {
+    position: relative;
+    border-radius: var(--radius-panel);
+    background: #100c32;
     padding: 1.6rem;
   }
 
@@ -512,7 +518,7 @@
   .pricing-panel__moon {
     position: absolute;
     inset: 0 0 0 auto;
-    width: min(48%, 28rem);
+    width: 48%;
     pointer-events: none;
   }
 
@@ -524,15 +530,40 @@
     transform: scale(1.22) translateX(14%);
   }
 
+  .pricing-booker-shell {
+    overflow: hidden;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: calc(var(--radius-panel));
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
   @media (max-width: 900px) {
+    .pricing-stage {
+      min-height: auto;
+      padding-block: 4rem 0;
+    }
+
+    .pricing-stage__sticky {
+      position: static;
+    }
+
     .pricing-panel {
       padding: 1.35rem;
+      min-height: 34rem;
     }
 
     .pricing-panel__moon {
       width: 58%;
       opacity: 0.55;
     }
+
+    .pricing-booker-shell {
+      padding: 0.85rem;
+    }
+
   }
 
   @media (max-width: 640px) {
@@ -542,7 +573,7 @@
     }
 
     .pricing-panel {
-      min-height: auto;
+      min-height: 30rem;
       padding: 1.25rem;
     }
 
@@ -559,5 +590,14 @@
     .pricing-panel__footer {
       align-items: flex-start;
     }
+
+    .pricing-booker-shell {
+      padding: 0.75rem;
+    }
+
+    .booker-embed {
+      min-height: 40rem;
+    }
+
   }
 }
