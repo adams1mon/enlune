@@ -25,10 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      // <body className="min-h-full bg-page text-ink">{children}</body>
       lang="en"
       className={`${inter.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full bg-page text-ink">{children}</body>
+      <body className="min-h-full text-ink">{children}</body>
     </html>
   );
 }

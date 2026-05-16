@@ -17,6 +17,7 @@
   --button-primary-hover: #5548dc;
   --border-subtle: rgba(17, 17, 17, 0.08);
   --border-glass: rgba(255, 255, 255, 0.38);
+  --border-glass-soft: rgba(255, 255, 255, 0.1);
   --shadow-soft: 0 1px 2px rgba(18, 18, 18, 0.05), 0 10px 30px rgba(18, 18, 18, 0.05);
   --shadow-glass: 0 12px 32px rgba(20, 20, 20, 0.08);
   --radius-pill: 999px;
@@ -45,7 +46,6 @@
   --radius-card: var(--radius-card);
   --radius-panel: var(--radius-panel);
   --radius-frame: var(--radius-frame);
-  --font-sans: var(--font-inter);
   --font-display: "Stack Sans Headline", var(--font-inter), sans-serif;
   --font-mono: var(--font-geist-mono);
 }
@@ -76,12 +76,12 @@
   }
 
   html {
-    background: var(--page-background);
+    /* background: var(--page-background); */
   }
 
   body {
     margin: 0;
-    background: var(--page-background);
+    /* background: var(--page-background); */
     color: var(--text-strong);
     font-family: var(--font-inter), sans-serif;
   }
@@ -93,52 +93,18 @@
 }
 
 @layer components {
-  .brand-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    min-height: 2.25rem;
-    padding: 0.45rem 0.85rem;
-    border: 1px solid var(--border-glass);
-    border-radius: var(--radius-pill);
-    background: var(--surface-glass);
-    box-shadow: var(--shadow-glass);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-  }
-
-  .brand-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1rem;
-    height: 1rem;
-    border: 0.14rem solid var(--text-strong);
-    border-right-color: transparent;
-    border-radius: 999px;
-  }
-
-  .brand-mark__inner {
-    width: 0.28rem;
-    height: 0.28rem;
-    margin-left: 0.08rem;
-    border-radius: 999px;
-    background: var(--text-strong);
-  }
 
   .nav-cluster {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
     padding: 0.28rem;
-    border: 1px solid var(--border-glass);
+    /* border: 1px solid var(--border-glass); */
     border-radius: var(--radius-pill);
     background: var(--surface-glass-strong);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      var(--shadow-glass);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), var(--shadow-glass);
+    backdrop-filter: blur(10px);
+    --webkit-backdrop-filter: blur(10px);
   }
 
   .nav-chip {
@@ -466,19 +432,20 @@
     margin-top: 0.3rem;
   }
 
-  .pricing-panel__footer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1rem 1.5rem;
-    margin-top: 2rem;
-  }
+  /* .pricing-panel__footer { */
+  /*   display: flex; */
+  /*   flex-wrap: wrap; */
+  /*   align-items: center; */
+  /*   gap: 1rem 1.5rem; */
+  /*   margin-top: 2rem; */
+  /* } */
 
   .pricing-panel__button {
     min-width: 9.4rem;
   }
 
-  .pricing-contact {
+  .email-contact {
+    width: fit-content;
     border-radius: 999px;
     display: flex;
     align-items: center;
@@ -534,11 +501,27 @@
   }
 
   .pricing-booker-shell {
-    /* border: 1px solid rgba(255, 255, 255, 0.1); */
-    /* border-radius: calc(var(--radius-panel)); */
-    /* background: rgba(255, 255, 255, 0.06); */
-    /* backdrop-filter: blur(10px); */
-    box-shadow: rgba(0,0,0, 0.3) 0 0 30px;
+    backdrop-filter: blur(50px);
+    flex-direction: column;
+    box-shadow: rgba(0,0,0, 0.4) 0 0 50px;
+  }
+
+  .pricing-booker__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    color: var(--text-inverse);
+  }
+
+  .pricing-booker__title {
+    font-family: var(--font-display);
+    font-size: x-large;
+    line-height: 1.1;
+  }
+
+  .pricing-booker__body {
+    color: var(--text-muted-inverse);
+    font-size: medium;
   }
 
   @media (max-width: 900px) {
@@ -587,9 +570,9 @@
       height: 72%;
     }
 
-    .pricing-panel__footer {
-      align-items: flex-start;
-    }
+    /* .pricing-panel__footer { */
+    /*   align-items: flex-start; */
+    /* } */
 
     .pricing-booker-shell {
       padding: 0.75rem;
