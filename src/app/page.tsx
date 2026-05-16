@@ -8,7 +8,7 @@ import Booker from "@/components/ui/booker";
 
 const navItems: Array<{ label: string; active?: boolean }> = [
   { label: "Services" },
-  { label: "Pricing", active: true },
+  // { label: "Pricing", active: true },
 ];
 
 const processSteps = [
@@ -221,18 +221,20 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="pricing-stage__panel-wrap">
+            <div className="pricing-stage__panel-wrap" id="booking">
               <article className="pricing-panel">
                 <div className="pricing-panel__content">
                   <h3 className="font-display text-3xl font-medium tracking-tight text-inverse sm:text-[2.25rem]">
                     Start a pilot today
                   </h3>
 
+                  { /*
                   <div className="mt-8  text-inverse">
                     <span className="text-base text-muted-inverse">starting from</span>
                     &nbsp;
                     <span className="font-display font-regular text-3xl leading-none">$1000</span>
                   </div>
+                  */ }
 
                   <ul className="pricing-panel__list">
                     {pilotFeatures.map((feature) => (
@@ -250,7 +252,7 @@ export default function Home() {
 
                     <a
                       href="mailto:contact@enlune.com"
-                      className="pricing-contact"
+                      className="pricing-contact p-2 hover:bg-[rgba(255,255,255,0.1)]"
                     >
                       <span className="pricing-contact__icon-wrap">
                         <Image
@@ -278,6 +280,13 @@ export default function Home() {
                   </div>
                 </div>
 
+                { /*
+
+              <div className="pricing-booker-shell">
+                <Booker />
+              </div>
+
+
                 <div className="pricing-panel__moon" aria-hidden="true">
                   <Image
                     src="/moon.png"
@@ -288,16 +297,28 @@ export default function Home() {
                   />
                 </div>
 
+                */
+                }
+
               </article>
 
-              { /*
-              <div id="booking" className="pricing-booker-wrap">
-              </div>
-              */
-              }
+                <div className="pricing-panel__moon" aria-hidden="true">
+                  <Image
+                    src="/moon.png"
+                    alt=""
+                    width={600}
+                    height={600}
+                    className="pricing-panel__moon-image"
+                  />
+                </div>
 
-              <div className="pricing-booker-shell">
-                <Booker />
+              <div className="w-full flex justify-between gap-4">
+                <div className="text-inverse">
+                Faq section
+                </div>
+                <div className="pricing-booker-shell max-w-[500px] w-[50%]">
+                  <Booker />
+                </div>
               </div>
 
             </div>

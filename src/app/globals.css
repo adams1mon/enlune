@@ -60,6 +60,16 @@
   }
 }
 
+@keyframes moon-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -405,13 +415,13 @@
   }
 
   .pricing-stage {
-    position: relative;
+    /* position: relative; */
     min-height: 190svh;
     padding-block: 5rem 0;
   }
 
   .pricing-stage__sticky {
-    position: sticky;
+    /* position: sticky; */
     top: 5.25rem;
   }
 
@@ -419,6 +429,7 @@
     margin-top: 2rem;
 
     display: flex;
+    position: relative;
     overflow: hidden;
     flex-direction: column;
     gap: 1.35rem;
@@ -427,22 +438,15 @@
     padding: 1.6rem;
   }
 
-  .pricing-booker-wrap {
-    position: relative;
-    z-index: 1;
-    margin-top: auto;
-    padding-top: 0.25rem;
-  }
-
   .pricing-panel {
-    position: relative;
+    /* position: relative; */
     border-radius: var(--radius-panel);
     background: #100c32;
     padding: 1.6rem;
   }
 
   .pricing-panel__content {
-    position: relative;
+    /* position: relative; */
     z-index: 1;
     display: flex;
     max-width: 32rem;
@@ -517,27 +521,24 @@
 
   .pricing-panel__moon {
     position: absolute;
-    inset: 0 0 0 auto;
-    width: 48%;
+    width: 65%;
+    right: -28%;
+    top: -50px;
     pointer-events: none;
   }
 
   .pricing-panel__moon-image {
-    object-fit: cover;
-    object-position: left center;
     opacity: 0.96;
     mix-blend-mode: screen;
-    transform: scale(1.22) translateX(14%);
+    animation: moon-rotate 360s linear infinite;
   }
 
   .pricing-booker-shell {
-    overflow: hidden;
-    padding: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: calc(var(--radius-panel));
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    /* border: 1px solid rgba(255, 255, 255, 0.1); */
+    /* border-radius: calc(var(--radius-panel)); */
+    /* background: rgba(255, 255, 255, 0.06); */
+    /* backdrop-filter: blur(10px); */
+    box-shadow: rgba(0,0,0, 0.3) 0 0 30px;
   }
 
   @media (max-width: 900px) {
@@ -546,9 +547,9 @@
       padding-block: 4rem 0;
     }
 
-    .pricing-stage__sticky {
-      position: static;
-    }
+    /* .pricing-stage__sticky { */
+    /*   position: static; */
+    /* } */
 
     .pricing-panel {
       padding: 1.35rem;
@@ -563,7 +564,6 @@
     .pricing-booker-shell {
       padding: 0.85rem;
     }
-
   }
 
   @media (max-width: 640px) {
