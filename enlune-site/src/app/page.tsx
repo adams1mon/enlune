@@ -216,9 +216,14 @@ export default function Home() {
 
           <div className="absolute inset-0 bg-[linear-gradient(#4368c1_50%,white_100%)] z-[-999]" />
           <div className="absolute inset-0 bg-[linear-gradient(#4368c1_55%,white_100%)] z-[-999]" />
+
+          <div className="min-h-[100vh] absolute inset-0 bg-[linear-gradient(#181446_80%,white_100%)] z-[-999]" />
+          <div className="min-h-[100vh] absolute inset-0 bg-[linear-gradient(#181446_80%,white_100%)] z-[-999]" />
+          <div className="min-h-[100vh] absolute inset-0 bg-[#181446] z-[-999]" />
+          <div className="min-h-[130vh] absolute inset-0 bg-[linear-gradient(#181446_80%,white_100%)] z-[-999]" />
           */ }
         <div className="">
-          <div className="absolute inset-0 bg-[linear-gradient(#181446_80%,white_100%)] z-[-999]" />
+          <div className="min-h-[130vh] absolute inset-0 bg-[linear-gradient(#181446_80%,white_100%)] z-[-999]" />
 
           <Starfield
             className="h-full w-full absolute top-0 left-0 z-[-999]"
@@ -266,7 +271,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-16 sm:py-20 md:py-24">
+        <section className="py-16 sm:py-20 md:py-24 mt-48">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <h2 className="font-display text-4xl tracking-tight text-ink sm:text-5xl md:text-[3.5rem] md:leading-[1.02]">
               <span className="font-bold">Simple</span>, easy process
