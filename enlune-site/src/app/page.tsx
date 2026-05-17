@@ -9,6 +9,8 @@ import Booker from "@/components/ui/booker";
 import { Starfield } from "@/components/ui/starfield";
 
 // TODO: unify design system, use tailwind-provided tokens and add ones for brand color etc.
+//
+// TODO: add animations that guide the eye
 
 const navItems: Array<{ label: string; active?: boolean, href: string }> = [
   { label: "Services", href: "#services" },
