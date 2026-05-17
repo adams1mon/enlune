@@ -8,6 +8,8 @@ import Image from "next/image";
 import Booker from "@/components/ui/booker";
 import { Starfield } from "@/components/ui/starfield";
 
+// TODO: unify design system, use tailwind-provided tokens and add ones for brand color etc.
+
 const navItems: Array<{ label: string; active?: boolean, href: string }> = [
   { label: "Services", href: "#services" },
 ];
@@ -90,6 +92,7 @@ const pricingExamples = [
   "Frontend",
   "APIs",
   "Distributed Systems",
+  "A page like this?"
 ] as const;
 
 const pilotFeatures = [
@@ -236,139 +239,6 @@ export default function Home() {
             ]}
           />
         </div>
-
-
-          { /*
-        <section className="relative min-h-[calc(100svh-5.5rem)] overflow-hidden rounded-[2.5rem] sm:min-h-[calc(100svh-6.5rem)]">
-
-          <div className="absolute inset-0 bg-red" />
-
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,#0a2f4b_0%,#0b5d8e_22%,#1280bd_52%,#7fc1e4_76%,#eef5f9_90%,#f3f2f0_100%)]" />
-          <div className="hero-circle-gr" />
-          <div className="hero-circle-gr is-second" />
-          <div className="absolute left-1/2 top-[31%] z-[1] h-[4rem] w-[4rem] -translate-x-1/2 -translate-y-1/2 sm:h-[4.75rem] sm:w-[4.75rem]">
-            <Image
-              src="/moon.png"
-              alt=""
-              fill
-              sizes="76px"
-              className="object-contain opacity-90 mix-blend-screen"
-              aria-hidden="true"
-            />
-          </div>
-          */ }
-
-
-          { /*
-          <img
-            src="/clouds_2/cloud_2.avif"
-            alt=""
-            className="cloud is-two"
-            style={{
-              willChange: "transform",
-              transform:
-                "translate3d(-1.5rem, -9rem, 0px) scale3d(1, 1, 1)",
-              transformStyle: "preserve-3d",
-            }}
-            aria-hidden="true"
-          />
-          <img
-            src="/clouds_2/cloud_3.avif"
-            alt=""
-            className="cloud is-three"
-            style={{
-              willChange: "transform",
-              transform:
-                "translate3d(0rem, -5.75rem, 0px) scale3d(1, 1, 1)",
-              transformStyle: "preserve-3d",
-            }}
-            aria-hidden="true"
-          />
-          <img
-            src="/clouds_2/cloud_4.avif"
-            alt=""
-            className="cloud is-four"
-            aria-hidden="true"
-          />
-          <img
-            src="/clouds_2/cloud_5.avif"
-            alt=""
-            className="cloud is-five"
-            style={{
-              willChange: "transform",
-              transform:
-                "translate3d(3rem, -11rem, 0px) scale3d(1, 1, 1)",
-              transformStyle: "preserve-3d",
-            }}
-            aria-hidden="true"
-          />
-          <img
-            src="/clouds_2/cloud_6.avif"
-            alt=""
-            className="cloud is-six"
-            style={{
-              willChange: "transform",
-              transform:
-                "translate3d(1.5rem, -8.5rem, 0px) scale3d(1, 1, 1)",
-              transformStyle: "preserve-3d",
-            }}
-            aria-hidden="true"
-          />
-          <img
-            src="/clouds_2/cloud_7.avif"
-            alt=""
-            className="cloud is-seven"
-            style={{
-              willChange: "transform",
-              transform:
-                "translate3d(-9rem, 0px, 0px) scale3d(1, 1, 1)",
-              transformStyle: "preserve-3d",
-            }}
-            aria-hidden="true"
-          />
-          <img
-            src="/clouds_2/cloud_1.avif"
-            alt=""
-            className="cloud is-one"
-            style={{
-              willChange: "transform",
-              transform:
-                "translate3d(9rem, 0px, 0px) scale3d(1, 1, 1)",
-              transformStyle: "preserve-3d",
-            }}
-            aria-hidden="true"
-          />
-
-          */ }
-
-          { /*
-          <div className="absolute inset-x-0 bottom-0 z-[5] h-[44%] bg-[linear-gradient(180deg,rgba(243,242,240,0)_0%,rgba(243,242,240,0.18)_20%,rgba(243,242,240,0.84)_68%,#f3f2f0_100%)]" />
-          */ }
-
-          { /*
-          <div className="relative z-[6] flex min-h-[calc(100svh-5.5rem)] items-center justify-center px-6 py-10 sm:min-h-[calc(100svh-6.5rem)] sm:px-10 sm:py-16">
-            <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-              <h1 className="max-w-[20ch] text-balance font-display font-regular text-4xl tracking-tight text-white drop-shadow-[0_12px_32px_rgba(8,42,66,0.16)] sm:text-5xl md:text-6xl">
-                Intelligent software <br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>
-                for <span className="font-bold text-white">everyone</span>
-              </h1>
-
-              <p className="mt-6 max-w-xl text-pretty text-base font-normal text-white/88 sm:text-lg">
-                Save time. Remove busywork. Operate smoother.
-              </p>
-
-              <Button
-                className="mt-8"
-                href="#booking"
-              >
-                Book a 30-min call
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        */ }
 
         <section className="overflow-hidden">
 
