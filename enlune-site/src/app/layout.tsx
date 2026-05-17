@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
-import "@calcom/atoms/globals.min.css";
 import "./globals.css";
 
 const inter = Inter({
