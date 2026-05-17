@@ -15,12 +15,22 @@ type StarColorStop = {
   glowColor?: string;
 };
 
+type FallingStarSpawnArea = {
+  minX: number;
+  maxX: number;
+  minY: number;
+  maxY: number;
+};
+
 type StarfieldProps = {
   background?: string;
   baseSpawnRate?: number;
   className?: string;
   densityZones?: readonly DensityZone[];
+  fallingStarSpawnArea?: FallingStarSpawnArea;
+  fallingStarSpawnRate?: number;
   starColors?: readonly StarColorStop[];
+  useFallingStars?: boolean;
   warpOnScroll?: boolean;
   warpStrength?: number;
   useStarShadowBlur?: boolean;
@@ -40,6 +50,22 @@ type Star = {
   driftX: number;
   driftY: number;
   twinkleOffset: number;
+};
+
+type FallingStar = {
+  x: number;
+  y: number;
+  radius: number;
+  opacity: number;
+  maxOpacity: number;
+  color: string;
+  glowColor: string;
+  life: number;
+  age: number;
+  velocityX: number;
+  velocityY: number;
+  trailLength: number;
+  glow: number;
 };
 
 const DEFAULT_DENSITY_ZONES: readonly DensityZone[] = [
@@ -67,8 +93,19 @@ const DEFAULT_STAR_COLORS: readonly StarColorStop[] = [
   },
 ] as const;
 
+const DEFAULT_FALLING_STAR_SPAWN_AREA: FallingStarSpawnArea = {
+  minX: 0.08,
+  maxX: 0.92,
+  minY: -0.14,
+  maxY: 0.28,
+};
+
 function randomBetween(min: number, max: number) {
   return min + Math.random() * (max - min);
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
 }
 
 function pickWeightedColor(starColors: readonly StarColorStop[]) {
@@ -157,6 +194,39 @@ function createStar(
   };
 }
 
+function createFallingStar(
+  width: number,
+  height: number,
+  spawnArea: FallingStarSpawnArea,
+): FallingStar {
+  const minX = clamp(Math.min(spawnArea.minX, spawnArea.maxX), 0, 1);
+  const maxX = clamp(Math.max(spawnArea.minX, spawnArea.maxX), 0, 1);
+  const minY = Math.min(spawnArea.minY, spawnArea.maxY);
+  const maxY = Math.max(spawnArea.minY, spawnArea.maxY);
+  const startX = randomBetween(width * minX, width * maxX);
+  const startY = randomBetween(height * minY, height * maxY);
+  const speed = randomBetween(280, 520);
+  const angle = randomBetween(Math.PI * 0.16, Math.PI * 0.3);
+  const color = "rgba(255,255,255,0.98)";
+  const glowColor = "rgba(214,226,255,0.9)";
+
+  return {
+    x: startX,
+    y: startY,
+    radius: randomBetween(1.2, 2.1),
+    opacity: 0,
+    maxOpacity: randomBetween(0.6, 0.95),
+    color,
+    glowColor,
+    life: randomBetween(0.55, 0.95),
+    age: 0,
+    velocityX: Math.cos(angle) * speed,
+    velocityY: Math.sin(angle) * speed,
+    trailLength: randomBetween(90, 180),
+    glow: randomBetween(8, 16),
+  };
+}
+
 function getCanvasContext(
   canvas: HTMLCanvasElement | null,
 ): { canvas: HTMLCanvasElement; context: CanvasRenderingContext2D } | null {
@@ -178,13 +248,17 @@ export function Starfield({
   baseSpawnRate = 22,
   className,
   densityZones = DEFAULT_DENSITY_ZONES,
+  fallingStarSpawnArea = DEFAULT_FALLING_STAR_SPAWN_AREA,
+  fallingStarSpawnRate = 0.18,
   starColors = DEFAULT_STAR_COLORS,
+  useFallingStars = false,
   warpOnScroll = false,
   warpStrength = 0.14,
   useStarShadowBlur = true,
 }: StarfieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const starsRef = useRef<Star[]>([]);
+  const fallingStarsRef = useRef<FallingStar[]>([]);
   const animationFrameRef = useRef<number | null>(null);
   const warpVelocityRef = useRef(0);
 
@@ -246,6 +320,44 @@ export function Starfield({
       context.restore();
     }
 
+    function drawFallingStar(fallingStar: FallingStar) {
+      const alpha = Math.max(0, Math.min(1, fallingStar.opacity));
+      const trailX = fallingStar.x - (fallingStar.velocityX / 520) * fallingStar.trailLength;
+      const trailY = fallingStar.y - (fallingStar.velocityY / 520) * fallingStar.trailLength;
+      const trailGradient = context.createLinearGradient(
+        fallingStar.x,
+        fallingStar.y,
+        trailX,
+        trailY,
+      );
+
+      trailGradient.addColorStop(0, `rgba(255,255,255,${alpha})`);
+      trailGradient.addColorStop(0.35, `rgba(214,226,255,${alpha * 0.6})`);
+      trailGradient.addColorStop(1, "rgba(214,226,255,0)");
+
+      context.save();
+      context.globalAlpha = alpha;
+
+      if (useStarShadowBlur) {
+        context.shadowBlur = fallingStar.glow;
+        context.shadowColor = fallingStar.glowColor;
+      }
+
+      context.strokeStyle = trailGradient;
+      context.lineWidth = Math.max(fallingStar.radius, 1);
+      context.lineCap = "round";
+      context.beginPath();
+      context.moveTo(fallingStar.x, fallingStar.y);
+      context.lineTo(trailX, trailY);
+      context.stroke();
+
+      context.fillStyle = fallingStar.color;
+      context.beginPath();
+      context.arc(fallingStar.x, fallingStar.y, fallingStar.radius, 0, Math.PI * 2);
+      context.fill();
+      context.restore();
+    }
+
     function updateWarpVelocity() {
       if (!warpOnScroll) {
         warpVelocityRef.current = 0;
@@ -280,6 +392,7 @@ export function Starfield({
       const width = canvas.clientWidth;
       const height = canvas.clientHeight;
       const stars = starsRef.current;
+      const fallingStars = fallingStarsRef.current;
       const warpVelocity = warpVelocityRef.current;
 
       context.clearRect(0, 0, width, height);
@@ -296,6 +409,12 @@ export function Starfield({
 
       if (Math.random() < fractionalSpawn) {
         stars.push(createStar(width, height, densityZones, starColors));
+      }
+
+      if (useFallingStars && Math.random() < deltaSeconds * fallingStarSpawnRate) {
+        fallingStars.push(
+          createFallingStar(width, height, fallingStarSpawnArea),
+        );
       }
 
       const timeSeconds = timestamp / 1000;
@@ -319,6 +438,31 @@ export function Starfield({
         }
 
         drawStar(star, timeSeconds, warpVelocity);
+      }
+
+      for (let index = fallingStars.length - 1; index >= 0; index -= 1) {
+        const fallingStar = fallingStars[index];
+
+        fallingStar.age += deltaSeconds;
+        const progress = fallingStar.age / fallingStar.life;
+        const fadeIn = Math.min(progress / 0.14, 1);
+        const fadeOut = progress > 0.55 ? 1 - (progress - 0.55) / 0.45 : 1;
+
+        fallingStar.opacity =
+          fallingStar.maxOpacity * Math.max(0, Math.min(fadeIn, fadeOut));
+        fallingStar.x += fallingStar.velocityX * deltaSeconds;
+        fallingStar.y += fallingStar.velocityY * deltaSeconds;
+
+        if (
+          progress >= 1 ||
+          fallingStar.x - fallingStar.trailLength > width ||
+          fallingStar.y - fallingStar.trailLength > height
+        ) {
+          fallingStars.splice(index, 1);
+          continue;
+        }
+
+        drawFallingStar(fallingStar);
       }
 
       warpVelocityRef.current *= 0.9;
@@ -347,7 +491,10 @@ export function Starfield({
     background,
     baseSpawnRate,
     densityZones,
+    fallingStarSpawnArea,
+    fallingStarSpawnRate,
     starColors,
+    useFallingStars,
     warpOnScroll,
     warpStrength,
     useStarShadowBlur,
@@ -362,4 +509,9 @@ export function Starfield({
   );
 }
 
-export type { DensityZone, StarColorStop, StarfieldProps };
+export type {
+  DensityZone,
+  FallingStarSpawnArea,
+  StarColorStop,
+  StarfieldProps,
+};

@@ -232,6 +232,8 @@ export default function Home() {
             warpOnScroll
             warpStrength={0.5}
             useStarShadowBlur={true}
+            useFallingStars={true}
+            fallingStarSpawnRate={0.7}
             densityZones={[
               { x: 0.1, y: 0.32, radius: 0.52, weight: 1.8 },
               { x: 0.48, y: 0.2, radius: 0.1, weight: 1.1 },
