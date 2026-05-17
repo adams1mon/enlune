@@ -157,6 +157,22 @@ function createStar(
   };
 }
 
+function getCanvasContext(
+  canvas: HTMLCanvasElement | null,
+): { canvas: HTMLCanvasElement; context: CanvasRenderingContext2D } | null {
+  if (!canvas) {
+    return null;
+  }
+
+  const context = canvas.getContext("2d");
+
+  if (!context) {
+    return null;
+  }
+
+  return { canvas, context };
+}
+
 export function Starfield({
   background = "#6a63a6",
   baseSpawnRate = 22,
@@ -173,17 +189,13 @@ export function Starfield({
   const warpVelocityRef = useRef(0);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const canvasState = getCanvasContext(canvasRef.current);
 
-    if (!canvas) {
+    if (!canvasState) {
       return;
     }
 
-    const context = canvas.getContext("2d");
-
-    if (!context) {
-      return;
-    }
+    const { canvas, context } = canvasState;
 
     let disposed = false;
     let lastTime = 0;
