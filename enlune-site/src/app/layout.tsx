@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 import "@calcom/atoms/globals.min.css";
 import "./globals.css";
 
@@ -29,6 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
+      <Analytics />
       <body className="min-h-full text-ink">{children}</body>
     </html>
   );
