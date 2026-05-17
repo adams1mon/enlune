@@ -45,7 +45,13 @@ export function ValueCarousel({ cards }: ValueCarouselProps) {
     }
 
     function updateHandle() {
-      const maxScroll = track.scrollWidth - track.clientWidth;
+      const currentTrack = trackRef.current;
+
+      if (!currentTrack) {
+        return;
+      }
+
+      const maxScroll = currentTrack.scrollWidth - currentTrack.clientWidth;
 
       if (maxScroll <= 0) {
         setHandleStyle({
@@ -55,9 +61,9 @@ export function ValueCarousel({ cards }: ValueCarouselProps) {
         return;
       }
 
-      const visibleRatio = track.clientWidth / track.scrollWidth;
+      const visibleRatio = currentTrack.clientWidth / currentTrack.scrollWidth;
       const thumbRatio = Math.max(0.14, Math.min(0.32, visibleRatio));
-      const progress = track.scrollLeft / maxScroll;
+      const progress = currentTrack.scrollLeft / maxScroll;
       const widthPercent = thumbRatio * 100;
       const leftPercent = progress * (100 - widthPercent);
 
@@ -138,8 +144,14 @@ export function ValueCarousel({ cards }: ValueCarouselProps) {
     const deltaX = event.clientX - dragState.startX;
 
     if (dragState.mode === "handle" && handle) {
+      const thumb = handle.firstElementChild;
+
+      if (!(thumb instanceof HTMLSpanElement)) {
+        return;
+      }
+
       const maxScroll = track.scrollWidth - track.clientWidth;
-      const maxHandleTravel = handle.clientWidth - handle.firstElementChild!.clientWidth;
+      const maxHandleTravel = handle.clientWidth - thumb.clientWidth;
 
       if (maxScroll <= 0 || maxHandleTravel <= 0) {
         return;
