@@ -16,7 +16,7 @@
   --button-primary: #6357e8;
   --button-primary-hover: #5548dc;
   --border-subtle: rgba(17, 17, 17, 0.08);
-  --border-glass: rgba(255, 255, 255, 0.38);
+  --border-glass: rgba(255, 255, 255, 0.15);
   --border-glass-soft: rgba(255, 255, 255, 0.1);
   --shadow-soft: 0 1px 2px rgba(18, 18, 18, 0.05), 0 10px 30px rgba(18, 18, 18, 0.05);
   --shadow-glass: 0 12px 32px rgba(20, 20, 20, 0.08);
@@ -93,13 +93,87 @@
 }
 
 @layer components {
+  .hero-circle-gr {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    z-index: 0;
+    width: 26rem;
+    height: 26rem;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(149, 210, 241, 0.12) 26%, rgba(23, 108, 164, 0) 72%);
+    filter: blur(28px);
+    pointer-events: none;
+  }
+
+  .hero-circle-gr.is-second {
+    top: 18%;
+    left: 56%;
+    width: 20rem;
+    height: 20rem;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(135, 196, 232, 0.08) 28%, rgba(23, 108, 164, 0) 72%);
+    filter: blur(36px);
+  }
+
+  .cloud {
+    mix-blend-mode: overlay;
+    position: absolute;
+    inset: 0 auto auto 0;
+    height: auto;
+    max-width: none;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .cloud.is-one {
+    z-index: 5;
+    width: 44.56rem;
+    inset: auto 0 0 auto;
+  }
+
+  .cloud.is-two {
+    z-index: 2;
+    width: 24rem;
+    inset: auto auto 10% 8%;
+  }
+
+  .cloud.is-three {
+    z-index: 3;
+    width: 28rem;
+    inset: auto 0 4% auto;
+  }
+
+  .cloud.is-four {
+    z-index: 3;
+    width: 24rem;
+    inset: auto auto 6% 0;
+  }
+
+  .cloud.is-five {
+    z-index: 4;
+    width: 20rem;
+    inset: auto 12% 10% auto;
+  }
+
+  .cloud.is-six {
+    z-index: 4;
+    width: 18rem;
+    inset: auto 22% 12% auto;
+  }
+
+  .cloud.is-seven {
+    z-index: 5;
+    width: 44.56rem;
+    inset: auto auto 0 0;
+  }
 
   .nav-cluster {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
     padding: 0.28rem;
-    /* border: 1px solid var(--border-glass); */
+    border: 1px solid var(--border-glass);
     border-radius: var(--radius-pill);
     background: var(--surface-glass-strong);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), var(--shadow-glass);
@@ -120,9 +194,22 @@
     white-space: nowrap;
   }
 
+  .nav-chip:hover {
+    background: rgba(255,255,255, 0.2);
+    cursor: pointer;
+  }
+
   .nav-chip--active {
     background: var(--nav-active);
     color: var(--text-inverse);
+  }
+
+  .surf {
+    border: 1px solid rgba(89, 102, 200, 0.16);
+    border-radius: var(--radius-pill);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 2px 3px rgba(10, 10, 10, 0.3);
   }
 
   .button-pill {
@@ -164,6 +251,10 @@
     background: var(--surface);
     color: var(--text-strong);
     box-shadow: var(--shadow-soft);
+  }
+
+  .button-pill--surface:hover {
+    opacity: 0.9;
   }
 
   .process-card {
@@ -295,7 +386,7 @@
     height: 0.1875rem;
     margin: 1rem auto 0;
     border-radius: var(--radius-pill);
-    background: rgba(18, 18, 18, 0.06);
+    background: rgba(18, 18, 18, 0.2);
     overflow: hidden;
     transition:
       height 140ms ease,
@@ -306,7 +397,7 @@
     position: absolute;
     inset: 0 auto 0 0;
     border-radius: var(--radius-pill);
-    background: rgba(18, 18, 18, 0.18);
+    background: rgba(18, 18, 18, 0.38);
     transition:
       left 160ms ease-out,
       background-color 140ms ease;
@@ -328,7 +419,7 @@
   .pricing-ribbon {
     position: relative;
     left: 50%;
-    width: 100vw;
+    width: 100%;
     transform: translateX(-50%);
     overflow: hidden;
   }
@@ -386,11 +477,6 @@
     padding-block: 5rem 0;
   }
 
-  .pricing-stage__sticky {
-    /* position: sticky; */
-    top: 5.25rem;
-  }
-
   .pricing-stage__panel-wrap {
     margin-top: 2rem;
 
@@ -399,20 +485,19 @@
     overflow: hidden;
     flex-direction: column;
     gap: 1.35rem;
-    border-radius: var(--radius-panel);
+    border-radius: var(--radius-panel) var(--radius-panel) 0 0;
     background: #100c32;
     padding: 1.6rem;
+    padding-bottom: 3rem;
   }
 
   .pricing-panel {
-    /* position: relative; */
     border-radius: var(--radius-panel);
     background: #100c32;
     padding: 1.6rem;
   }
 
   .pricing-panel__content {
-    /* position: relative; */
     z-index: 1;
     display: flex;
     max-width: 32rem;
@@ -431,14 +516,6 @@
   .pricing-panel__list li + li {
     margin-top: 0.3rem;
   }
-
-  /* .pricing-panel__footer { */
-  /*   display: flex; */
-  /*   flex-wrap: wrap; */
-  /*   align-items: center; */
-  /*   gap: 1rem 1.5rem; */
-  /*   margin-top: 2rem; */
-  /* } */
 
   .pricing-panel__button {
     min-width: 9.4rem;
@@ -525,18 +602,38 @@
   }
 
   @media (max-width: 900px) {
+    .hero-circle-gr {
+      width: 20rem;
+      height: 20rem;
+    }
+
+    .hero-circle-gr.is-second {
+      width: 15rem;
+      height: 15rem;
+    }
+
+    .cloud.is-one,
+    .cloud.is-seven {
+      width: 34rem;
+    }
+
+    .cloud.is-two,
+    .cloud.is-three {
+      width: 20rem;
+    }
+
+    .cloud.is-four {
+      width: 19rem;
+    }
+
+    .cloud.is-five,
+    .cloud.is-six {
+      width: 15rem;
+    }
+
     .pricing-stage {
       min-height: auto;
       padding-block: 4rem 0;
-    }
-
-    /* .pricing-stage__sticky { */
-    /*   position: static; */
-    /* } */
-
-    .pricing-panel {
-      padding: 1.35rem;
-      min-height: 34rem;
     }
 
     .pricing-panel__moon {
@@ -550,14 +647,40 @@
   }
 
   @media (max-width: 640px) {
+    .hero-circle-gr {
+      top: 12%;
+      width: 14rem;
+      height: 14rem;
+    }
+
+    .hero-circle-gr.is-second {
+      top: 19%;
+      width: 11rem;
+      height: 11rem;
+    }
+
+    .cloud.is-one,
+    .cloud.is-seven {
+      width: 25rem;
+    }
+
+    .cloud.is-two,
+    .cloud.is-three {
+      width: 15rem;
+    }
+
+    .cloud.is-four {
+      width: 14rem;
+    }
+
+    .cloud.is-five,
+    .cloud.is-six {
+      width: 12rem;
+    }
+
     .pricing-ribbon__track {
       gap: 0.65rem;
       animation-duration: 24s;
-    }
-
-    .pricing-panel {
-      min-height: 30rem;
-      padding: 1.25rem;
     }
 
     .pricing-panel__content {
@@ -569,10 +692,6 @@
       inset: auto -8% -20% auto;
       height: 72%;
     }
-
-    /* .pricing-panel__footer { */
-    /*   align-items: flex-start; */
-    /* } */
 
     .pricing-booker-shell {
       padding: 0.75rem;

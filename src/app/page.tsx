@@ -8,9 +8,8 @@ import Image from "next/image";
 import Booker from "@/components/ui/booker";
 import { Starfield } from "@/components/ui/starfield";
 
-const navItems: Array<{ label: string; active?: boolean }> = [
-  { label: "Services" },
-  // { label: "Pricing", active: true },
+const navItems: Array<{ label: string; active?: boolean, href: string }> = [
+  { label: "Services", href: "#services" },
 ];
 
 const processSteps = [
@@ -87,6 +86,10 @@ const pricingExamples = [
   "Content & SEO",
   "Knowledge Base",
   "RAG",
+  "Backend",
+  "Frontend",
+  "APIs",
+  "Distributed Systems",
 ] as const;
 
 const pilotFeatures = [
@@ -95,13 +98,9 @@ const pilotFeatures = [
   "Custom software built around your business",
   "Backend, frontend, AI automation as needed",
   "Working pilot your team can test and use",
-  "Review session with recommendations for what to build next",
+  // "Review session with recommendations for what to build next",
+  "80% money-back guarantee if we can't deliver the scoped build",
 ] as const;
-
-const bookingIntro = {
-  title: "Book a 30-minute pilot scoping call",
-  body: "Tell us what’s slowing the team down. We’ll help you identify the best first pilot and explain what we’d recommend building next.",
-} as const;
 
 const faqItems = [
   {
@@ -122,12 +121,6 @@ const faqItems = [
     content:
       "No. AI is one part of the work. Enlune also builds web, backend, workflow, and integration projects.",
   },
-  // {
-  //   id: "faq-what-does-the-pilot-cover",
-  //   title: "What does the $1,000 pilot cover?",
-  //   content:
-  //     "It covers one small, clearly scoped project with a fixed price and a defined outcome.",
-  // },
   {
     id: "faq-dont-know-what-to-build",
     title: "What if I do not know what to build first?",
@@ -144,7 +137,7 @@ const faqItems = [
     id: "faq-how-long-does-a-pilot-take",
     title: "How long does a pilot take?",
     content:
-      "It depends on scope, but the goal is to keep it short and focused.",
+      "It depends on scope, but the goal is to keep it short and focused. An ideal pilot build shouldn't last more than 4 weeks.",
   },
   {
     id: "faq-what-happens-after-the-pilot",
@@ -174,21 +167,19 @@ const faqItems = [
 
 export default function Home() {
   return (
-    // <main className="min-h-screen bg-page">
     <main className="min-h-screen">
-      <Container className="px-4 pb-16 sm:px-6 sm:pb-20">
+      <Container className="px-4 sm:px-6">
         <header className="py-2 sm:py-6">
-          <div className="flex flex-col items-center gap-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-start md:gap-0">
-            <div className="w-full md:w-auto md:justify-self-start">
-              <BrandBadge />
-            </div>
+          <div className="flex flex-col items-center gap-2 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-start gap-0">
+            <BrandBadge />
 
             <nav
               aria-label="Primary"
-              className="nav-cluster md:justify-self-center"
+              className="nav-cluster"
             >
               {navItems.map((item) => (
                 <NavChip
+                  href={item.href}
                   key={item.label}
                   active={item.active}
                   ariaCurrent={item.active ? "page" : undefined}
@@ -197,7 +188,7 @@ export default function Home() {
                 </NavChip>
               ))}
               <Button
-                href="#booking"
+                href="#book"
                 size="sm"
                 variant="surface"
               >
@@ -209,36 +200,28 @@ export default function Home() {
           </div>
         </header>
 
-        <section className="flex min-h-[calc(100svh-5.5rem)] items-center justify-center py-10 sm:min-h-[calc(100svh-6.5rem)] sm:py-16">
-          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <h1 className="max-w-[20ch] text-balance font-display font-regular text-4xl tracking-tight text-ink sm:text-5xl md:text-6xl">
-              Intelligent software <br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>
-              for <span className="text-accent font-bold">everyone</span>
-            </h1>
+        {/* hero background
 
-            <p className="mt-6 max-w-xl text-pretty text-base font-normal text-muted sm:text-lg">
-              Save time. Remove busywork. Operate smoother.
-            </p>
 
-            <Button
-              className="mt-8"
-              href="#booking"
-            >
-              Book a 30-min call
-            </Button>
-          </div>
+          <div className="absolute inset-0 bg-[linear-gradient(#6357e8_30%,white_100%)] z-[-999]" />
+
+          6863e7c
+
+          linear-gradient(#181446 80%, #fff 100%)
+
+          <div className="absolute inset-0 bg-[linear-gradient(#4368c1_50%,white_100%)] z-[-999]" />
+          <div className="absolute inset-0 bg-[linear-gradient(#4368c1_55%,white_100%)] z-[-999]" />
+          */ }
+        <div className="">
+          <div className="absolute inset-0 bg-[linear-gradient(#181446_80%,white_100%)] z-[-999]" />
 
           <Starfield
             className="h-full w-full absolute top-0 left-0 z-[-999]"
-            // background="#6660a5"
             background="transparent"
-            // background="#f3f2f0"
-            // background="rgba(5, 10, 20, 0.9)"
             baseSpawnRate={25}
             warpOnScroll
             warpStrength={0.5}
-            useStarShadowBlur={false}
+            useStarShadowBlur={true}
             densityZones={[
               { x: 0.1, y: 0.32, radius: 0.52, weight: 1.8 },
               { x: 0.48, y: 0.2, radius: 0.1, weight: 1.1 },
@@ -247,35 +230,174 @@ export default function Home() {
             ]}
             starColors={[
               {
-                // color: "rgba(255,255,255,0.98)",
-                color: "#3d3796",
-                // glowColor: "rgba(255,255,255,0.95)",
+                color: "#fff",
                 weight: 1,
               },
-              // {
-              //   color: "rgba(255,255,255,0.98)",
-              //   glowColor: "rgba(255,255,255,0.95)",
-              //   weight: 1,
-              // },
-              // {
-              //   color: "rgba(210,225,255,0.98)",
-              //   // glowColor: "rgba(210,225,255,0.92)",
-              //   weight: 0.2,
-              // },
-              // {
-              //   color: "rgba(255,228,180,0.98)",
-              //   // glowColor: "rgba(255,228,180,0.9)",
-              //   weight: 0.1,
-              // },
             ]}
           />
+        </div>
 
+
+          { /*
+        <section className="relative min-h-[calc(100svh-5.5rem)] overflow-hidden rounded-[2.5rem] sm:min-h-[calc(100svh-6.5rem)]">
+
+          <div className="absolute inset-0 bg-red" />
+
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,#0a2f4b_0%,#0b5d8e_22%,#1280bd_52%,#7fc1e4_76%,#eef5f9_90%,#f3f2f0_100%)]" />
+          <div className="hero-circle-gr" />
+          <div className="hero-circle-gr is-second" />
+          <div className="absolute left-1/2 top-[31%] z-[1] h-[4rem] w-[4rem] -translate-x-1/2 -translate-y-1/2 sm:h-[4.75rem] sm:w-[4.75rem]">
+            <Image
+              src="/moon.png"
+              alt=""
+              fill
+              sizes="76px"
+              className="object-contain opacity-90 mix-blend-screen"
+              aria-hidden="true"
+            />
+          </div>
+          */ }
+
+
+          { /*
+          <img
+            src="/clouds_2/cloud_2.avif"
+            alt=""
+            className="cloud is-two"
+            style={{
+              willChange: "transform",
+              transform:
+                "translate3d(-1.5rem, -9rem, 0px) scale3d(1, 1, 1)",
+              transformStyle: "preserve-3d",
+            }}
+            aria-hidden="true"
+          />
+          <img
+            src="/clouds_2/cloud_3.avif"
+            alt=""
+            className="cloud is-three"
+            style={{
+              willChange: "transform",
+              transform:
+                "translate3d(0rem, -5.75rem, 0px) scale3d(1, 1, 1)",
+              transformStyle: "preserve-3d",
+            }}
+            aria-hidden="true"
+          />
+          <img
+            src="/clouds_2/cloud_4.avif"
+            alt=""
+            className="cloud is-four"
+            aria-hidden="true"
+          />
+          <img
+            src="/clouds_2/cloud_5.avif"
+            alt=""
+            className="cloud is-five"
+            style={{
+              willChange: "transform",
+              transform:
+                "translate3d(3rem, -11rem, 0px) scale3d(1, 1, 1)",
+              transformStyle: "preserve-3d",
+            }}
+            aria-hidden="true"
+          />
+          <img
+            src="/clouds_2/cloud_6.avif"
+            alt=""
+            className="cloud is-six"
+            style={{
+              willChange: "transform",
+              transform:
+                "translate3d(1.5rem, -8.5rem, 0px) scale3d(1, 1, 1)",
+              transformStyle: "preserve-3d",
+            }}
+            aria-hidden="true"
+          />
+          <img
+            src="/clouds_2/cloud_7.avif"
+            alt=""
+            className="cloud is-seven"
+            style={{
+              willChange: "transform",
+              transform:
+                "translate3d(-9rem, 0px, 0px) scale3d(1, 1, 1)",
+              transformStyle: "preserve-3d",
+            }}
+            aria-hidden="true"
+          />
+          <img
+            src="/clouds_2/cloud_1.avif"
+            alt=""
+            className="cloud is-one"
+            style={{
+              willChange: "transform",
+              transform:
+                "translate3d(9rem, 0px, 0px) scale3d(1, 1, 1)",
+              transformStyle: "preserve-3d",
+            }}
+            aria-hidden="true"
+          />
+
+          */ }
+
+          { /*
+          <div className="absolute inset-x-0 bottom-0 z-[5] h-[44%] bg-[linear-gradient(180deg,rgba(243,242,240,0)_0%,rgba(243,242,240,0.18)_20%,rgba(243,242,240,0.84)_68%,#f3f2f0_100%)]" />
+          */ }
+
+          { /*
+          <div className="relative z-[6] flex min-h-[calc(100svh-5.5rem)] items-center justify-center px-6 py-10 sm:min-h-[calc(100svh-6.5rem)] sm:px-10 sm:py-16">
+            <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+              <h1 className="max-w-[20ch] text-balance font-display font-regular text-4xl tracking-tight text-white drop-shadow-[0_12px_32px_rgba(8,42,66,0.16)] sm:text-5xl md:text-6xl">
+                Intelligent software <br className="hidden sm:block" />
+                <span className="sm:hidden"> </span>
+                for <span className="font-bold text-white">everyone</span>
+              </h1>
+
+              <p className="mt-6 max-w-xl text-pretty text-base font-normal text-white/88 sm:text-lg">
+                Save time. Remove busywork. Operate smoother.
+              </p>
+
+              <Button
+                className="mt-8"
+                href="#booking"
+              >
+                Book a 30-min call
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        */ }
+
+        <section className="overflow-hidden">
+
+          <div className="relative z-[4] flex min-h-[calc(100svh-5.5rem)] items-center justify-center px-6 pb-10 sm:pb-16">
+            <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+              <h1 className="max-w-[20ch] top-[-50px] text-balance font-display font-regular text-4xl tracking-tight text-white/85 drop-shadow-[0_12px_32px_rgba(70,70,70,0.56)] sm:text-5xl md:text-6xl">
+                Intelligent software <br className="hidden sm:block" />
+                <span className="sm:hidden"> </span>
+                for <span className="font-bold text-white">everyone</span>
+              </h1>
+
+              <p className="mt-6 max-w-xl text-pretty text-base font-normal text-white/80 sm:text-lg drop-shadow[0_12px_32px_rgba(30,30,30,0.8)]">
+                Save time. Remove busywork. Operate smoother.
+              </p>
+
+              <Button
+                className="mt-8 surf"
+                href="#book"
+              >
+                Book a 30-min call
+              </Button>
+            </div>
+          </div>
         </section>
 
         <section className="py-16 sm:py-20 md:py-24">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <h2 className="font-display text-4xl tracking-tight text-ink sm:text-5xl md:text-[3.5rem] md:leading-[1.02]">
-              Simple, easy process
+              <span className="font-bold">Simple</span>, easy process
             </h2>
 
             <p className="mt-6 max-w-2xl text-pretty text-lg font-normal leading-8 text-muted">
@@ -322,15 +444,21 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="pricing-stage">
+        <section className="pricing-stage" id="services">
           <div className="pricing-stage__sticky">
             <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-              <h2 className="max-w-[16ch] text-balance font-display text-4xl font-medium tracking-tight text-ink sm:text-5xl md:text-[3.5rem] md:leading-[1.02]">
-                Your ticket to working software
+              <h2 className="max-w-[16ch] text-balance font-display text-4xl tracking-tight text-ink sm:text-5xl md:text-[3.5rem] md:leading-[1.02]">
+                Build <span className="font-bold">amazing</span> things
               </h2>
+
+              <p className="mt-6 max-w-3xl text-pretty text-lg font-normal leading-8 text-muted">
+                Your best ideas should not be trapped in spreadsheets, docs, or manual processes.
+                <br/>
+                Let’s turn them into working software.
+              </p>
             </div>
 
-            <div className="pricing-ribbon mt-10">
+            <div className="pricing-ribbon mt-12">
               <div className="pricing-ribbon__track">
                 {[...pricingExamples, ...pricingExamples].map((label, index) => (
                   <span key={`${label}-${index}`} className="pricing-ribbon__pill">
@@ -340,7 +468,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="pricing-stage__panel-wrap" id="booking">
+            <div className="pricing-stage__panel-wrap" id="book">
               <article className="pricing-panel">
                 <div className="pricing-panel__content">
                   <h3 className="font-display text-3xl font-medium tracking-tight text-inverse sm:text-[2.25rem]">

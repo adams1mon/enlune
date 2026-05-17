@@ -3,7 +3,7 @@ function BrandLogo() {
     <svg
       viewBox="0 0 28 28"
       aria-hidden="true"
-      className="h-4 w-4 text-ink"
+      className="h-4 w-4 text-white/80"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -21,10 +21,9 @@ function BrandLogo() {
 
 export function BrandBadge() {
   return (
-    // <div className="flex items-center gap-2 rounded-full bg-[var(--surface-glass-strong)] px-[0.85rem] py-[0.28rem] shadow-[inset_0_1px_0_rgba(255,255,255,0.3),var(--shadow-glass)] backdrop-blur-[10px]">
     <div className="flex items-center gap-2 rounded-full px-[0.85rem] py-[0.28rem]">
       <BrandLogo />
-      <span className="font-display text-[1.2rem] font-bold tracking-tight text-ink">
+      <span className="font-display text-[1.2rem] font-bold tracking-tight text-white/80">
         enlune
       </span>
     </div>

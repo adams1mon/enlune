@@ -16,8 +16,6 @@ type ValueCarouselProps = {
   cards: readonly ValueCard[];
 };
 
-// TODO: fix dragging the carousel
-
 export function ValueCarousel({ cards }: ValueCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const handleRef = useRef<HTMLDivElement>(null);
