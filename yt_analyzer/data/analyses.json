@@ -1,0 +1,2243 @@
+{
+  "schemaVersion": 1,
+  "analyses": {
+    "f00bf723-3be7-4837-a0e5-d9d6e1019f3d": {
+      "id": "f00bf723-3be7-4837-a0e5-d9d6e1019f3d",
+      "analysisVersion": "2026-05-23-mvp",
+      "channelId": "UCoOae5nYA7VqaXzerajD0lg",
+      "channelTitle": "Ali Abdaal",
+      "channelHandle": "@aliabdaal",
+      "channelUrl": "https://www.youtube.com/channel/UCoOae5nYA7VqaXzerajD0lg",
+      "profileImageUrl": "https://yt3.googleusercontent.com/ytc/AIdro_m2xx6mCZwsyjARnkwBKJxEv0FqGxGS2NwWNkjWH__Smw=s160-c-k-c0x00ffffff-no-rj",
+      "bannerImageUrl": "https://yt3.googleusercontent.com/kd_HWFKEBfcKOEUD07dnr_mVFjlhxKVMrEoCNFM30YfrffwMwW2HakWvPGhUrSsW8m_fnagA=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "subscriberCountText": "6.61M subscribers",
+      "totalVideoCountText": "1.4K videos",
+      "analyzedAt": "2026-05-24T10:37:09.002Z",
+      "videoSampleSize": 15,
+      "transcriptCoverage": 0.3333333333333333,
+      "dataQuality": "mixed",
+      "medianViews": 144415,
+      "medianEngagementPer1kViews": 32.448480859317556,
+      "findings": [
+        "Ali Abdaal's strongest recent view winner reached 7.6x its median views.",
+        "Repeated winning themes include success, hard, until, build.",
+        "Top engagement standout reached 42.8 likes per 1k views."
+      ],
+      "experiments": [
+        "Test more titles that lean into success, hard, until; those themes showed up repeatedly in the view winners."
+      ],
+      "warnings": [
+        "Comment counts were not available consistently, so comment-rate badges may show as unavailable.",
+        "Transcript coverage is low, so transcript-backed findings are limited."
+      ],
+      "viewWinners": [
+        {
+          "id": "MBPHU7aaklM",
+          "title": "Success Is Hard Until You Build Systems Like This",
+          "url": "https://www.youtube.com/watch?v=MBPHU7aaklM",
+          "thumbnailUrl": "https://i.ytimg.com/vi/MBPHU7aaklM/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLD7Elp8RnkilmGNkGcifeiNmtG_Qw",
+          "publishedAt": "2026-02-24T11:36:59.017Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 1556,
+          "viewCount": 1093825,
+          "likeCount": 36407,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 7.574178582557214,
+          "engagementPer1kViews": 33.28411766050328,
+          "whyFlagged": [
+            "7.6x the channel's median views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": []
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"subscribe\"",
+                "Matched \"click the link\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "XIhc7_Ptrpk",
+          "title": "If I Wanted to Make My First $100K in 2026, I’d Do This",
+          "url": "https://www.youtube.com/watch?v=XIhc7_Ptrpk",
+          "thumbnailUrl": "https://i.ytimg.com/vi/XIhc7_Ptrpk/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBQBV4Tziz9Jv6jWzvm0RRULYWNQQ",
+          "publishedAt": "2026-04-24T10:36:59.015Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 2097,
+          "viewCount": 304657,
+          "likeCount": 9188,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 2.1095938787522073,
+          "engagementPer1kViews": 30.158506123279626,
+          "whyFlagged": [
+            "2.1x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing.",
+            "Possible timing factor: tax-season framing."
+          ],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"first\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"data\"",
+                "Matched \"research\""
+              ]
+            },
+            "promotionalCtaIntensity": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"subscribe\"",
+                "Matched \"comment\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "6tmBB5GcOLU",
+          "title": "you only need a phone",
+          "url": "https://www.youtube.com/watch?v=6tmBB5GcOLU",
+          "thumbnailUrl": "https://i.ytimg.com/vi/6tmBB5GcOLU/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBrOOsJcYqhPcur6kiHSjrMkW_McA",
+          "publishedAt": "2026-05-15T10:36:59.014Z",
+          "publishedText": "9 days ago",
+          "durationSeconds": 1468,
+          "viewCount": 251410,
+          "likeCount": 9566,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 1.7408856420731917,
+          "engagementPer1kViews": 38.049401376238016,
+          "whyFlagged": [
+            "1.7x the channel's median views",
+            "38.0 likes per 1k views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"last\"",
+                "Matched \"only\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"$\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"because\"",
+                "Matched \"but\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": [
+                "Matched \"comment\""
+              ]
+            }
+          }
+        }
+      ],
+      "engagementStandouts": [
+        {
+          "id": "dW6pvUx4_jc",
+          "title": "What's the Point?",
+          "url": "https://www.youtube.com/watch?v=dW6pvUx4_jc",
+          "thumbnailUrl": "https://i.ytimg.com/vi/dW6pvUx4_jc/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDFMiFHZBos5GiSR3dyBcKiEeB2Uw",
+          "publishedAt": "2026-05-19T10:36:59.013Z",
+          "publishedText": "5 days ago",
+          "durationSeconds": 257,
+          "viewCount": 92976,
+          "likeCount": 3978,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 0.6438112384447598,
+          "engagementPer1kViews": 42.78523489932886,
+          "whyFlagged": [
+            "42.8 likes per 1k views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": [
+                "Matched \"first\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "A8PxRHQrLJ8",
+          "title": "How I'd Create Content in 2026 (If I Had To Start Over)",
+          "url": "https://www.youtube.com/watch?v=A8PxRHQrLJ8",
+          "thumbnailUrl": "https://i.ytimg.com/vi/A8PxRHQrLJ8/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAiH3jd5ab5lzEH7q5YupqC9BAqbQ",
+          "publishedAt": "2026-04-24T10:36:59.016Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 955,
+          "viewCount": 162398,
+          "likeCount": 6212,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 1.1245230758577711,
+          "engagementPer1kViews": 38.25170260717497,
+          "whyFlagged": [
+            "38.3 likes per 1k views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": []
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"how to\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"because\"",
+                "Matched \"but\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"results\"",
+                "Matched \"data\""
+              ]
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": [
+                "Matched \"comment\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "6tmBB5GcOLU",
+          "title": "you only need a phone",
+          "url": "https://www.youtube.com/watch?v=6tmBB5GcOLU",
+          "thumbnailUrl": "https://i.ytimg.com/vi/6tmBB5GcOLU/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBrOOsJcYqhPcur6kiHSjrMkW_McA",
+          "publishedAt": "2026-05-15T10:36:59.014Z",
+          "publishedText": "9 days ago",
+          "durationSeconds": 1468,
+          "viewCount": 251410,
+          "likeCount": 9566,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 1.7408856420731917,
+          "engagementPer1kViews": 38.049401376238016,
+          "whyFlagged": [
+            "1.7x the channel's median views",
+            "38.0 likes per 1k views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"last\"",
+                "Matched \"only\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"$\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"because\"",
+                "Matched \"but\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": [
+                "Matched \"comment\""
+              ]
+            }
+          }
+        }
+      ],
+      "videos": [
+        {
+          "id": "LLjpnubsOWc",
+          "title": "If You Want to Make Money From YouTube, Do This (Case Study)",
+          "url": "https://www.youtube.com/watch?v=LLjpnubsOWc",
+          "thumbnailUrl": "https://i.ytimg.com/vi/LLjpnubsOWc/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDV0j_2WSa3WCQxxmm8XrpjVDglog",
+          "publishedAt": "2026-05-22T10:36:59.012Z",
+          "publishedText": "2 days ago",
+          "durationSeconds": 5314,
+          "viewCount": 46325,
+          "likeCount": 1642,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.32077692760447324,
+          "engagementPer1kViews": 35.445223961144094,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "dW6pvUx4_jc",
+          "title": "What's the Point?",
+          "url": "https://www.youtube.com/watch?v=dW6pvUx4_jc",
+          "thumbnailUrl": "https://i.ytimg.com/vi/dW6pvUx4_jc/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDFMiFHZBos5GiSR3dyBcKiEeB2Uw",
+          "publishedAt": "2026-05-19T10:36:59.013Z",
+          "publishedText": "5 days ago",
+          "durationSeconds": 257,
+          "viewCount": 92976,
+          "likeCount": 3978,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 0.6438112384447598,
+          "engagementPer1kViews": 42.78523489932886,
+          "whyFlagged": [
+            "42.8 likes per 1k views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": [
+                "Matched \"first\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "6tmBB5GcOLU",
+          "title": "you only need a phone",
+          "url": "https://www.youtube.com/watch?v=6tmBB5GcOLU",
+          "thumbnailUrl": "https://i.ytimg.com/vi/6tmBB5GcOLU/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBrOOsJcYqhPcur6kiHSjrMkW_McA",
+          "publishedAt": "2026-05-15T10:36:59.014Z",
+          "publishedText": "9 days ago",
+          "durationSeconds": 1468,
+          "viewCount": 251410,
+          "likeCount": 9566,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 1.7408856420731917,
+          "engagementPer1kViews": 38.049401376238016,
+          "whyFlagged": [
+            "1.7x the channel's median views",
+            "38.0 likes per 1k views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"last\"",
+                "Matched \"only\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"$\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"because\"",
+                "Matched \"but\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": [
+                "Matched \"comment\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "CFBEih785-I",
+          "title": "The Simplest Way to Make $10k/month - Case Study",
+          "url": "https://www.youtube.com/watch?v=CFBEih785-I",
+          "thumbnailUrl": "https://i.ytimg.com/vi/CFBEih785-I/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAHB0cX7Kl88oMmtSESZyq9490ZtQ",
+          "publishedAt": "2026-05-10T10:36:59.014Z",
+          "publishedText": "2 weeks ago",
+          "durationSeconds": 3348,
+          "viewCount": 53865,
+          "likeCount": 1476,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.3729875705432261,
+          "engagementPer1kViews": 27.401837928153718,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "9rRvmcDpWwA",
+          "title": "The Cost of Getting Rich",
+          "url": "https://www.youtube.com/watch?v=9rRvmcDpWwA",
+          "thumbnailUrl": "https://i.ytimg.com/vi/9rRvmcDpWwA/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAmbCvnJsvKNUdXxaQsnQGzB397ew",
+          "publishedAt": "2026-05-03T10:36:59.014Z",
+          "publishedText": "3 weeks ago",
+          "durationSeconds": 1063,
+          "viewCount": 61030,
+          "likeCount": 1897,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.4226015303119482,
+          "engagementPer1kViews": 31.083073898082908,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "bfENsVP77VQ",
+          "title": "The Only Investing Video You’ll Ever Need (Start With $0)",
+          "url": "https://www.youtube.com/watch?v=bfENsVP77VQ",
+          "thumbnailUrl": "https://i.ytimg.com/vi/bfENsVP77VQ/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDbtde6-E9KsuV03DqAZLWsu44LjQ",
+          "publishedAt": "2026-04-24T10:36:59.015Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 1771,
+          "viewCount": 226749,
+          "likeCount": 5182,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.570120832323512,
+          "engagementPer1kViews": 22.853463521338576,
+          "whyFlagged": [
+            "1.6x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "qLMYOhaKcZs",
+          "title": "The Ultimate Beginner's Guide to Claude Code",
+          "url": "https://www.youtube.com/watch?v=qLMYOhaKcZs",
+          "thumbnailUrl": "https://i.ytimg.com/vi/qLMYOhaKcZs/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBreh6KZUcy6iRi1Zxg597zlyR4IA",
+          "publishedAt": "2026-04-24T10:36:59.015Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 4006,
+          "viewCount": 225409,
+          "likeCount": 6213,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.5608420177959352,
+          "engagementPer1kViews": 27.563229507251265,
+          "whyFlagged": [
+            "1.6x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "XIhc7_Ptrpk",
+          "title": "If I Wanted to Make My First $100K in 2026, I’d Do This",
+          "url": "https://www.youtube.com/watch?v=XIhc7_Ptrpk",
+          "thumbnailUrl": "https://i.ytimg.com/vi/XIhc7_Ptrpk/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBQBV4Tziz9Jv6jWzvm0RRULYWNQQ",
+          "publishedAt": "2026-04-24T10:36:59.015Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 2097,
+          "viewCount": 304657,
+          "likeCount": 9188,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 2.1095938787522073,
+          "engagementPer1kViews": 30.158506123279626,
+          "whyFlagged": [
+            "2.1x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing.",
+            "Possible timing factor: tax-season framing."
+          ],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"first\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"data\"",
+                "Matched \"research\""
+              ]
+            },
+            "promotionalCtaIntensity": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"subscribe\"",
+                "Matched \"comment\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "f5_mihqjOGw",
+          "title": "How to Read More Books",
+          "url": "https://www.youtube.com/watch?v=f5_mihqjOGw",
+          "thumbnailUrl": "https://i.ytimg.com/vi/f5_mihqjOGw/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLABVAuYXvDmd6LCxFN_h6U4r_R5Jw",
+          "publishedAt": "2026-04-24T10:36:59.016Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 836,
+          "viewCount": 93566,
+          "likeCount": 3082,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.6478966866322751,
+          "engagementPer1kViews": 32.93931556334566,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "A8PxRHQrLJ8",
+          "title": "How I'd Create Content in 2026 (If I Had To Start Over)",
+          "url": "https://www.youtube.com/watch?v=A8PxRHQrLJ8",
+          "thumbnailUrl": "https://i.ytimg.com/vi/A8PxRHQrLJ8/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAiH3jd5ab5lzEH7q5YupqC9BAqbQ",
+          "publishedAt": "2026-04-24T10:36:59.016Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 955,
+          "viewCount": 162398,
+          "likeCount": 6212,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 1.1245230758577711,
+          "engagementPer1kViews": 38.25170260717497,
+          "whyFlagged": [
+            "38.3 likes per 1k views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": []
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"how to\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"because\"",
+                "Matched \"but\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"results\"",
+                "Matched \"data\""
+              ]
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": [
+                "Matched \"comment\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "U-frK0b7msY",
+          "title": "The psychology of making money",
+          "url": "https://www.youtube.com/watch?v=U-frK0b7msY",
+          "thumbnailUrl": "https://i.ytimg.com/vi/U-frK0b7msY/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCUilFzEaURxteYaw_qEi_A2450zw",
+          "publishedAt": "2026-03-24T11:36:59.016Z",
+          "publishedText": "2 months ago",
+          "durationSeconds": 1299,
+          "viewCount": 113663,
+          "likeCount": 3556,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.7870581310805664,
+          "engagementPer1kViews": 31.285466686608657,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "rdT3XBZlnHA",
+          "title": "If I Started YouTube from Scratch in 2026, I’d do THIS",
+          "url": "https://www.youtube.com/watch?v=rdT3XBZlnHA",
+          "thumbnailUrl": "https://i.ytimg.com/vi/rdT3XBZlnHA/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBN8NGIev4_ioQjSiLIV7HhVaATEw",
+          "publishedAt": "2026-03-24T11:36:59.016Z",
+          "publishedText": "2 months ago",
+          "durationSeconds": 2020,
+          "viewCount": 142811,
+          "likeCount": 4634,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.9888931205207215,
+          "engagementPer1kViews": 32.448480859317556,
+          "whyFlagged": [],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "t8QyLh_NBTk",
+          "title": "Brutally Honest Truth On How To Get Rich",
+          "url": "https://www.youtube.com/watch?v=t8QyLh_NBTk",
+          "thumbnailUrl": "https://i.ytimg.com/vi/t8QyLh_NBTk/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB_G-j36PlWTYy__Bj2zTA6lfAFdQ",
+          "publishedAt": "2026-03-24T11:36:59.016Z",
+          "publishedText": "2 months ago",
+          "durationSeconds": 1046,
+          "viewCount": 144415,
+          "likeCount": 4717,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1,
+          "engagementPer1kViews": 32.66281203476093,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "TX1Ij51esI0",
+          "title": "If I Started A Business in 2026, I'd Do This",
+          "url": "https://www.youtube.com/watch?v=TX1Ij51esI0",
+          "thumbnailUrl": "https://i.ytimg.com/vi/TX1Ij51esI0/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLC50Cm_N-iQH1xXT0vRu3N7ATQQ7w",
+          "publishedAt": "2026-03-24T11:36:59.016Z",
+          "publishedText": "2 months ago",
+          "durationSeconds": 1489,
+          "viewCount": 216874,
+          "likeCount": 5623,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.501741508846034,
+          "engagementPer1kViews": 25.927497072032608,
+          "whyFlagged": [
+            "1.5x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "MBPHU7aaklM",
+          "title": "Success Is Hard Until You Build Systems Like This",
+          "url": "https://www.youtube.com/watch?v=MBPHU7aaklM",
+          "thumbnailUrl": "https://i.ytimg.com/vi/MBPHU7aaklM/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLD7Elp8RnkilmGNkGcifeiNmtG_Qw",
+          "publishedAt": "2026-02-24T11:36:59.017Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 1556,
+          "viewCount": 1093825,
+          "likeCount": 36407,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 7.574178582557214,
+          "engagementPer1kViews": 33.28411766050328,
+          "whyFlagged": [
+            "7.6x the channel's median views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": []
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"subscribe\"",
+                "Matched \"click the link\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "j0YENi6U0tE",
+          "title": "You’re Not Behind (Yet): How to Learn AI in 19 Minutes",
+          "url": "https://www.youtube.com/watch?v=j0YENi6U0tE",
+          "thumbnailUrl": "https://i.ytimg.com/vi/j0YENi6U0tE/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAub4bzcNtznXJ1vAxHxHj42Sawhw",
+          "publishedAt": "2026-02-24T11:36:59.017Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 1196,
+          "viewCount": 278766,
+          "likeCount": 7747,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.9303119482048263,
+          "engagementPer1kViews": 27.790333110924575,
+          "whyFlagged": [
+            "1.9x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "7EWYjFqgmHM",
+          "title": "17 Micro-Habits to Improve Your Focus",
+          "url": "https://www.youtube.com/watch?v=7EWYjFqgmHM",
+          "thumbnailUrl": "https://i.ytimg.com/vi/7EWYjFqgmHM/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAxxZiPg53l3nGi--33z2QwMHEjwA",
+          "publishedAt": "2026-02-24T11:36:59.017Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 615,
+          "viewCount": 236814,
+          "likeCount": 8036,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.639815808607139,
+          "engagementPer1kViews": 33.93380458925571,
+          "whyFlagged": [
+            "1.6x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "Eu29v5jPVMU",
+          "title": "The mindset slowly destroying your life",
+          "url": "https://www.youtube.com/watch?v=Eu29v5jPVMU",
+          "thumbnailUrl": "https://i.ytimg.com/vi/Eu29v5jPVMU/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDZwEgyuHWImj80LojCH4x8lkBPng",
+          "publishedAt": "2026-02-24T11:36:59.017Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 1234,
+          "viewCount": 160533,
+          "likeCount": 5257,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.1116089048921511,
+          "engagementPer1kViews": 32.74716101985262,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "_K9ECAYrU2Q",
+          "title": "22 ONE-MINUTE Habits That Save Me 25+ Hours a Week",
+          "url": "https://www.youtube.com/watch?v=_K9ECAYrU2Q",
+          "thumbnailUrl": "https://i.ytimg.com/vi/_K9ECAYrU2Q/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBoFIWvuGVZ1pbGrAXH0dDY8GV57Q",
+          "publishedAt": "2026-02-24T11:36:59.017Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 923,
+          "viewCount": 418117,
+          "likeCount": 11078,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 2.8952463386767304,
+          "engagementPer1kViews": 26.494976286541803,
+          "whyFlagged": [
+            "2.9x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "CykYoS1LftQ",
+          "title": "If you’re ambitious but lazy, watch this",
+          "url": "https://www.youtube.com/watch?v=CykYoS1LftQ",
+          "thumbnailUrl": "https://i.ytimg.com/vi/CykYoS1LftQ/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDt2E8jIBFOmEdxiA4zG9wBnk_a3g",
+          "publishedAt": "2026-02-24T11:36:59.017Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 1417,
+          "viewCount": 252472,
+          "likeCount": 8254,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.7482394488107191,
+          "engagementPer1kViews": 32.69273424379733,
+          "whyFlagged": [
+            "1.7x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "YK_1dIqqYbo",
+          "title": "The Ultimate Guide to Discipline",
+          "url": "https://www.youtube.com/watch?v=YK_1dIqqYbo",
+          "thumbnailUrl": "https://i.ytimg.com/vi/YK_1dIqqYbo/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLC5234vPqYPuiQnR7zyr6E8Tq9KaQ",
+          "publishedAt": "2026-01-24T11:36:59.017Z",
+          "publishedText": "4 months ago",
+          "durationSeconds": 1273,
+          "viewCount": 78830,
+          "likeCount": 2639,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.5458574247827441,
+          "engagementPer1kViews": 33.477102625903846,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "5PKYfRofUdg",
+          "title": "How to Get Rich on Easy Mode",
+          "url": "https://www.youtube.com/watch?v=5PKYfRofUdg",
+          "thumbnailUrl": "https://i.ytimg.com/vi/5PKYfRofUdg/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB7zJgz1CiEaKrvGaoxZA5UXscNAg",
+          "publishedAt": "2026-01-24T11:36:59.017Z",
+          "publishedText": "4 months ago",
+          "durationSeconds": 1220,
+          "viewCount": 277182,
+          "likeCount": 8615,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.9193435584946161,
+          "engagementPer1kViews": 31.080661803436012,
+          "whyFlagged": [
+            "1.9x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "D_KSR3S6W8I",
+          "title": "Make 2026 the Best Year of Your Life (Evidence-Based)",
+          "url": "https://www.youtube.com/watch?v=D_KSR3S6W8I",
+          "thumbnailUrl": "https://i.ytimg.com/vi/D_KSR3S6W8I/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBLlEdOdZXCfM1RX1D147suYQmDFw",
+          "publishedAt": "2025-12-24T11:36:59.017Z",
+          "publishedText": "5 months ago",
+          "durationSeconds": 1301,
+          "viewCount": 539619,
+          "likeCount": 17329,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 3.7365855347436208,
+          "engagementPer1kViews": 32.113398527479575,
+          "whyFlagged": [
+            "3.7x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "nzZq7qtYHVM",
+          "title": "How to change your life by journaling in 2026",
+          "url": "https://www.youtube.com/watch?v=nzZq7qtYHVM",
+          "thumbnailUrl": "https://i.ytimg.com/vi/nzZq7qtYHVM/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAuRljCxk8JXlNQ4d-4nvyOW4c_Pw",
+          "publishedAt": "2025-12-24T11:36:59.017Z",
+          "publishedText": "5 months ago",
+          "durationSeconds": 1387,
+          "viewCount": 468983,
+          "likeCount": 13730,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 3.2474673683481634,
+          "engagementPer1kViews": 29.276114486026145,
+          "whyFlagged": [
+            "3.2x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "0XmnJsSX9s0",
+          "title": "The Easiest Business to Start in 2026 for Beginners",
+          "url": "https://www.youtube.com/watch?v=0XmnJsSX9s0",
+          "thumbnailUrl": "https://i.ytimg.com/vi/0XmnJsSX9s0/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBJ7CwmJKsRCw3sP-jS6glxGp_dUg",
+          "publishedAt": "2025-12-24T11:36:59.017Z",
+          "publishedText": "5 months ago",
+          "durationSeconds": 1216,
+          "viewCount": 298240,
+          "likeCount": 8044,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 2.0651594363466397,
+          "engagementPer1kViews": 26.97156652360515,
+          "whyFlagged": [
+            "2.1x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "-VUlGyMpSI8",
+          "title": "I've Read 417 books. These 4 will make you financially free",
+          "url": "https://www.youtube.com/watch?v=-VUlGyMpSI8",
+          "thumbnailUrl": "https://i.ytimg.com/vi/-VUlGyMpSI8/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB726rkQpaZtV0RtgquTTz0SmfY2g",
+          "publishedAt": "2025-12-24T11:36:59.017Z",
+          "publishedText": "5 months ago",
+          "durationSeconds": 1249,
+          "viewCount": 174406,
+          "likeCount": 6019,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.2076723332063843,
+          "engagementPer1kViews": 34.51142735915049,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "UVardfy2qMk",
+          "title": "How to Start and Grow a YouTube Channel in 2026",
+          "url": "https://www.youtube.com/watch?v=UVardfy2qMk",
+          "thumbnailUrl": "https://i.ytimg.com/vi/UVardfy2qMk/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLA3jetR1V-0f3oziHFg0eIS37Epjg",
+          "publishedAt": "2025-11-24T11:36:59.017Z",
+          "publishedText": "6 months ago",
+          "durationSeconds": 1892,
+          "viewCount": 164259,
+          "likeCount": 4869,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.1374095488695772,
+          "engagementPer1kViews": 29.6422113856775,
+          "whyFlagged": [],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "euNliPIJ7Kc",
+          "title": "How to Find Your Life’s Purpose",
+          "url": "https://www.youtube.com/watch?v=euNliPIJ7Kc",
+          "thumbnailUrl": "https://i.ytimg.com/vi/euNliPIJ7Kc/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAMDC7IMzAt94h_oC1IE7qVmmf8oQ",
+          "publishedAt": "2025-10-24T10:36:59.018Z",
+          "publishedText": "7 months ago",
+          "durationSeconds": 3210,
+          "viewCount": 120743,
+          "likeCount": 3037,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.8360835093307482,
+          "engagementPer1kViews": 25.15259683791193,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "FDEVzFsPrkU",
+          "title": "How I use AI as an Entrepreneur (My complete workflow)",
+          "url": "https://www.youtube.com/watch?v=FDEVzFsPrkU",
+          "thumbnailUrl": "https://i.ytimg.com/vi/FDEVzFsPrkU/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLA__dNWaNDyxxEag6vuIMtPLYCk6g",
+          "publishedAt": "2025-10-24T10:36:59.018Z",
+          "publishedText": "7 months ago",
+          "durationSeconds": 2358,
+          "viewCount": 161540,
+          "likeCount": 3973,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.1185818647647405,
+          "engagementPer1kViews": 24.59452767116504,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "rDrw3kkqKac",
+          "title": "The Proven, Reliable Path to Earn $1M (Step By Step)",
+          "url": "https://www.youtube.com/watch?v=rDrw3kkqKac",
+          "thumbnailUrl": "https://i.ytimg.com/vi/rDrw3kkqKac/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAVeThrQOb-i8H5eSpK5ucxvkrQQA",
+          "publishedAt": "2025-10-24T10:36:59.018Z",
+          "publishedText": "7 months ago",
+          "durationSeconds": 4340,
+          "viewCount": 166049,
+          "likeCount": 4405,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.149804383201191,
+          "engagementPer1kViews": 26.528313931429878,
+          "whyFlagged": [],
+          "contextNotes": []
+        }
+      ]
+    },
+    "1d86f78c-e860-44e8-9dce-aabc96930101": {
+      "id": "1d86f78c-e860-44e8-9dce-aabc96930101",
+      "analysisVersion": "2026-05-23-mvp",
+      "channelId": "UCoOae5nYA7VqaXzerajD0lg",
+      "channelTitle": "Ali Abdaal",
+      "channelHandle": "@aliabdaal",
+      "channelUrl": "https://www.youtube.com/channel/UCoOae5nYA7VqaXzerajD0lg",
+      "profileImageUrl": "https://yt3.googleusercontent.com/ytc/AIdro_m2xx6mCZwsyjARnkwBKJxEv0FqGxGS2NwWNkjWH__Smw=s160-c-k-c0x00ffffff-no-rj",
+      "bannerImageUrl": "https://yt3.googleusercontent.com/kd_HWFKEBfcKOEUD07dnr_mVFjlhxKVMrEoCNFM30YfrffwMwW2HakWvPGhUrSsW8m_fnagA=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "subscriberCountText": "6.61M subscribers",
+      "totalVideoCountText": "1.4K videos",
+      "analyzedAt": "2026-05-24T10:49:02.860Z",
+      "videoSampleSize": 15,
+      "transcriptCoverage": 0.3333333333333333,
+      "dataQuality": "mixed",
+      "medianViews": 144410,
+      "medianEngagementPer1kViews": 32.443255807440806,
+      "findings": [
+        "Ali Abdaal's strongest recent view winner reached 7.6x its median views.",
+        "Repeated winning themes include success, hard, until, build.",
+        "Top engagement standout reached 42.8 likes per 1k views."
+      ],
+      "experiments": [
+        "Test more titles that lean into success, hard, until; those themes showed up repeatedly in the view winners."
+      ],
+      "warnings": [
+        "Comment counts were not available consistently, so comment-rate badges may show as unavailable.",
+        "Transcript coverage is low, so transcript-backed findings are limited."
+      ],
+      "viewWinners": [
+        {
+          "id": "MBPHU7aaklM",
+          "title": "Success Is Hard Until You Build Systems Like This",
+          "url": "https://www.youtube.com/watch?v=MBPHU7aaklM",
+          "thumbnailUrl": "https://i.ytimg.com/vi/MBPHU7aaklM/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLD7Elp8RnkilmGNkGcifeiNmtG_Qw",
+          "publishedAt": "2026-02-24T11:48:53.285Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 1556,
+          "viewCount": 1093889,
+          "likeCount": 36410,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 7.574884010802576,
+          "engagementPer1kViews": 33.28491282022216,
+          "whyFlagged": [
+            "7.6x the channel's median views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": []
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"subscribe\"",
+                "Matched \"click the link\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "XIhc7_Ptrpk",
+          "title": "If I Wanted to Make My First $100K in 2026, I’d Do This",
+          "url": "https://www.youtube.com/watch?v=XIhc7_Ptrpk",
+          "thumbnailUrl": "https://i.ytimg.com/vi/XIhc7_Ptrpk/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBQBV4Tziz9Jv6jWzvm0RRULYWNQQ",
+          "publishedAt": "2026-04-24T10:48:53.285Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 2097,
+          "viewCount": 304672,
+          "likeCount": 9189,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 2.109770791496434,
+          "engagementPer1kViews": 30.160303539544167,
+          "whyFlagged": [
+            "2.1x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing.",
+            "Possible timing factor: tax-season framing."
+          ],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"first\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"data\"",
+                "Matched \"research\""
+              ]
+            },
+            "promotionalCtaIntensity": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"subscribe\"",
+                "Matched \"comment\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "6tmBB5GcOLU",
+          "title": "you only need a phone",
+          "url": "https://www.youtube.com/watch?v=6tmBB5GcOLU",
+          "thumbnailUrl": "https://i.ytimg.com/vi/6tmBB5GcOLU/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBrOOsJcYqhPcur6kiHSjrMkW_McA",
+          "publishedAt": "2026-05-15T10:48:53.284Z",
+          "publishedText": "9 days ago",
+          "durationSeconds": 1468,
+          "viewCount": 251543,
+          "likeCount": 9572,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 1.741866906723911,
+          "engagementPer1kViews": 38.05313604433437,
+          "whyFlagged": [
+            "1.7x the channel's median views",
+            "38.1 likes per 1k views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"last\"",
+                "Matched \"only\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"$\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"because\"",
+                "Matched \"but\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": [
+                "Matched \"comment\""
+              ]
+            }
+          }
+        }
+      ],
+      "engagementStandouts": [
+        {
+          "id": "dW6pvUx4_jc",
+          "title": "What's the Point?",
+          "url": "https://www.youtube.com/watch?v=dW6pvUx4_jc",
+          "thumbnailUrl": "https://i.ytimg.com/vi/dW6pvUx4_jc/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDFMiFHZBos5GiSR3dyBcKiEeB2Uw",
+          "publishedAt": "2026-05-19T10:48:53.284Z",
+          "publishedText": "5 days ago",
+          "durationSeconds": 257,
+          "viewCount": 93012,
+          "likeCount": 3980,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 0.6440828197493248,
+          "engagementPer1kViews": 42.79017761149099,
+          "whyFlagged": [
+            "42.8 likes per 1k views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": [
+                "Matched \"first\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "A8PxRHQrLJ8",
+          "title": "How I'd Create Content in 2026 (If I Had To Start Over)",
+          "url": "https://www.youtube.com/watch?v=A8PxRHQrLJ8",
+          "thumbnailUrl": "https://i.ytimg.com/vi/A8PxRHQrLJ8/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAiH3jd5ab5lzEH7q5YupqC9BAqbQ",
+          "publishedAt": "2026-04-24T10:48:53.285Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 955,
+          "viewCount": 162409,
+          "likeCount": 6212,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 1.1246381829513192,
+          "engagementPer1kViews": 38.24911181030608,
+          "whyFlagged": [
+            "38.2 likes per 1k views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": []
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"how to\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"because\"",
+                "Matched \"but\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"results\"",
+                "Matched \"data\""
+              ]
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": [
+                "Matched \"comment\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "6tmBB5GcOLU",
+          "title": "you only need a phone",
+          "url": "https://www.youtube.com/watch?v=6tmBB5GcOLU",
+          "thumbnailUrl": "https://i.ytimg.com/vi/6tmBB5GcOLU/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBrOOsJcYqhPcur6kiHSjrMkW_McA",
+          "publishedAt": "2026-05-15T10:48:53.284Z",
+          "publishedText": "9 days ago",
+          "durationSeconds": 1468,
+          "viewCount": 251543,
+          "likeCount": 9572,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 1.741866906723911,
+          "engagementPer1kViews": 38.05313604433437,
+          "whyFlagged": [
+            "1.7x the channel's median views",
+            "38.1 likes per 1k views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"last\"",
+                "Matched \"only\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"$\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"because\"",
+                "Matched \"but\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": [
+                "Matched \"comment\""
+              ]
+            }
+          }
+        }
+      ],
+      "videos": [
+        {
+          "id": "LLjpnubsOWc",
+          "title": "If You Want to Make Money From YouTube, Do This (Case Study)",
+          "url": "https://www.youtube.com/watch?v=LLjpnubsOWc",
+          "thumbnailUrl": "https://i.ytimg.com/vi/LLjpnubsOWc/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDV0j_2WSa3WCQxxmm8XrpjVDglog",
+          "publishedAt": "2026-05-22T10:48:53.283Z",
+          "publishedText": "2 days ago",
+          "durationSeconds": 5314,
+          "viewCount": 46382,
+          "likeCount": 1646,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.3211827435773146,
+          "engagementPer1kViews": 35.48790479065155,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "dW6pvUx4_jc",
+          "title": "What's the Point?",
+          "url": "https://www.youtube.com/watch?v=dW6pvUx4_jc",
+          "thumbnailUrl": "https://i.ytimg.com/vi/dW6pvUx4_jc/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDFMiFHZBos5GiSR3dyBcKiEeB2Uw",
+          "publishedAt": "2026-05-19T10:48:53.284Z",
+          "publishedText": "5 days ago",
+          "durationSeconds": 257,
+          "viewCount": 93012,
+          "likeCount": 3980,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 0.6440828197493248,
+          "engagementPer1kViews": 42.79017761149099,
+          "whyFlagged": [
+            "42.8 likes per 1k views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": [
+                "Matched \"first\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": []
+            }
+          }
+        },
+        {
+          "id": "6tmBB5GcOLU",
+          "title": "you only need a phone",
+          "url": "https://www.youtube.com/watch?v=6tmBB5GcOLU",
+          "thumbnailUrl": "https://i.ytimg.com/vi/6tmBB5GcOLU/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBrOOsJcYqhPcur6kiHSjrMkW_McA",
+          "publishedAt": "2026-05-15T10:48:53.284Z",
+          "publishedText": "9 days ago",
+          "durationSeconds": 1468,
+          "viewCount": 251543,
+          "likeCount": 9572,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 1.741866906723911,
+          "engagementPer1kViews": 38.05313604433437,
+          "whyFlagged": [
+            "1.7x the channel's median views",
+            "38.1 likes per 1k views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"last\"",
+                "Matched \"only\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"$\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"because\"",
+                "Matched \"but\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": [
+                "Matched \"comment\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "CFBEih785-I",
+          "title": "The Simplest Way to Make $10k/month - Case Study",
+          "url": "https://www.youtube.com/watch?v=CFBEih785-I",
+          "thumbnailUrl": "https://i.ytimg.com/vi/CFBEih785-I/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAHB0cX7Kl88oMmtSESZyq9490ZtQ",
+          "publishedAt": "2026-05-10T10:48:53.284Z",
+          "publishedText": "2 weeks ago",
+          "durationSeconds": 3348,
+          "viewCount": 53865,
+          "likeCount": 1476,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.3730004847309743,
+          "engagementPer1kViews": 27.401837928153718,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "9rRvmcDpWwA",
+          "title": "The Cost of Getting Rich",
+          "url": "https://www.youtube.com/watch?v=9rRvmcDpWwA",
+          "thumbnailUrl": "https://i.ytimg.com/vi/9rRvmcDpWwA/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAmbCvnJsvKNUdXxaQsnQGzB397ew",
+          "publishedAt": "2026-05-03T10:48:53.284Z",
+          "publishedText": "3 weeks ago",
+          "durationSeconds": 1063,
+          "viewCount": 61041,
+          "likeCount": 1897,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.4226923343258777,
+          "engagementPer1kViews": 31.07747251847119,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "bfENsVP77VQ",
+          "title": "The Only Investing Video You’ll Ever Need (Start With $0)",
+          "url": "https://www.youtube.com/watch?v=bfENsVP77VQ",
+          "thumbnailUrl": "https://i.ytimg.com/vi/bfENsVP77VQ/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDbtde6-E9KsuV03DqAZLWsu44LjQ",
+          "publishedAt": "2026-04-24T10:48:53.284Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 1771,
+          "viewCount": 226773,
+          "likeCount": 5182,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.5703413891004778,
+          "engagementPer1kViews": 22.851044877476596,
+          "whyFlagged": [
+            "1.6x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "qLMYOhaKcZs",
+          "title": "The Ultimate Beginner's Guide to Claude Code",
+          "url": "https://www.youtube.com/watch?v=qLMYOhaKcZs",
+          "thumbnailUrl": "https://i.ytimg.com/vi/qLMYOhaKcZs/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBreh6KZUcy6iRi1Zxg597zlyR4IA",
+          "publishedAt": "2026-04-24T10:48:53.285Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 4006,
+          "viewCount": 225417,
+          "likeCount": 6213,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.560951457655287,
+          "engagementPer1kViews": 27.562251294267956,
+          "whyFlagged": [
+            "1.6x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "XIhc7_Ptrpk",
+          "title": "If I Wanted to Make My First $100K in 2026, I’d Do This",
+          "url": "https://www.youtube.com/watch?v=XIhc7_Ptrpk",
+          "thumbnailUrl": "https://i.ytimg.com/vi/XIhc7_Ptrpk/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBQBV4Tziz9Jv6jWzvm0RRULYWNQQ",
+          "publishedAt": "2026-04-24T10:48:53.285Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 2097,
+          "viewCount": 304672,
+          "likeCount": 9189,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 2.109770791496434,
+          "engagementPer1kViews": 30.160303539544167,
+          "whyFlagged": [
+            "2.1x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing.",
+            "Possible timing factor: tax-season framing."
+          ],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"first\""
+              ]
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"data\"",
+                "Matched \"research\""
+              ]
+            },
+            "promotionalCtaIntensity": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"subscribe\"",
+                "Matched \"comment\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "f5_mihqjOGw",
+          "title": "How to Read More Books",
+          "url": "https://www.youtube.com/watch?v=f5_mihqjOGw",
+          "thumbnailUrl": "https://i.ytimg.com/vi/f5_mihqjOGw/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLABVAuYXvDmd6LCxFN_h6U4r_R5Jw",
+          "publishedAt": "2026-04-24T10:48:53.285Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 836,
+          "viewCount": 93566,
+          "likeCount": 3082,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.6479191191745723,
+          "engagementPer1kViews": 32.93931556334566,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "A8PxRHQrLJ8",
+          "title": "How I'd Create Content in 2026 (If I Had To Start Over)",
+          "url": "https://www.youtube.com/watch?v=A8PxRHQrLJ8",
+          "thumbnailUrl": "https://i.ytimg.com/vi/A8PxRHQrLJ8/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAiH3jd5ab5lzEH7q5YupqC9BAqbQ",
+          "publishedAt": "2026-04-24T10:48:53.285Z",
+          "publishedText": "1 month ago",
+          "durationSeconds": 955,
+          "viewCount": 162409,
+          "likeCount": 6212,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 1.1246381829513192,
+          "engagementPer1kViews": 38.24911181030608,
+          "whyFlagged": [
+            "38.2 likes per 1k views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": []
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"how to\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"because\"",
+                "Matched \"but\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"results\"",
+                "Matched \"data\""
+              ]
+            },
+            "promotionalCtaIntensity": {
+              "level": "low",
+              "evidence": [
+                "Matched \"comment\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "U-frK0b7msY",
+          "title": "The psychology of making money",
+          "url": "https://www.youtube.com/watch?v=U-frK0b7msY",
+          "thumbnailUrl": "https://i.ytimg.com/vi/U-frK0b7msY/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCUilFzEaURxteYaw_qEi_A2450zw",
+          "publishedAt": "2026-03-24T11:48:53.285Z",
+          "publishedText": "2 months ago",
+          "durationSeconds": 1299,
+          "viewCount": 113664,
+          "likeCount": 3556,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.7870923066269649,
+          "engagementPer1kViews": 31.285191441441444,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "rdT3XBZlnHA",
+          "title": "If I Started YouTube from Scratch in 2026, I’d do THIS",
+          "url": "https://www.youtube.com/watch?v=rdT3XBZlnHA",
+          "thumbnailUrl": "https://i.ytimg.com/vi/rdT3XBZlnHA/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBN8NGIev4_ioQjSiLIV7HhVaATEw",
+          "publishedAt": "2026-03-24T11:48:53.285Z",
+          "publishedText": "2 months ago",
+          "durationSeconds": 2020,
+          "viewCount": 142834,
+          "likeCount": 4634,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.9890866283498373,
+          "engagementPer1kViews": 32.443255807440806,
+          "whyFlagged": [],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "t8QyLh_NBTk",
+          "title": "Brutally Honest Truth On How To Get Rich",
+          "url": "https://www.youtube.com/watch?v=t8QyLh_NBTk",
+          "thumbnailUrl": "https://i.ytimg.com/vi/t8QyLh_NBTk/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB_G-j36PlWTYy__Bj2zTA6lfAFdQ",
+          "publishedAt": "2026-03-24T11:48:53.285Z",
+          "publishedText": "2 months ago",
+          "durationSeconds": 1046,
+          "viewCount": 144410,
+          "likeCount": 4717,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1,
+          "engagementPer1kViews": 32.66394294023959,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "TX1Ij51esI0",
+          "title": "If I Started A Business in 2026, I'd Do This",
+          "url": "https://www.youtube.com/watch?v=TX1Ij51esI0",
+          "thumbnailUrl": "https://i.ytimg.com/vi/TX1Ij51esI0/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLC50Cm_N-iQH1xXT0vRu3N7ATQQ7w",
+          "publishedAt": "2026-03-24T11:48:53.285Z",
+          "publishedText": "2 months ago",
+          "durationSeconds": 1489,
+          "viewCount": 216881,
+          "likeCount": 5623,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.5018419777023753,
+          "engagementPer1kViews": 25.926660242252662,
+          "whyFlagged": [
+            "1.5x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "MBPHU7aaklM",
+          "title": "Success Is Hard Until You Build Systems Like This",
+          "url": "https://www.youtube.com/watch?v=MBPHU7aaklM",
+          "thumbnailUrl": "https://i.ytimg.com/vi/MBPHU7aaklM/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLD7Elp8RnkilmGNkGcifeiNmtG_Qw",
+          "publishedAt": "2026-02-24T11:48:53.285Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 1556,
+          "viewCount": 1093889,
+          "likeCount": 36410,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "available",
+          "viewOutlierRatio": 7.574884010802576,
+          "engagementPer1kViews": 33.28491282022216,
+          "whyFlagged": [
+            "7.6x the channel's median views"
+          ],
+          "contextNotes": [],
+          "transcriptSignals": {
+            "hookStrength": {
+              "level": "low",
+              "evidence": []
+            },
+            "specificityTacticality": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"days\"",
+                "Matched \"hours\""
+              ]
+            },
+            "storytelling": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"then\"",
+                "Matched \"after\"",
+                "Matched \"before\""
+              ]
+            },
+            "authorityCredibility": {
+              "level": "low",
+              "evidence": []
+            },
+            "promotionalCtaIntensity": {
+              "level": "medium",
+              "evidence": [
+                "Matched \"subscribe\"",
+                "Matched \"click the link\""
+              ]
+            }
+          }
+        },
+        {
+          "id": "j0YENi6U0tE",
+          "title": "You’re Not Behind (Yet): How to Learn AI in 19 Minutes",
+          "url": "https://www.youtube.com/watch?v=j0YENi6U0tE",
+          "thumbnailUrl": "https://i.ytimg.com/vi/j0YENi6U0tE/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAub4bzcNtznXJ1vAxHxHj42Sawhw",
+          "publishedAt": "2026-02-24T11:48:53.285Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 1196,
+          "viewCount": 278768,
+          "likeCount": 7747,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.9303926320891904,
+          "engagementPer1kViews": 27.79013373127475,
+          "whyFlagged": [
+            "1.9x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "7EWYjFqgmHM",
+          "title": "17 Micro-Habits to Improve Your Focus",
+          "url": "https://www.youtube.com/watch?v=7EWYjFqgmHM",
+          "thumbnailUrl": "https://i.ytimg.com/vi/7EWYjFqgmHM/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAxxZiPg53l3nGi--33z2QwMHEjwA",
+          "publishedAt": "2026-02-24T11:48:53.285Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 615,
+          "viewCount": 236816,
+          "likeCount": 8037,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.6398864344574475,
+          "engagementPer1kViews": 33.9377406931964,
+          "whyFlagged": [
+            "1.6x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "Eu29v5jPVMU",
+          "title": "The mindset slowly destroying your life",
+          "url": "https://www.youtube.com/watch?v=Eu29v5jPVMU",
+          "thumbnailUrl": "https://i.ytimg.com/vi/Eu29v5jPVMU/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDZwEgyuHWImj80LojCH4x8lkBPng",
+          "publishedAt": "2026-02-24T11:48:53.285Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 1234,
+          "viewCount": 160530,
+          "likeCount": 5257,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.1116266186552177,
+          "engagementPer1kViews": 32.7477730019311,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "_K9ECAYrU2Q",
+          "title": "22 ONE-MINUTE Habits That Save Me 25+ Hours a Week",
+          "url": "https://www.youtube.com/watch?v=_K9ECAYrU2Q",
+          "thumbnailUrl": "https://i.ytimg.com/vi/_K9ECAYrU2Q/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBoFIWvuGVZ1pbGrAXH0dDY8GV57Q",
+          "publishedAt": "2026-02-24T11:48:53.285Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 923,
+          "viewCount": 418117,
+          "likeCount": 11078,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 2.895346582646631,
+          "engagementPer1kViews": 26.494976286541803,
+          "whyFlagged": [
+            "2.9x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "CykYoS1LftQ",
+          "title": "If you’re ambitious but lazy, watch this",
+          "url": "https://www.youtube.com/watch?v=CykYoS1LftQ",
+          "thumbnailUrl": "https://i.ytimg.com/vi/CykYoS1LftQ/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDt2E8jIBFOmEdxiA4zG9wBnk_a3g",
+          "publishedAt": "2026-02-24T11:48:53.285Z",
+          "publishedText": "3 months ago",
+          "durationSeconds": 1417,
+          "viewCount": 252470,
+          "likeCount": 8254,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.7482861297694066,
+          "engagementPer1kViews": 32.69299322691805,
+          "whyFlagged": [
+            "1.7x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "YK_1dIqqYbo",
+          "title": "The Ultimate Guide to Discipline",
+          "url": "https://www.youtube.com/watch?v=YK_1dIqqYbo",
+          "thumbnailUrl": "https://i.ytimg.com/vi/YK_1dIqqYbo/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLC5234vPqYPuiQnR7zyr6E8Tq9KaQ",
+          "publishedAt": "2026-01-24T11:48:53.285Z",
+          "publishedText": "4 months ago",
+          "durationSeconds": 1273,
+          "viewCount": 78830,
+          "likeCount": 2639,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.5458763243542691,
+          "engagementPer1kViews": 33.477102625903846,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "5PKYfRofUdg",
+          "title": "How to Get Rich on Easy Mode",
+          "url": "https://www.youtube.com/watch?v=5PKYfRofUdg",
+          "thumbnailUrl": "https://i.ytimg.com/vi/5PKYfRofUdg/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB7zJgz1CiEaKrvGaoxZA5UXscNAg",
+          "publishedAt": "2026-01-24T11:48:53.285Z",
+          "publishedText": "4 months ago",
+          "durationSeconds": 1220,
+          "viewCount": 277171,
+          "likeCount": 8615,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.9193338411467349,
+          "engagementPer1kViews": 31.081895292076013,
+          "whyFlagged": [
+            "1.9x the channel's median views"
+          ],
+          "contextNotes": []
+        },
+        {
+          "id": "D_KSR3S6W8I",
+          "title": "Make 2026 the Best Year of Your Life (Evidence-Based)",
+          "url": "https://www.youtube.com/watch?v=D_KSR3S6W8I",
+          "thumbnailUrl": "https://i.ytimg.com/vi/D_KSR3S6W8I/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBLlEdOdZXCfM1RX1D147suYQmDFw",
+          "publishedAt": "2025-12-24T11:48:53.286Z",
+          "publishedText": "5 months ago",
+          "durationSeconds": 1301,
+          "viewCount": 539624,
+          "likeCount": 17329,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 3.736749532580846,
+          "engagementPer1kViews": 32.11310097401154,
+          "whyFlagged": [
+            "3.7x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "nzZq7qtYHVM",
+          "title": "How to change your life by journaling in 2026",
+          "url": "https://www.youtube.com/watch?v=nzZq7qtYHVM",
+          "thumbnailUrl": "https://i.ytimg.com/vi/nzZq7qtYHVM/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAuRljCxk8JXlNQ4d-4nvyOW4c_Pw",
+          "publishedAt": "2025-12-24T11:48:53.286Z",
+          "publishedText": "5 months ago",
+          "durationSeconds": 1387,
+          "viewCount": 468986,
+          "likeCount": 13731,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 3.2476005816771694,
+          "engagementPer1kViews": 29.278059472990666,
+          "whyFlagged": [
+            "3.2x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "0XmnJsSX9s0",
+          "title": "The Easiest Business to Start in 2026 for Beginners",
+          "url": "https://www.youtube.com/watch?v=0XmnJsSX9s0",
+          "thumbnailUrl": "https://i.ytimg.com/vi/0XmnJsSX9s0/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBJ7CwmJKsRCw3sP-jS6glxGp_dUg",
+          "publishedAt": "2025-12-24T11:48:53.286Z",
+          "publishedText": "5 months ago",
+          "durationSeconds": 1216,
+          "viewCount": 298260,
+          "likeCount": 8044,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 2.0653694342497055,
+          "engagementPer1kViews": 26.96975792932341,
+          "whyFlagged": [
+            "2.1x the channel's median views"
+          ],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "-VUlGyMpSI8",
+          "title": "I've Read 417 books. These 4 will make you financially free",
+          "url": "https://www.youtube.com/watch?v=-VUlGyMpSI8",
+          "thumbnailUrl": "https://i.ytimg.com/vi/-VUlGyMpSI8/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB726rkQpaZtV0RtgquTTz0SmfY2g",
+          "publishedAt": "2025-12-24T11:48:53.286Z",
+          "publishedText": "5 months ago",
+          "durationSeconds": 1249,
+          "viewCount": 174406,
+          "likeCount": 6019,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.2077141472197217,
+          "engagementPer1kViews": 34.51142735915049,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "UVardfy2qMk",
+          "title": "How to Start and Grow a YouTube Channel in 2026",
+          "url": "https://www.youtube.com/watch?v=UVardfy2qMk",
+          "thumbnailUrl": "https://i.ytimg.com/vi/UVardfy2qMk/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLA3jetR1V-0f3oziHFg0eIS37Epjg",
+          "publishedAt": "2025-11-24T11:48:53.286Z",
+          "publishedText": "6 months ago",
+          "durationSeconds": 1892,
+          "viewCount": 164259,
+          "likeCount": 4869,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.1374489301294923,
+          "engagementPer1kViews": 29.6422113856775,
+          "whyFlagged": [],
+          "contextNotes": [
+            "Possible timing factor: New Year / reset framing."
+          ]
+        },
+        {
+          "id": "euNliPIJ7Kc",
+          "title": "How to Find Your Life’s Purpose",
+          "url": "https://www.youtube.com/watch?v=euNliPIJ7Kc",
+          "thumbnailUrl": "https://i.ytimg.com/vi/euNliPIJ7Kc/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAMDC7IMzAt94h_oC1IE7qVmmf8oQ",
+          "publishedAt": "2025-10-24T10:48:53.286Z",
+          "publishedText": "7 months ago",
+          "durationSeconds": 3210,
+          "viewCount": 120748,
+          "likeCount": 3037,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 0.8361470812270618,
+          "engagementPer1kViews": 25.151555305263855,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "FDEVzFsPrkU",
+          "title": "How I use AI as an Entrepreneur (My complete workflow)",
+          "url": "https://www.youtube.com/watch?v=FDEVzFsPrkU",
+          "thumbnailUrl": "https://i.ytimg.com/vi/FDEVzFsPrkU/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLA__dNWaNDyxxEag6vuIMtPLYCk6g",
+          "publishedAt": "2025-10-24T10:48:53.286Z",
+          "publishedText": "7 months ago",
+          "durationSeconds": 2358,
+          "viewCount": 161538,
+          "likeCount": 3973,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.118606744685271,
+          "engagementPer1kViews": 24.594832175710977,
+          "whyFlagged": [],
+          "contextNotes": []
+        },
+        {
+          "id": "rDrw3kkqKac",
+          "title": "The Proven, Reliable Path to Earn $1M (Step By Step)",
+          "url": "https://www.youtube.com/watch?v=rDrw3kkqKac",
+          "thumbnailUrl": "https://i.ytimg.com/vi/rDrw3kkqKac/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAVeThrQOb-i8H5eSpK5ucxvkrQQA",
+          "publishedAt": "2025-10-24T10:48:53.286Z",
+          "publishedText": "7 months ago",
+          "durationSeconds": 4340,
+          "viewCount": 166049,
+          "likeCount": 4405,
+          "commentCount": null,
+          "isShort": false,
+          "transcriptStatus": "not_requested",
+          "viewOutlierRatio": 1.1498441936154007,
+          "engagementPer1kViews": 26.528313931429878,
+          "whyFlagged": [],
+          "contextNotes": []
+        }
+      ]
+    }
+  }
+}
