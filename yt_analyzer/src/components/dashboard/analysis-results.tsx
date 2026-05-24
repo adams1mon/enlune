@@ -2,18 +2,13 @@
 
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode, type SVGProps } from 'react';
 
-import type { AnalyzedVideo, ChannelAnalysis, TranscriptSignalLevel } from '@/lib/types/analysis';
+import type { AnalyzedVideo, ChannelAnalysis, VideoTranscriptAnalysis } from '@/lib/types/analysis';
 import { StatusPill } from '@/components/ui/status-pill';
 import { clamp, formatCompactNumber, formatDecimal, formatPercent, safeRatio } from '@/lib/utils';
 
 interface AnalysisResultsProps {
   analysis: ChannelAnalysis;
-}
-
-function toneForSignal(level: TranscriptSignalLevel) {
-  if (level === 'high') return 'success';
-  if (level === 'medium') return 'warning';
-  return 'neutral';
+  onAnalyzeTranscript: (analysisId: string, videoId: string) => Promise<void>;
 }
 
 function formatWholeNumber(value: number | null | undefined) {
@@ -261,7 +256,272 @@ function ScoreHelpPopover({ analysis }: { analysis: ChannelAnalysis }) {
   );
 }
 
-function AnalysisVideoCard({ analysis, video }: { analysis: ChannelAnalysis; video: AnalyzedVideo }) {
+function transcriptBadge(video: AnalyzedVideo) {
+  if (video.transcriptAnalysis) {
+    return <StatusPill label="AI transcript analyzed" tone="success" />;
+  }
+
+  if (video.transcriptStatus === 'unavailable') {
+    return <StatusPill label="transcript unavailable" tone="warning" />;
+  }
+
+  return null;
+}
+
+function transcriptActionLabel(video: AnalyzedVideo) {
+  if (video.transcriptAnalysis) {
+    return 'Re-run AI transcript analysis';
+  }
+
+  if (video.transcriptStatus === 'unavailable') {
+    return 'Retry AI transcript analysis';
+  }
+
+  return 'Analyze transcript with AI';
+}
+
+function transcriptStatusText(video: AnalyzedVideo) {
+  if (video.transcriptAnalysis) {
+    return `AI transcript analysis saved to this snapshot using ${video.transcriptAnalysis.model}.`;
+  }
+
+  if (video.transcriptStatus === 'unavailable') {
+    return 'No transcript was available for this video the last time it was checked.';
+  }
+
+  return 'Fetch the transcript on demand and run an AI analysis covering value, pacing, credibility, friction, and packaging alignment.';
+}
+
+function formatScore(score: number) {
+  return `${score}/5`;
+}
+
+function scoreHelper(score: number, invert = false) {
+  if (invert) {
+    if (score >= 5) return 'very high friction';
+    if (score === 4) return 'high friction';
+    if (score === 3) return 'moderate friction';
+    if (score === 2) return 'low friction';
+    return 'very low friction';
+  }
+
+  if (score >= 5) return 'very strong';
+  if (score === 4) return 'strong';
+  if (score === 3) return 'moderate';
+  if (score === 2) return 'weak';
+  return 'very weak';
+}
+
+function analysisTileTone(score: number, invert = false): CSSProperties {
+  const intensity = clamp((score - 1) / 4, 0, 1);
+
+  if (invert) {
+    return {
+      backgroundColor: `color-mix(in oklab, var(--color-rose-500) ${Math.round(intensity * 26)}%, var(--color-zinc-950))`,
+      borderColor: `color-mix(in oklab, var(--color-rose-400) ${Math.round(intensity * 38)}%, var(--color-zinc-700))`,
+    };
+  }
+
+  return {
+    backgroundColor: `color-mix(in oklab, var(--color-sky-500) ${Math.round(intensity * 18)}%, var(--color-zinc-950))`,
+    borderColor: `color-mix(in oklab, var(--color-sky-300) ${Math.round(intensity * 32)}%, var(--color-zinc-700))`,
+  };
+}
+
+function TranscriptEvidenceList({ evidence }: { evidence: VideoTranscriptAnalysis['dimensions'][keyof VideoTranscriptAnalysis['dimensions']]['evidence'] }) {
+  if (!evidence.length) {
+    return <p className="mt-3 text-xs text-zinc-500">No specific evidence was returned.</p>;
+  }
+
+  return (
+    <ul className="mt-3 space-y-2 text-xs text-zinc-300">
+      {evidence.map((item, index) => (
+        <li className="rounded-xl border border-white/10 bg-black/20 px-3 py-2" key={`${item.timestamp ?? 'na'}-${index}-${item.snippet}`}>
+          <p className="font-medium text-zinc-100">{item.timestamp ? `${item.timestamp} · ` : ''}{item.note}</p>
+          <p className="mt-1 text-zinc-400">“{item.snippet}”</p>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function TranscriptDimensionCard({
+  title,
+  dimension,
+  helper,
+  invert = false,
+}: {
+  title: string;
+  dimension: VideoTranscriptAnalysis['dimensions'][keyof VideoTranscriptAnalysis['dimensions']];
+  helper?: string;
+  invert?: boolean;
+}) {
+  return (
+    <div className="rounded-2xl border border-white/10 px-4 py-4" style={analysisTileTone(dimension.score, invert)}>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-400">{title}</p>
+          {helper ? <p className="mt-1 text-xs text-zinc-500">{helper}</p> : null}
+        </div>
+        <div className="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs font-medium text-white">
+          {formatScore(dimension.score)}
+        </div>
+      </div>
+
+      <p className="mt-3 text-sm font-medium text-zinc-200">{scoreHelper(dimension.score, invert)}</p>
+      <p className="mt-2 text-sm leading-6 text-zinc-300">{dimension.verdict}</p>
+
+      {'intendedAudience' in dimension ? (
+        <div className="mt-3 grid gap-2 text-xs text-zinc-300 sm:grid-cols-2">
+          <div className="rounded-xl border border-white/10 bg-black/20 px-3 py-2">
+            <p className="uppercase tracking-[0.16em] text-zinc-500">Audience</p>
+            <p className="mt-1 text-zinc-100">{dimension.intendedAudience}</p>
+          </div>
+          <div className="rounded-xl border border-white/10 bg-black/20 px-3 py-2">
+            <p className="uppercase tracking-[0.16em] text-zinc-500">Level</p>
+            <p className="mt-1 text-zinc-100">{dimension.audienceLevel}</p>
+          </div>
+        </div>
+      ) : null}
+
+      {'secondsToValue' in dimension ? (
+        <div className="mt-3 rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-xs text-zinc-300">
+          <p className="uppercase tracking-[0.16em] text-zinc-500">Estimated time to value</p>
+          <p className="mt-1 text-zinc-100">{dimension.secondsToValue != null ? `${dimension.secondsToValue}s` : 'Unclear from transcript'}</p>
+        </div>
+      ) : null}
+
+      {'dominantDrivers' in dimension && dimension.dominantDrivers.length ? (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {dimension.dominantDrivers.map((driver) => (
+            <StatusPill key={driver} label={driver} tone="neutral" />
+          ))}
+        </div>
+      ) : null}
+
+      {'visualRead' in dimension ? (
+        <div className="mt-3 rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-xs text-zinc-300">
+          <p className="uppercase tracking-[0.16em] text-zinc-500">Thumbnail read</p>
+          <p className="mt-1 text-zinc-100">{dimension.visualRead}</p>
+        </div>
+      ) : null}
+
+      <TranscriptEvidenceList evidence={dimension.evidence} />
+    </div>
+  );
+}
+
+function TranscriptAnalysisPanel({ analysis }: { analysis: VideoTranscriptAnalysis }) {
+  const d = analysis.dimensions;
+
+  return (
+    <div className="mt-3 rounded-2xl border border-sky-500/20 bg-sky-500/5 p-4">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.18em] text-sky-100/70">AI transcript analysis</p>
+          <p className="mt-2 text-sm leading-6 text-zinc-200">{analysis.overview.summary}</p>
+        </div>
+        <div className="text-right text-xs text-zinc-400">
+          <p>{analysis.model}</p>
+          <p className="mt-1">{analysis.transcriptExcerpted ? `Excerpted ${analysis.transcriptCharactersSent.toLocaleString()} / ${analysis.transcriptCharacters.toLocaleString()} chars` : `${analysis.transcriptCharacters.toLocaleString()} chars analyzed`}</p>
+        </div>
+      </div>
+
+      <div className="mt-3 flex flex-wrap gap-2">
+        <StatusPill label={`Value type: ${analysis.overview.valueType}`} tone="neutral" />
+        <StatusPill label={`Audience level: ${analysis.dimensions.audienceTargeting.audienceLevel}`} tone="neutral" />
+      </div>
+
+      <div className="mt-4 grid gap-3 xl:grid-cols-3">
+        <div className="rounded-2xl border border-white/10 bg-black/20 p-3">
+          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Strengths</p>
+          <ul className="mt-2 space-y-2 text-sm text-zinc-200">
+            {analysis.strengths.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-black/20 p-3">
+          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Risks</p>
+          <ul className="mt-2 space-y-2 text-sm text-zinc-200">
+            {analysis.risks.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-black/20 p-3">
+          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Recommendations</p>
+          <ul className="mt-2 space-y-2 text-sm text-zinc-200">
+            {analysis.recommendations.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-4 space-y-4">
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Value and audience</p>
+          <div className="mt-2 grid gap-3 xl:grid-cols-2">
+            <TranscriptDimensionCard dimension={d.valuePropositionClarity} title="Value proposition clarity" />
+            <TranscriptDimensionCard dimension={d.audienceTargeting} title="Audience targeting / level" />
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Structure and payoff</p>
+          <div className="mt-2 grid gap-3 xl:grid-cols-2">
+            <TranscriptDimensionCard dimension={d.timeToValue} title="Time to value" />
+            <TranscriptDimensionCard dimension={d.openLoopsRetentionStructure} title="Open loops / retention structure" />
+            <TranscriptDimensionCard dimension={d.payoffDelivery} title="Payoff delivery" />
+            <TranscriptDimensionCard dimension={d.pacing} title="Pacing" />
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Engagement, utility, and trust</p>
+          <div className="mt-2 grid gap-3 xl:grid-cols-3">
+            <TranscriptDimensionCard dimension={d.humorSurpriseTensionConflict} title="Humor / surprise / tension / conflict" />
+            <TranscriptDimensionCard dimension={d.practicalUtilityDepth} title="Practical utility depth" />
+            <TranscriptDimensionCard dimension={d.credibilityQuality} title="Credibility quality" />
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Friction signals</p>
+          <div className="mt-2 grid gap-3 xl:grid-cols-2">
+            <TranscriptDimensionCard dimension={d.filler} invert title="Filler" />
+            <TranscriptDimensionCard dimension={d.repetition} invert title="Repetition" />
+            <TranscriptDimensionCard dimension={d.sponsorIntrusion} invert title="Sponsor intrusion" />
+            <TranscriptDimensionCard dimension={d.ctaOverload} invert title="CTA overload" />
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Packaging alignment</p>
+          <div className="mt-2 grid gap-3 xl:grid-cols-2">
+            <TranscriptDimensionCard dimension={d.titlePromiseVsTranscriptDelivery} title="Title promise vs transcript delivery" />
+            <TranscriptDimensionCard dimension={d.thumbnailTitleComplementarity} title="Thumbnail/title complementarity" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AnalysisVideoCard({
+  analysis,
+  video,
+  busy,
+  error,
+  onAnalyzeTranscript,
+}: {
+  analysis: ChannelAnalysis;
+  video: AnalyzedVideo;
+  busy: boolean;
+  error?: string;
+  onAnalyzeTranscript: (videoId: string) => Promise<void>;
+}) {
   const engagementRate = computeEngagementRate(video);
   const medianEngagementRate = computeMedianEngagementRate(analysis);
 
@@ -288,7 +548,7 @@ function AnalysisVideoCard({ analysis, video }: { analysis: ChannelAnalysis; vid
               <p className="text-base font-semibold leading-6 text-white">{video.title}</p>
               <p className="mt-2 text-sm text-zinc-400">{formatPublishedLabel(video)}</p>
             </div>
-            {video.transcriptSignals ? <StatusPill label="deep dive" tone="success" /> : null}
+            {transcriptBadge(video)}
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -339,6 +599,26 @@ function AnalysisVideoCard({ analysis, video }: { analysis: ChannelAnalysis; vid
           <span className="font-medium text-zinc-300">Duration:</span> {formatDurationLabel(video.durationSeconds)}
         </p>
 
+        <div className="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Transcript analysis</p>
+              <p className="mt-2 text-sm text-zinc-400">{transcriptStatusText(video)}</p>
+            </div>
+            <button
+              className="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white transition hover:border-white/20 hover:bg-white/5 disabled:cursor-not-allowed disabled:text-zinc-500"
+              disabled={busy}
+              onClick={() => {
+                void onAnalyzeTranscript(video.id);
+              }}
+              type="button"
+            >
+              {busy ? 'Running AI analysis…' : transcriptActionLabel(video)}
+            </button>
+          </div>
+          {error ? <p className="mt-3 text-sm text-rose-300">{error}</p> : null}
+        </div>
+
         {video.whyFlagged.length ? (
           <div className="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
             <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Why it stood out</p>
@@ -350,16 +630,7 @@ function AnalysisVideoCard({ analysis, video }: { analysis: ChannelAnalysis; vid
           </div>
         ) : null}
 
-        {video.transcriptSignals ? (
-          <div className="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
-            <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Transcript-backed signals</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {Object.entries(video.transcriptSignals).map(([key, signal]) => (
-                <StatusPill key={key} label={`${key.replace(/([A-Z])/g, ' $1').trim()}: ${signal.level}`} tone={toneForSignal(signal.level)} />
-              ))}
-            </div>
-          </div>
-        ) : null}
+        {video.transcriptAnalysis ? <TranscriptAnalysisPanel analysis={video.transcriptAnalysis} /> : null}
 
         {video.contextNotes.length ? (
           <div className="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3 text-sm text-zinc-400">
@@ -380,16 +651,40 @@ function AnalysisVideoCard({ analysis, video }: { analysis: ChannelAnalysis; vid
 const INITIAL_VISIBLE_VIDEOS = 12;
 const LOAD_MORE_STEP = 12;
 
-export function AnalysisResults({ analysis }: AnalysisResultsProps) {
+export function AnalysisResults({ analysis, onAnalyzeTranscript }: AnalysisResultsProps) {
   const videos = useMemo(() => sortVideosNewestFirst(analysis.videos), [analysis.videos]);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_VIDEOS);
+  const [activeTranscriptVideoId, setActiveTranscriptVideoId] = useState<string | null>(null);
+  const [transcriptErrors, setTranscriptErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     setVisibleCount(INITIAL_VISIBLE_VIDEOS);
+    setActiveTranscriptVideoId(null);
+    setTranscriptErrors({});
   }, [analysis.id]);
 
   const visibleVideos = videos.slice(0, visibleCount);
   const hasMoreVideos = visibleCount < videos.length;
+
+  async function handleTranscriptAnalyze(videoId: string) {
+    setActiveTranscriptVideoId(videoId);
+    setTranscriptErrors((current) => {
+      const next = { ...current };
+      delete next[videoId];
+      return next;
+    });
+
+    try {
+      await onAnalyzeTranscript(analysis.id, videoId);
+    } catch (error) {
+      setTranscriptErrors((current) => ({
+        ...current,
+        [videoId]: error instanceof Error ? error.message : 'Unable to analyze this transcript.',
+      }));
+    } finally {
+      setActiveTranscriptVideoId((current) => (current === videoId ? null : current));
+    }
+  }
 
   return (
     <section className="space-y-6">
@@ -427,7 +722,7 @@ export function AnalysisResults({ analysis }: AnalysisResultsProps) {
           </div>
 
           <p className="mt-5 max-w-3xl text-sm leading-6 text-zinc-400">
-            Recent-video snapshot laid out like a channel page: newest first, with outlier and engagement badges on each card. Treat the scores as directional evidence rather than absolute truth.
+            Recent-video snapshot laid out like a channel page: newest first, with outlier and engagement badges on each card. Use Analyze transcript inside any card to add on-demand AI transcript analysis with value, pacing, credibility, friction, and packaging reads.
           </p>
         </div>
       </div>
@@ -442,12 +737,25 @@ export function AnalysisResults({ analysis }: AnalysisResultsProps) {
           <p className="mt-2 text-2xl font-semibold text-white">{formatDecimal(analysis.medianEngagementPer1kViews)}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-zinc-900/80 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-          <p className="text-sm text-zinc-500">Transcript coverage</p>
+          <p className="text-sm text-zinc-500">Transcript analysis coverage</p>
           <p className="mt-2 text-2xl font-semibold text-white">{formatPercent(analysis.transcriptCoverage)}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-zinc-900/80 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
           <p className="text-sm text-zinc-500">Sample size</p>
           <p className="mt-2 text-2xl font-semibold text-white">{analysis.videoSampleSize}</p>
+        </div>
+      </div>
+
+      <div className="grid gap-6">
+        <div className="rounded-3xl border border-white/10 bg-zinc-900/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+          <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">What seems to be working</p>
+          <ul className="mt-4 space-y-3">
+            {analysis.findings.map((finding) => (
+              <li className="rounded-2xl border border-white/10 bg-zinc-950/70 px-4 py-3 text-sm text-zinc-300" key={finding}>
+                {finding}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
@@ -467,7 +775,14 @@ export function AnalysisResults({ analysis }: AnalysisResultsProps) {
 
         <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {visibleVideos.map((video) => (
-            <AnalysisVideoCard analysis={analysis} key={video.id} video={video} />
+            <AnalysisVideoCard
+              analysis={analysis}
+              busy={activeTranscriptVideoId === video.id}
+              error={transcriptErrors[video.id]}
+              key={video.id}
+              onAnalyzeTranscript={handleTranscriptAnalyze}
+              video={video}
+            />
           ))}
         </div>
 
@@ -483,41 +798,6 @@ export function AnalysisResults({ analysis }: AnalysisResultsProps) {
           </div>
         ) : null}
       </section>
-
-      <div className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
-        <div className="rounded-3xl border border-white/10 bg-zinc-900/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-          <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">What seems to be working</p>
-          <ul className="mt-4 space-y-3">
-            {analysis.findings.map((finding) => (
-              <li className="rounded-2xl border border-white/10 bg-zinc-950/70 px-4 py-3 text-sm text-zinc-300" key={finding}>
-                {finding}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="rounded-3xl border border-white/10 bg-zinc-900/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-          <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">What to try next</p>
-          <ul className="mt-4 space-y-3">
-            {analysis.experiments.map((experiment) => (
-              <li className="rounded-2xl border border-white/10 bg-zinc-950/70 px-4 py-3 text-sm text-zinc-300" key={experiment}>
-                {experiment}
-              </li>
-            ))}
-          </ul>
-
-          {analysis.warnings.length ? (
-            <div className="mt-5 rounded-2xl border border-amber-500/20 bg-amber-500/10 p-4">
-              <p className="text-sm font-medium text-amber-100">Caveats</p>
-              <ul className="mt-2 space-y-2 text-sm text-amber-50/85">
-                {analysis.warnings.map((warning) => (
-                  <li key={warning}>{warning}</li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-        </div>
-      </div>
     </section>
   );
 }

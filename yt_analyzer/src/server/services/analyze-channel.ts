@@ -1,43 +1,22 @@
 import { randomUUID } from 'node:crypto';
 
 import { ANALYSIS_SAMPLE_SIZE, ANALYSIS_VERSION, type AnalyzedVideo, type ChannelAnalysis, type ChannelVideo } from '@/lib/types/analysis';
-import { computeEngagementPer1kViews, inferDataQuality, scoreVideos, scoreVideosAgainstBaseline } from '@/server/analysis/outliers';
-import { analyzeTranscriptSignals } from '@/server/analysis/transcript-signals';
-import { buildContextNotes } from '@/server/analysis/context-notes';
 import { buildChannelFindings } from '@/server/analysis/channel-findings';
+import { buildContextNotes } from '@/server/analysis/context-notes';
+import { computeEngagementPer1kViews, inferDataQuality, scoreVideos, scoreVideosAgainstBaseline } from '@/server/analysis/outliers';
 import { saveChannelAnalysis } from '@/server/store/analysis-store';
 import { fetchChannelSnapshot, resolveChannelInput } from '@/server/youtube/client';
-import { fetchVideoTranscript } from '@/server/youtube/transcripts';
 
-async function enrichTranscripts(videos: AnalyzedVideo[], candidateIds: string[]) {
-  const candidateSet = new Set(candidateIds);
-  const updated: AnalyzedVideo[] = [];
+const DERIVED_WARNING_MESSAGES = new Set([
+  'Transcript analysis coverage is low, so transcript-backed video insights are limited.',
+  'Median views could not be calculated reliably for this sample.',
+]);
 
-  for (const video of videos) {
-    const nextVideo: AnalyzedVideo = {
-      ...video,
-      contextNotes: buildContextNotes(video.title),
-    };
-
-    if (!candidateSet.has(video.id)) {
-      updated.push(nextVideo);
-      continue;
-    }
-
-    const transcript = await fetchVideoTranscript(video.id);
-    nextVideo.transcriptStatus = transcript.status;
-
-    if (transcript.status === 'available' && transcript.segments.length) {
-      nextVideo.transcriptSignals = analyzeTranscriptSignals({
-        title: video.title,
-        transcriptSegments: transcript.segments,
-      });
-    }
-
-    updated.push(nextVideo);
-  }
-
-  return updated;
+function withContextNotes(video: AnalyzedVideo): AnalyzedVideo {
+  return {
+    ...video,
+    contextNotes: buildContextNotes(video.title),
+  };
 }
 
 function toAnalyzedVideos(videos: ChannelVideo[]): AnalyzedVideo[] {
@@ -50,58 +29,84 @@ function toAnalyzedVideos(videos: ChannelVideo[]): AnalyzedVideo[] {
   }));
 }
 
-export async function analyzeChannel(channelInput: string, save = true): Promise<ChannelAnalysis> {
-  const resolved = await resolveChannelInput(channelInput);
-  const snapshot = await fetchChannelSnapshot(resolved);
-  const analysisSeedVideos = snapshot.latestVideos.slice(0, ANALYSIS_SAMPLE_SIZE);
-  const scoredInitial = scoreVideos(toAnalyzedVideos(analysisSeedVideos));
-  const transcriptEnriched = await enrichTranscripts(scoredInitial.scoredVideos, scoredInitial.transcriptCandidateIds);
-  const scored = scoreVideos(transcriptEnriched);
-  const transcriptById = new Map(transcriptEnriched.map((video) => [video.id, video]));
-  const displayVideos = scoreVideosAgainstBaseline(
-    toAnalyzedVideos(snapshot.latestVideos).map((video) => {
-      const existing = transcriptById.get(video.id);
-      if (existing) {
-        return existing;
-      }
+function getTranscriptCoverage(videos: AnalyzedVideo[]) {
+  return videos.filter((video) => video.transcriptAnalysis).length / Math.max(videos.length, 1);
+}
 
-      return {
-        ...video,
-        contextNotes: buildContextNotes(video.title),
-      };
-    }),
-    {
-      medianViews: scored.medianViews,
-      medianEngagementPer1kViews: scored.medianEngagementPer1kViews,
-    },
-  );
+function getEngagementCoverage(videos: AnalyzedVideo[]) {
+  return videos.filter((video) => video.engagementPer1kViews != null).length / Math.max(videos.length, 1);
+}
 
-  const transcriptCoverage =
-    transcriptEnriched.filter((video) => video.transcriptStatus === 'available').length /
-    Math.max(transcriptEnriched.length, 1);
-  const engagementCoverage =
-    transcriptEnriched.filter((video) => video.engagementPer1kViews != null).length /
-    Math.max(transcriptEnriched.length, 1);
+function getSourceWarnings(analysis: ChannelAnalysis) {
+  return analysis.sourceWarnings ?? analysis.warnings.filter((warning) => !DERIVED_WARNING_MESSAGES.has(warning));
+}
+
+function scoreAnalysisVideos(videos: AnalyzedVideo[], videoSampleSize: number) {
+  const normalizedVideos = videos.map(withContextNotes);
+  const sampleSize = Math.min(videoSampleSize, normalizedVideos.length);
+  const sampleVideos = normalizedVideos.slice(0, sampleSize);
+  const scoredSample = scoreVideos(sampleVideos);
+  const displayVideos = scoreVideosAgainstBaseline(normalizedVideos, {
+    medianViews: scoredSample.medianViews,
+    medianEngagementPer1kViews: scoredSample.medianEngagementPer1kViews,
+  });
+  const displayById = new Map(displayVideos.map((video) => [video.id, video]));
+
+  return {
+    sampleSize,
+    scoredSampleVideos: scoredSample.scoredVideos,
+    displayVideos,
+    medianViews: scoredSample.medianViews,
+    medianEngagementPer1kViews: scoredSample.medianEngagementPer1kViews,
+    viewWinners: scoredSample.viewWinners.map((video) => displayById.get(video.id) ?? video),
+    engagementStandouts: scoredSample.engagementStandouts.map((video) => displayById.get(video.id) ?? video),
+  };
+}
+
+export function refreshChannelAnalysis(analysis: ChannelAnalysis, videos = analysis.videos): ChannelAnalysis {
+  const sourceWarnings = getSourceWarnings(analysis);
+  const scored = scoreAnalysisVideos(videos, analysis.videoSampleSize);
+  const transcriptCoverage = getTranscriptCoverage(scored.displayVideos);
   const dataQuality = inferDataQuality({
     transcriptCoverage,
-    engagementCoverage,
-    sampleSize: transcriptEnriched.length,
+    engagementCoverage: getEngagementCoverage(scored.displayVideos),
+    sampleSize: scored.sampleSize,
   });
-
   const synthesized = buildChannelFindings({
     analysisBase: {
-      channelTitle: snapshot.channelTitle,
+      channelTitle: analysis.channelTitle,
       medianViews: scored.medianViews,
       transcriptCoverage,
     },
-    videos: transcriptEnriched,
+    videos: scored.scoredSampleVideos,
     viewWinners: scored.viewWinners,
     engagementStandouts: scored.engagementStandouts,
     dataQuality,
-    warnings: snapshot.warnings,
+    warnings: sourceWarnings,
   });
 
-  const analysis: ChannelAnalysis = {
+  return {
+    ...analysis,
+    sourceWarnings,
+    videoSampleSize: scored.sampleSize,
+    transcriptCoverage,
+    dataQuality,
+    medianViews: scored.medianViews,
+    medianEngagementPer1kViews: scored.medianEngagementPer1kViews,
+    findings: synthesized.findings,
+    experiments: synthesized.experiments,
+    warnings: synthesized.warnings,
+    viewWinners: scored.viewWinners,
+    engagementStandouts: scored.engagementStandouts,
+    videos: scored.displayVideos,
+  };
+}
+
+export async function analyzeChannel(channelInput: string, save = true): Promise<ChannelAnalysis> {
+  const resolved = await resolveChannelInput(channelInput);
+  const snapshot = await fetchChannelSnapshot(resolved);
+
+  const analysis = refreshChannelAnalysis({
     id: randomUUID(),
     analysisVersion: ANALYSIS_VERSION,
     channelId: snapshot.channelId,
@@ -113,18 +118,19 @@ export async function analyzeChannel(channelInput: string, save = true): Promise
     subscriberCountText: snapshot.subscriberCountText,
     totalVideoCountText: snapshot.totalVideoCountText,
     analyzedAt: new Date().toISOString(),
-    videoSampleSize: transcriptEnriched.length,
-    transcriptCoverage,
-    dataQuality,
-    medianViews: scored.medianViews,
-    medianEngagementPer1kViews: scored.medianEngagementPer1kViews,
-    findings: synthesized.findings,
-    experiments: synthesized.experiments,
-    warnings: synthesized.warnings,
-    viewWinners: scored.viewWinners,
-    engagementStandouts: scored.engagementStandouts,
-    videos: displayVideos,
-  };
+    videoSampleSize: Math.min(ANALYSIS_SAMPLE_SIZE, snapshot.latestVideos.length),
+    transcriptCoverage: 0,
+    dataQuality: 'weak',
+    medianViews: null,
+    medianEngagementPer1kViews: null,
+    findings: [],
+    experiments: [],
+    sourceWarnings: snapshot.warnings,
+    warnings: snapshot.warnings,
+    viewWinners: [],
+    engagementStandouts: [],
+    videos: toAnalyzedVideos(snapshot.latestVideos),
+  });
 
   if (save) {
     await saveChannelAnalysis(analysis);

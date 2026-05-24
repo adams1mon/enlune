@@ -49,7 +49,7 @@ export function SavedAnalysesPanel({ analyses, busy, onOpen, onDelete }: SavedAn
                   <p className="mt-1 text-white">{formatCompactNumber(analysis.medianViews)}</p>
                 </div>
                 <div>
-                  <p className="text-zinc-500">Transcript coverage</p>
+                  <p className="text-zinc-500">Transcript analysis coverage</p>
                   <p className="mt-1 text-white">{formatPercent(analysis.transcriptCoverage)}</p>
                 </div>
                 <div>

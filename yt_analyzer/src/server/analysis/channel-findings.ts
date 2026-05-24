@@ -1,9 +1,5 @@
-import type { AnalyzedVideo, ChannelAnalysis, DataQuality, TranscriptSignalMap } from '@/lib/types/analysis';
+import type { AnalyzedVideo, ChannelAnalysis, DataQuality } from '@/lib/types/analysis';
 import { extractKeywords, uniqueStrings } from '@/lib/utils';
-
-function countHighSignals(videos: AnalyzedVideo[], key: keyof TranscriptSignalMap) {
-  return videos.filter((video) => video.transcriptSignals?.[key]?.level === 'high').length;
-}
 
 function buildPatternSentences(videos: AnalyzedVideo[]) {
   const titles = videos.map((video) => video.title);
@@ -17,14 +13,6 @@ function buildPatternSentences(videos: AnalyzedVideo[]) {
 
   if (keywords.length) {
     messages.push(`Repeated winning themes include ${keywords.slice(0, 4).join(', ')}.`);
-  }
-
-  if (countHighSignals(videos, 'hookStrength') >= 2) {
-    messages.push('The strongest videos usually get to the hook quickly instead of easing in slowly.');
-  }
-
-  if (countHighSignals(videos, 'specificityTacticality') >= 2) {
-    messages.push('Concrete promises and specific outcomes appear more often in the winners than vague framing.');
   }
 
   return uniqueStrings(messages);
@@ -63,16 +51,8 @@ export function buildChannelFindings(input: {
 
   if (topKeywords.length) {
     experiments.push(
-      `Test more titles that lean into ${topKeywords.slice(0, 3).join(', ')}; those themes showed up repeatedly in the view winners.`,
+      `Test more titles that lean into keywords: '${topKeywords.slice(0, 3).join(', ')}'; those themes showed up repeatedly in the view winners.`,
     );
-  }
-
-  if (countHighSignals(input.viewWinners, 'hookStrength') >= 2) {
-    experiments.push('Open future videos faster with the core tension or payoff instead of spending the first beats on setup.');
-  }
-
-  if (countHighSignals(input.viewWinners, 'specificityTacticality') >= 2) {
-    experiments.push('Try packaging videos around a more specific promise, outcome, or timeframe instead of a broad topic label.');
   }
 
   if (!experiments.length) {
@@ -84,7 +64,7 @@ export function buildChannelFindings(input: {
     experiments: uniqueStrings(experiments).slice(0, input.dataQuality === 'weak' ? 2 : 3),
     warnings: uniqueStrings([
       ...input.warnings,
-      input.analysisBase.transcriptCoverage < 0.34 ? 'Transcript coverage is low, so transcript-backed findings are limited.' : '',
+      input.analysisBase.transcriptCoverage < 0.34 ? 'Transcript analysis coverage is low, so transcript-backed video insights are limited.' : '',
       input.analysisBase.medianViews == null ? 'Median views could not be calculated reliably for this sample.' : '',
     ]),
   };

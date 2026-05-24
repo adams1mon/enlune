@@ -5,6 +5,11 @@ export const analyzeChannelSchema = z.object({
   save: z.boolean().optional(),
 });
 
+export const analyzeVideoTranscriptSchema = z.object({
+  analysisId: z.string().trim().min(1, 'Choose a saved analysis.'),
+  videoId: z.string().trim().min(1, 'Choose a video to analyze.'),
+});
+
 export const compareSavedAnalysesSchema = z
   .object({
     leftAnalysisId: z.string().trim().min(1, 'Select the left analysis.'),
@@ -20,5 +25,6 @@ export const savedAnalysisQuerySchema = z.object({
 });
 
 export type AnalyzeChannelInput = z.infer<typeof analyzeChannelSchema>;
+export type AnalyzeVideoTranscriptInput = z.infer<typeof analyzeVideoTranscriptSchema>;
 export type CompareSavedAnalysesInput = z.infer<typeof compareSavedAnalysesSchema>;
 export type SavedAnalysisQueryInput = z.infer<typeof savedAnalysisQuerySchema>;

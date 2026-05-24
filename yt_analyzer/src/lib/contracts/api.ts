@@ -10,6 +10,8 @@ export type ErrorCode =
   | 'ANALYSIS_NOT_FOUND'
   | 'YOUTUBE_FETCH_FAILED'
   | 'TRANSCRIPT_FETCH_FAILED'
+  | 'LLM_CONFIG_MISSING'
+  | 'LLM_ANALYSIS_FAILED'
   | 'STORE_READ_FAILED'
   | 'STORE_WRITE_FAILED'
   | 'INTERNAL_ERROR';
@@ -36,6 +38,11 @@ export interface AnalyzeChannelRequest {
   save?: boolean;
 }
 
+export interface AnalyzeVideoTranscriptRequest {
+  analysisId: string;
+  videoId: string;
+}
+
 export interface CompareSavedAnalysesRequest {
   leftAnalysisId: string;
   rightAnalysisId: string;
@@ -47,5 +54,6 @@ export interface SavedAnalysesResponseData {
 }
 
 export type AnalyzeChannelResponse = ApiResponse<ChannelAnalysis>;
+export type AnalyzeVideoTranscriptResponse = ApiResponse<ChannelAnalysis>;
 export type CompareSavedAnalysesResponse = ApiResponse<ChannelCompareResult>;
 export type SavedAnalysesResponse = ApiResponse<SavedAnalysesResponseData>;

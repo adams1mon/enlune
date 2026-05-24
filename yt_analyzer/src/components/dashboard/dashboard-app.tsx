@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import type {
   AnalyzeChannelResponse,
+  AnalyzeVideoTranscriptResponse,
   CompareSavedAnalysesResponse,
   SavedAnalysesResponse,
 } from '@/lib/contracts/api';
@@ -103,6 +104,32 @@ export function DashboardApp() {
     }
   }
 
+  async function handleAnalyzeTranscript(analysisId: string, videoId: string) {
+    setError(null);
+
+    try {
+      const response = await fetch('/api/analyze/transcript', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ analysisId, videoId }),
+      });
+      const payload = (await response.json()) as AnalyzeVideoTranscriptResponse;
+
+      if (!payload.ok) {
+        throw new Error(payload.error.message);
+      }
+
+      setLatestAnalysis(payload.data);
+      await loadSaved(payload.data.id);
+    } catch (nextError) {
+      const message = nextError instanceof Error ? nextError.message : 'Unable to analyze that transcript.';
+      setError(message);
+      throw nextError instanceof Error ? nextError : new Error(message);
+    }
+  }
+
   async function handleDeleteSavedAnalysis(analysisId: string) {
     setSavedBusy(true);
     setError(null);
@@ -135,11 +162,10 @@ export function DashboardApp() {
     <main className="min-h-screen bg-[#09090b] text-zinc-100">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-6 py-10 lg:px-8">
         <header className="flex flex-col gap-4 rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.18),transparent_38%),linear-gradient(180deg,rgba(24,24,27,0.96),rgba(9,9,11,0.96))] p-8 shadow-[0_25px_80px_rgba(0,0,0,0.45)]">
-          <p className="text-xs uppercase tracking-[0.28em] text-zinc-500">Enlune • YouTube channel analyzer MVP</p>
           <div className="max-w-3xl">
             <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Spot the outliers, inspect the packaging, keep the useful patterns.</h1>
-            <p className="mt-4 text-base leading-7 text-zinc-300 sm:text-lg">
-              A deliberately lightweight channel teardown tool: recent-video sampling, outlier detection, transcript-backed heuristics, saved snapshots, and saved-vs-saved comparison.
+            <p className="mt-4 text-base leading-7 text-zinc-500 sm:text-lg">
+              A lightweight channel teardown tool: recent-video sampling, outlier detection, and AI transcript analysis.
             </p>
           </div>
         </header>
@@ -155,7 +181,7 @@ export function DashboardApp() {
 
         <SavedAnalysesPanel analyses={analyses} busy={savedBusy} onDelete={handleDeleteSavedAnalysis} onOpen={loadSaved} />
 
-        {latestAnalysis ? <AnalysisResults analysis={latestAnalysis} /> : null}
+        {latestAnalysis ? <AnalysisResults analysis={latestAnalysis} onAnalyzeTranscript={handleAnalyzeTranscript} /> : null}
         {latestCompare ? <CompareResults analyses={analyses} result={latestCompare} /> : null}
       </div>
     </main>
