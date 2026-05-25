@@ -24,13 +24,11 @@ export function compareSavedAnalyses(left: ChannelAnalysis, right: ChannelAnalys
 
   const leftDoesMoreOf = uniqueStrings([
     leftAverage != null && rightAverage != null && leftAverage > rightAverage ? 'Turns standout videos into bigger view outliers.' : '',
-    left.transcriptCoverage > right.transcriptCoverage ? 'Has stronger transcript-backed evidence for its winning patterns.' : '',
     leftPatterns[0] ? `Leans harder on themes like ${leftPatterns.slice(0, 3).join(', ')}.` : '',
   ]).slice(0, 3);
 
   const rightDoesMoreOf = uniqueStrings([
     rightAverage != null && leftAverage != null && rightAverage > leftAverage ? 'Turns standout videos into bigger view outliers.' : '',
-    right.transcriptCoverage > left.transcriptCoverage ? 'Has stronger transcript-backed evidence for its winning patterns.' : '',
     rightPatterns[0] ? `Leans harder on themes like ${rightPatterns.slice(0, 3).join(', ')}.` : '',
   ]).slice(0, 3);
 
@@ -40,12 +38,6 @@ export function compareSavedAnalyses(left: ChannelAnalysis, right: ChannelAnalys
     overlapPatterns.length ? `Both channels already share patterns around ${overlapPatterns.join(', ')}.` : '',
   ]).slice(0, 4);
 
-  const warnings = uniqueStrings([
-    left.dataQuality === 'weak' || right.dataQuality === 'weak'
-      ? 'One side has weak evidence quality, so comparison claims should be treated carefully.'
-      : '',
-  ]);
-
   return {
     leftAnalysisId: left.id,
     rightAnalysisId: right.id,
@@ -54,6 +46,6 @@ export function compareSavedAnalyses(left: ChannelAnalysis, right: ChannelAnalys
     leftDoesMoreOf,
     rightDoesMoreOf,
     borrowingIdeas,
-    warnings,
+    warnings: [],
   };
 }

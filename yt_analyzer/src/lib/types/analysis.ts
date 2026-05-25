@@ -5,7 +5,6 @@ export const MAX_DEEP_DIVES = 5;
 export type TranscriptStatus = 'not_requested' | 'available' | 'unavailable' | 'error';
 export type TranscriptAnalysisMethod = 'llm';
 export type TranscriptAnalysisProvider = 'openai-compatible';
-export type DataQuality = 'strong' | 'mixed' | 'weak';
 
 export interface ChannelVideo {
   id: string;
@@ -106,8 +105,6 @@ export interface ChannelAnalysis {
   totalVideoCountText?: string | null;
   analyzedAt: string;
   videoSampleSize: number;
-  transcriptCoverage: number;
-  dataQuality: DataQuality;
   medianViews: number | null;
   medianEngagementPer1kViews: number | null;
   findings: string[];
@@ -125,10 +122,9 @@ export interface SavedChannelAnalysisSummary {
   channelUrl: string;
   analyzedAt: string;
   videoSampleSize: number;
-  transcriptCoverage: number;
+  aiTranscriptAnalysisCount: number;
   medianViews: number | null;
   topTakeaway: string | null;
-  dataQuality: DataQuality;
 }
 
 export interface ChannelCompareResult {

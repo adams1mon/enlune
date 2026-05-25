@@ -61,10 +61,9 @@ Result structure for a single analysis:
    - videos that materially beat the channel’s median engagement proxy
 5. Winning patterns
    - repeated title/topic/format patterns
-   - repeated transcript-backed tendencies when available
 6. Video deep dives
    - maximum 5 videos
-   - transcript signal scores + evidence notes
+   - structured AI transcript analysis + evidence notes
 7. What to test next
    - 3 concrete channel-specific experiments, or fewer when evidence is weak
 
@@ -218,16 +217,12 @@ ChannelVideo:
 - isShort: boolean | null
 - transcriptStatus: "not_requested" | "available" | "unavailable" | "error"
 
-TranscriptSignalScore:
-- level: "low" | "medium" | "high"
-- evidence: string[]
-
 AnalyzedVideo:
 - base video fields
 - viewOutlierRatio: number | null
 - engagementPer1kViews: number | null
 - whyFlagged: string[]
-- transcriptSignals?: record of the 5 signal scores
+- transcriptAnalysis?: structured AI transcript analysis result
 - contextNotes: string[]
 
 ChannelAnalysis:
@@ -238,8 +233,6 @@ ChannelAnalysis:
 - channelUrl: string
 - analyzedAt: string
 - videoSampleSize: number
-- transcriptCoverage: number
-- dataQuality: "strong" | "mixed" | "weak"
 - medianViews: number | null
 - medianEngagementPer1kViews: number | null
 - findings: string[]
@@ -255,10 +248,9 @@ SavedChannelAnalysisSummary:
 - channelUrl: string
 - analyzedAt: string
 - videoSampleSize: number
-- transcriptCoverage: number
+- aiTranscriptAnalysisCount: number
 - medianViews: number | null
 - topTakeaway: string | null
-- dataQuality: "strong" | "mixed" | "weak"
 
 ChannelCompareResult:
 - leftAnalysisId: string
@@ -425,10 +417,9 @@ Implementation notes:
 - channel-findings.ts:
   - synthesize 3-5 findings only when evidence quality supports them
   - synthesize up to 3 concrete experiments tied to evidence
-  - if data quality is weak, reduce the number of findings/experiments and make uncertainty explicit
   - summarize recurring title/topic patterns from simple keyword frequency, not heavy NLP
 - compare.ts:
-  - compare saved analyses across cadence, baseline performance, recurring winning patterns, title tendencies, and transcript-backed tendencies when coverage is adequate
+  - compare saved analyses across cadence, baseline performance, recurring winning patterns, and title tendencies
 
 Verification:
 - Analysis output is readable, grounded, and ends with actionable experiments.

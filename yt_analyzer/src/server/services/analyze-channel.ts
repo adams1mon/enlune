@@ -3,12 +3,11 @@ import { randomUUID } from 'node:crypto';
 import { ANALYSIS_SAMPLE_SIZE, ANALYSIS_VERSION, type AnalyzedVideo, type ChannelAnalysis, type ChannelVideo } from '@/lib/types/analysis';
 import { buildChannelFindings } from '@/server/analysis/channel-findings';
 import { buildContextNotes } from '@/server/analysis/context-notes';
-import { computeEngagementPer1kViews, inferDataQuality, scoreVideos, scoreVideosAgainstBaseline } from '@/server/analysis/outliers';
+import { computeEngagementPer1kViews, scoreVideos, scoreVideosAgainstBaseline } from '@/server/analysis/outliers';
 import { saveChannelAnalysis } from '@/server/store/analysis-store';
 import { fetchChannelSnapshot, resolveChannelInput } from '@/server/youtube/client';
 
 const DERIVED_WARNING_MESSAGES = new Set([
-  'Transcript analysis coverage is low, so transcript-backed video insights are limited.',
   'Median views could not be calculated reliably for this sample.',
 ]);
 
@@ -27,14 +26,6 @@ function toAnalyzedVideos(videos: ChannelVideo[]): AnalyzedVideo[] {
     whyFlagged: [],
     contextNotes: [],
   }));
-}
-
-function getTranscriptCoverage(videos: AnalyzedVideo[]) {
-  return videos.filter((video) => video.transcriptAnalysis).length / Math.max(videos.length, 1);
-}
-
-function getEngagementCoverage(videos: AnalyzedVideo[]) {
-  return videos.filter((video) => video.engagementPer1kViews != null).length / Math.max(videos.length, 1);
 }
 
 function getSourceWarnings(analysis: ChannelAnalysis) {
@@ -66,22 +57,14 @@ function scoreAnalysisVideos(videos: AnalyzedVideo[], videoSampleSize: number) {
 export function refreshChannelAnalysis(analysis: ChannelAnalysis, videos = analysis.videos): ChannelAnalysis {
   const sourceWarnings = getSourceWarnings(analysis);
   const scored = scoreAnalysisVideos(videos, analysis.videoSampleSize);
-  const transcriptCoverage = getTranscriptCoverage(scored.displayVideos);
-  const dataQuality = inferDataQuality({
-    transcriptCoverage,
-    engagementCoverage: getEngagementCoverage(scored.displayVideos),
-    sampleSize: scored.sampleSize,
-  });
   const synthesized = buildChannelFindings({
     analysisBase: {
       channelTitle: analysis.channelTitle,
       medianViews: scored.medianViews,
-      transcriptCoverage,
     },
     videos: scored.scoredSampleVideos,
     viewWinners: scored.viewWinners,
     engagementStandouts: scored.engagementStandouts,
-    dataQuality,
     warnings: sourceWarnings,
   });
 
@@ -89,8 +72,6 @@ export function refreshChannelAnalysis(analysis: ChannelAnalysis, videos = analy
     ...analysis,
     sourceWarnings,
     videoSampleSize: scored.sampleSize,
-    transcriptCoverage,
-    dataQuality,
     medianViews: scored.medianViews,
     medianEngagementPer1kViews: scored.medianEngagementPer1kViews,
     findings: synthesized.findings,
@@ -119,8 +100,6 @@ export async function analyzeChannel(channelInput: string, save = true): Promise
     totalVideoCountText: snapshot.totalVideoCountText,
     analyzedAt: new Date().toISOString(),
     videoSampleSize: Math.min(ANALYSIS_SAMPLE_SIZE, snapshot.latestVideos.length),
-    transcriptCoverage: 0,
-    dataQuality: 'weak',
     medianViews: null,
     medianEngagementPer1kViews: null,
     findings: [],

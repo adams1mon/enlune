@@ -1,4 +1,5 @@
 import type { AnalyzedVideo, ChannelAnalysis } from '@/lib/types/analysis';
+import { applyVideoTranscriptAnalysis } from '@/lib/transcript-analysis-snapshot';
 import { AppError } from '@/server/errors';
 import { analyzeVideoTranscriptWithLlm } from '@/server/llm/analyze-video-transcript';
 import { refreshChannelAnalysis } from '@/server/services/analyze-channel';
@@ -50,19 +51,11 @@ export async function analyzeSavedVideoTranscript(analysisId: string, videoId: s
   });
 
   const updatedAnalysis = refreshChannelAnalysis(
-    analysis,
-    analysis.videos.map((video) => {
-      if (video.id !== videoId) {
-        return video;
-      }
-
-      const nextVideo: AnalyzedVideo = {
-        ...video,
-        transcriptStatus: transcript.status,
-        transcriptAnalysis,
-      };
-
-      return nextVideo;
+    applyVideoTranscriptAnalysis({
+      analysis,
+      videoId,
+      transcriptStatus: transcript.status,
+      transcriptAnalysis,
     }),
   );
 

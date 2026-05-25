@@ -22,10 +22,9 @@ function summarizeAnalysis(analysis: ChannelAnalysis): SavedChannelAnalysisSumma
     channelUrl: analysis.channelUrl,
     analyzedAt: analysis.analyzedAt,
     videoSampleSize: analysis.videoSampleSize,
-    transcriptCoverage: analysis.transcriptCoverage,
+    aiTranscriptAnalysisCount: analysis.videos.filter((video) => Boolean(video.transcriptAnalysis)).length,
     medianViews: analysis.medianViews,
     topTakeaway: analysis.findings[0] ?? null,
-    dataQuality: analysis.dataQuality,
   };
 }
 

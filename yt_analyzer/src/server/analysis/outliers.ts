@@ -1,5 +1,5 @@
 import type { AnalyzedVideo } from '@/lib/types/analysis';
-import { clamp, median, safeRatio } from '@/lib/utils';
+import { median, safeRatio } from '@/lib/utils';
 
 export function computeEngagementPer1kViews(video: { likeCount: number | null; viewCount: number | null }) {
   const ratio = safeRatio(video.likeCount, video.viewCount);
@@ -55,17 +55,12 @@ export function scoreVideos(videos: AnalyzedVideo[]) {
     .sort((a, b) => (b.engagementPer1kViews ?? 0) - (a.engagementPer1kViews ?? 0))
     .slice(0, 3);
 
-  const transcriptCandidateIds = Array.from(
-    new Set([...viewWinners, ...engagementStandouts].map((video) => video.id)),
-  ).slice(0, 5);
-
   return {
     medianViews,
     medianEngagementPer1kViews,
     scoredVideos,
     viewWinners,
     engagementStandouts,
-    transcriptCandidateIds,
   };
 }
 
@@ -77,20 +72,4 @@ export function scoreVideosAgainstBaseline(
   },
 ) {
   return scoreVideosUsingMedians(videos, baseline.medianViews, baseline.medianEngagementPer1kViews);
-}
-
-export function inferDataQuality(input: {
-  transcriptCoverage: number;
-  engagementCoverage: number;
-  sampleSize: number;
-}) {
-  const score = clamp(
-    input.transcriptCoverage * 0.45 + input.engagementCoverage * 0.35 + Math.min(input.sampleSize / 15, 1) * 0.2,
-    0,
-    1,
-  );
-
-  if (score >= 0.72) return 'strong';
-  if (score >= 0.4) return 'mixed';
-  return 'weak';
 }

@@ -3,7 +3,7 @@
 import { formatDistanceToNow } from 'date-fns';
 
 import type { SavedChannelAnalysisSummary } from '@/lib/types/analysis';
-import { formatCompactNumber, formatPercent } from '@/lib/utils';
+import { formatCompactNumber } from '@/lib/utils';
 
 interface SavedAnalysesPanelProps {
   analyses: SavedChannelAnalysisSummary[];
@@ -49,8 +49,8 @@ export function SavedAnalysesPanel({ analyses, busy, onOpen, onDelete }: SavedAn
                   <p className="mt-1 text-white">{formatCompactNumber(analysis.medianViews)}</p>
                 </div>
                 <div>
-                  <p className="text-zinc-500">Transcript analysis coverage</p>
-                  <p className="mt-1 text-white">{formatPercent(analysis.transcriptCoverage)}</p>
+                  <p className="text-zinc-500">AI transcript analyses</p>
+                  <p className="mt-1 text-white">{analysis.aiTranscriptAnalysisCount}</p>
                 </div>
                 <div>
                   <p className="text-zinc-500">Sample size</p>

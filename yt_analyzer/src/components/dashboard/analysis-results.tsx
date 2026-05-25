@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState, type CSSProperties, type ReactNode, type 
 
 import type { AnalyzedVideo, ChannelAnalysis, VideoTranscriptAnalysis } from '@/lib/types/analysis';
 import { StatusPill } from '@/components/ui/status-pill';
-import { clamp, formatCompactNumber, formatDecimal, formatPercent, safeRatio } from '@/lib/utils';
+import { clamp, formatCompactNumber, formatDecimal, safeRatio } from '@/lib/utils';
 
 interface AnalysisResultsProps {
   analysis: ChannelAnalysis;
@@ -258,11 +258,7 @@ function ScoreHelpPopover({ analysis }: { analysis: ChannelAnalysis }) {
 
 function transcriptBadge(video: AnalyzedVideo) {
   if (video.transcriptAnalysis) {
-    return <StatusPill label="AI transcript analyzed" tone="success" />;
-  }
-
-  if (video.transcriptStatus === 'unavailable') {
-    return <StatusPill label="transcript unavailable" tone="warning" />;
+    return <StatusPill label="analyzed" tone="success" />;
   }
 
   return null;
@@ -653,6 +649,7 @@ const LOAD_MORE_STEP = 12;
 
 export function AnalysisResults({ analysis, onAnalyzeTranscript }: AnalysisResultsProps) {
   const videos = useMemo(() => sortVideosNewestFirst(analysis.videos), [analysis.videos]);
+  const aiTranscriptAnalysisCount = analysis.videos.filter((video) => Boolean(video.transcriptAnalysis)).length;
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_VIDEOS);
   const [activeTranscriptVideoId, setActiveTranscriptVideoId] = useState<string | null>(null);
   const [transcriptErrors, setTranscriptErrors] = useState<Record<string, string>>({});
@@ -737,8 +734,8 @@ export function AnalysisResults({ analysis, onAnalyzeTranscript }: AnalysisResul
           <p className="mt-2 text-2xl font-semibold text-white">{formatDecimal(analysis.medianEngagementPer1kViews)}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-zinc-900/80 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-          <p className="text-sm text-zinc-500">Transcript analysis coverage</p>
-          <p className="mt-2 text-2xl font-semibold text-white">{formatPercent(analysis.transcriptCoverage)}</p>
+          <p className="text-sm text-zinc-500">AI transcript analyses</p>
+          <p className="mt-2 text-2xl font-semibold text-white">{aiTranscriptAnalysisCount}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-zinc-900/80 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
           <p className="text-sm text-zinc-500">Sample size</p>

@@ -1,4 +1,4 @@
-import type { AnalyzedVideo, ChannelAnalysis, DataQuality } from '@/lib/types/analysis';
+import type { AnalyzedVideo, ChannelAnalysis } from '@/lib/types/analysis';
 import { extractKeywords, uniqueStrings } from '@/lib/utils';
 
 function buildPatternSentences(videos: AnalyzedVideo[]) {
@@ -19,11 +19,10 @@ function buildPatternSentences(videos: AnalyzedVideo[]) {
 }
 
 export function buildChannelFindings(input: {
-  analysisBase: Pick<ChannelAnalysis, 'channelTitle' | 'medianViews' | 'transcriptCoverage'>;
+  analysisBase: Pick<ChannelAnalysis, 'channelTitle' | 'medianViews'>;
   videos: AnalyzedVideo[];
   viewWinners: AnalyzedVideo[];
   engagementStandouts: AnalyzedVideo[];
-  dataQuality: DataQuality;
   warnings: string[];
 }) {
   const findings: string[] = [];
@@ -43,10 +42,6 @@ export function buildChannelFindings(input: {
     );
   }
 
-  if (input.dataQuality === 'weak') {
-    findings.push('Evidence quality is limited here, so treat the takeaways as directional rather than decisive.');
-  }
-
   const topKeywords = extractKeywords(input.viewWinners.map((video) => video.title), 4);
 
   if (topKeywords.length) {
@@ -60,11 +55,10 @@ export function buildChannelFindings(input: {
   }
 
   return {
-    findings: uniqueStrings(findings).slice(0, input.dataQuality === 'weak' ? 3 : 5),
-    experiments: uniqueStrings(experiments).slice(0, input.dataQuality === 'weak' ? 2 : 3),
+    findings: uniqueStrings(findings).slice(0, 5),
+    experiments: uniqueStrings(experiments).slice(0, 3),
     warnings: uniqueStrings([
       ...input.warnings,
-      input.analysisBase.transcriptCoverage < 0.34 ? 'Transcript analysis coverage is low, so transcript-backed video insights are limited.' : '',
       input.analysisBase.medianViews == null ? 'Median views could not be calculated reliably for this sample.' : '',
     ]),
   };

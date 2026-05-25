@@ -16,7 +16,7 @@ export function StatusPill({ label, tone = 'neutral' }: StatusPillProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.18em]',
+        'inline-flex justify-center items-center rounded-full border px-2.5 py-1 text-xs font-medium',
         toneClasses[tone],
       )}
     >
