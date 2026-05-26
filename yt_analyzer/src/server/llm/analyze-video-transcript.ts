@@ -1,3 +1,4 @@
+import { normalizeEvidenceTimestampToTranscriptFormat } from '@/lib/transcript-timestamps';
 import type { AnalyzedVideo, ChannelAnalysis, TranscriptSegment, VideoTranscriptAnalysis } from '@/lib/types/analysis';
 import { normalizeWhitespace, safeRatio } from '@/lib/utils';
 import { AppError } from '@/server/errors';
@@ -77,6 +78,12 @@ Brevity rules:
 - verdicts and evidence notes: compact and on point.
 - strengths, risks, recommendations: 1-4 items each, each item one short sentence.
 - evidence: at most 3 items per dimension, only the strongest proof.
+
+Timestamp rules:
+- Transcript lines are prefixed with raw second timestamps in brackets, such as [12], [42.5], or [1530].
+- When you cite evidence timestamps, use that same raw-seconds format from the transcript.
+- Do not convert timestamps into mm:ss or hh:mm:ss.
+- If you cite a range, write it in raw seconds, like 12-40 or 3723-3725.5.
 
 Scoring rules:
 - Use integer scores from 1 to 5 only.
@@ -191,6 +198,120 @@ function parseStructuredTranscriptAnalysis(completion: Awaited<ReturnType<typeof
   }
 }
 
+function normalizeParsedTranscriptAnalysisTimestamps(parsed: ParsedLlmTranscriptAnalysis): ParsedLlmTranscriptAnalysis {
+  return {
+    ...parsed,
+    dimensions: {
+      ...parsed.dimensions,
+      valuePropositionClarity: {
+        ...parsed.dimensions.valuePropositionClarity,
+        evidence: parsed.dimensions.valuePropositionClarity.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      audienceTargeting: {
+        ...parsed.dimensions.audienceTargeting,
+        evidence: parsed.dimensions.audienceTargeting.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      timeToValue: {
+        ...parsed.dimensions.timeToValue,
+        evidence: parsed.dimensions.timeToValue.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      openLoopsRetentionStructure: {
+        ...parsed.dimensions.openLoopsRetentionStructure,
+        evidence: parsed.dimensions.openLoopsRetentionStructure.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      payoffDelivery: {
+        ...parsed.dimensions.payoffDelivery,
+        evidence: parsed.dimensions.payoffDelivery.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      pacing: {
+        ...parsed.dimensions.pacing,
+        evidence: parsed.dimensions.pacing.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      humorSurpriseTensionConflict: {
+        ...parsed.dimensions.humorSurpriseTensionConflict,
+        evidence: parsed.dimensions.humorSurpriseTensionConflict.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      practicalUtilityDepth: {
+        ...parsed.dimensions.practicalUtilityDepth,
+        evidence: parsed.dimensions.practicalUtilityDepth.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      credibilityQuality: {
+        ...parsed.dimensions.credibilityQuality,
+        evidence: parsed.dimensions.credibilityQuality.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      filler: {
+        ...parsed.dimensions.filler,
+        evidence: parsed.dimensions.filler.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      repetition: {
+        ...parsed.dimensions.repetition,
+        evidence: parsed.dimensions.repetition.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      sponsorIntrusion: {
+        ...parsed.dimensions.sponsorIntrusion,
+        evidence: parsed.dimensions.sponsorIntrusion.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      ctaOverload: {
+        ...parsed.dimensions.ctaOverload,
+        evidence: parsed.dimensions.ctaOverload.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      titlePromiseVsTranscriptDelivery: {
+        ...parsed.dimensions.titlePromiseVsTranscriptDelivery,
+        evidence: parsed.dimensions.titlePromiseVsTranscriptDelivery.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+      thumbnailTitleComplementarity: {
+        ...parsed.dimensions.thumbnailTitleComplementarity,
+        evidence: parsed.dimensions.thumbnailTitleComplementarity.evidence.map((item) => ({
+          ...item,
+          timestamp: normalizeEvidenceTimestampToTranscriptFormat(item.timestamp),
+        })),
+      },
+    },
+  };
+}
+
 export async function analyzeVideoTranscriptWithLlm(params: {
   analysis: ChannelAnalysis;
   video: AnalyzedVideo;
@@ -221,7 +342,7 @@ export async function analyzeVideoTranscriptWithLlm(params: {
       prompt,
       thumbnailUrl: params.video.thumbnailUrl ?? null,
     });
-    parsed = parseStructuredTranscriptAnalysis(completion);
+    parsed = normalizeParsedTranscriptAnalysisTimestamps(parseStructuredTranscriptAnalysis(completion));
   } catch (error) {
     throw new AppError(
       'LLM_ANALYSIS_FAILED',

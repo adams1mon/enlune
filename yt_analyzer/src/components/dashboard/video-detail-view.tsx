@@ -181,22 +181,22 @@ export function VideoDetailView({ initialAnalysis, videoId }: { initialAnalysis:
           <p className="mt-2 text-2xl font-semibold text-white">{formatWholeNumber(video.likeCount)}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-zinc-900/80 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-          <p className="text-sm text-zinc-500">Engagement rate</p>
-          <p className="mt-2 text-2xl font-semibold text-white">{formatPercentPrecise(engagementRate)}</p>
+          <p className="text-sm text-zinc-500">Duration</p>
+          <p className="mt-2 text-2xl font-semibold text-white">{formatDurationLabel(video.durationSeconds)}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-zinc-900/80 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
           <p className="text-sm text-zinc-500">Outlier score</p>
           <p className="mt-2 text-2xl font-semibold text-white">{video.viewOutlierRatio != null ? `${formatDecimal(video.viewOutlierRatio, 2)}x` : '—'}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-zinc-900/80 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-          <p className="text-sm text-zinc-500">Duration</p>
-          <p className="mt-2 text-2xl font-semibold text-white">{formatDurationLabel(video.durationSeconds)}</p>
+          <p className="text-sm text-zinc-500">Engagement rate</p>
+          <p className="mt-2 text-2xl font-semibold text-white">{formatPercentPrecise(engagementRate)}</p>
         </div>
       </div>
 
       {video.whyFlagged.length ? (
-        <div className="rounded-3xl border border-white/10 bg-zinc-900/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-          <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">Why it stood out</p>
+        <div className="rounded-3xl border border-white/10 bg-zinc-900/80 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+          <p className="text-sm text-zinc-500">Why it stood out</p>
           <ul className="mt-4 space-y-2 text-sm text-zinc-300">
             {video.whyFlagged.map((reason) => (
               <li className="rounded-2xl border border-white/10 bg-zinc-950/70 px-4 py-3" key={reason}>

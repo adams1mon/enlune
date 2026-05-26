@@ -50,185 +50,147 @@
             "method": "llm",
             "provider": "openai-compatible",
             "model": "gpt-4.1-mini",
-            "analyzedAt": "2026-05-25T19:48:19.091Z",
+            "analyzedAt": "2026-05-26T19:59:16.527Z",
             "transcriptCharacters": 45516,
             "transcriptCharactersSent": 45516,
             "transcriptExcerpted": false,
             "overview": {
-              "summary": "The video clearly explains how building systems in personal and professional life leads to success. It defines success, explains the importance of systems with examples, and shares five practical systems to implement. The content is structured and detailed, targeting viewers interested in productivity and self-improvement.",
-              "valueType": "Educational, motivational"
+              "summary": "The video explains how building systems in personal and professional life can increase success by enabling consistent, balanced, and enjoyable progress toward goals. It details five key systems: goal-setting, time management, health optimization, relationship maintenance, and personal finance automation. The presenter uses clear examples and personal anecdotes to illustrate the value of systems.",
+              "valueType": "educational self-improvement"
             },
             "dimensions": {
               "valuePropositionClarity": {
                 "score": 5,
-                "verdict": "Clear and consistent articulation of the value proposition throughout the video.",
+                "verdict": "Clear and well-articulated value proposition.",
                 "evidence": [
                   {
-                    "timestamp": "0:00-0:40",
+                    "timestamp": "0-180",
                     "snippet": "This video is all about how you can achieve more success in your personal or professional life by building systems.",
-                    "note": "Intro clearly states the video's purpose."
+                    "note": "Intro clearly states the video's purpose and value."
                   },
                   {
-                    "timestamp": "12:00-13:00",
-                    "snippet": "Five systems that drastically increase your chances of achieving success.",
-                    "note": "Clear promise of actionable content."
-                  },
-                  {
-                    "timestamp": "1530-1555",
-                    "snippet": "Summary and invitation to learn more about the GPS method for goal setting and systems.",
-                    "note": "Reinforces value and next steps."
+                    "timestamp": "171-204",
+                    "snippet": "Building more systems into your life makes you far more likely to achieve success, whatever that definition is for you.",
+                    "note": "Explicit statement linking systems to success."
                   }
                 ]
               },
               "audienceTargeting": {
                 "score": 5,
-                "verdict": "Well-targeted to ambitious individuals seeking productivity and balanced success.",
+                "verdict": "Strongly targeted to ambitious individuals seeking personal and professional growth.",
                 "evidence": [
                   {
-                    "timestamp": "24:00-38:00",
-                    "snippet": "Channel focus on books, ideas, and strategies for financial freedom and life on own terms.",
-                    "note": "Defines intended audience interested in self-improvement."
+                    "timestamp": "24-38",
+                    "snippet": "Channel is about books, ideas, strategies, and tools for financial freedom and living life on your own terms.",
+                    "note": "Targets self-improvement and productivity audience."
                   },
                   {
-                    "timestamp": "40:00-80:00",
-                    "snippet": "Discussion of balanced success including health, relationships, and enjoyment.",
-                    "note": "Targets viewers valuing holistic success."
-                  },
-                  {
-                    "timestamp": "549-580",
-                    "snippet": "Detailed explanation of goal-setting systems for motivated individuals.",
-                    "note": "Content matches audience seeking structured productivity."
+                    "timestamp": "787-794",
+                    "snippet": "Discusses limited time and the need to manage it effectively for busy people.",
+                    "note": "Targets busy adults balancing multiple responsibilities."
                   }
                 ],
-                "intendedAudience": "Ambitious adults seeking balanced personal and professional success",
-                "audienceLevel": "Intermediate to advanced in productivity concepts"
+                "intendedAudience": "Ambitious adults seeking productivity and life balance",
+                "audienceLevel": "Intermediate to advanced self-improvement enthusiasts"
               },
               "timeToValue": {
                 "score": 4,
-                "verdict": "Value is introduced early but full payoff requires watching substantial content.",
+                "verdict": "Value is communicated early and reinforced throughout, but full payoff requires watching substantial content.",
                 "evidence": [
                   {
-                    "timestamp": "0:00-1:00",
-                    "snippet": "Introduction to the concept of systems for success.",
-                    "note": "Early framing of value."
+                    "timestamp": "0-40",
+                    "snippet": "Intro and overview of systems and their importance.",
+                    "note": "Early clarity on topic and benefits."
                   },
                   {
-                    "timestamp": "12:00-13:00",
-                    "snippet": "Preview of five actionable systems to implement.",
-                    "note": "Clear indication of upcoming practical advice."
-                  },
-                  {
-                    "timestamp": "~300-400",
-                    "snippet": "Sponsor message interrupts flow, delaying full value delivery.",
-                    "note": "Sponsor segment adds friction."
+                    "timestamp": "171-204",
+                    "snippet": "Clear explanation of what a system is and why it matters.",
+                    "note": "Early conceptual payoff."
                   }
                 ],
-                "secondsToValue": 60
+                "secondsToValue": 40
               },
               "openLoopsRetentionStructure": {
                 "score": 4,
-                "verdict": "Open loops introduced early and mostly resolved by video end, maintaining interest.",
+                "verdict": "Uses open loops by promising five systems to improve success, maintaining viewer interest.",
                 "evidence": [
                   {
-                    "timestamp": "0:00-20:00",
-                    "snippet": "Promise to explain why systems matter and share five key systems.",
-                    "note": "Strong initial open loop."
+                    "timestamp": "12-23",
+                    "snippet": "Promises to cover five systems that drastically increase chances of success.",
+                    "note": "Sets expectation to keep watching."
                   },
                   {
-                    "timestamp": "1530-1555",
-                    "snippet": "Closing with link to deeper system on goal setting.",
-                    "note": "Partial loop closure with invitation for more."
-                  },
-                  {
-                    "timestamp": "360-420",
-                    "snippet": "Sponsor message interrupts narrative flow.",
-                    "note": "Sponsor segment creates minor retention friction."
+                    "timestamp": "1530-1554",
+                    "snippet": "Ends by linking to a follow-up video on the GPS method for deeper system building.",
+                    "note": "Provides a next step to maintain engagement."
                   }
                 ]
               },
               "payoffDelivery": {
                 "score": 5,
-                "verdict": "Payoff is thorough with detailed explanations and practical examples of systems.",
+                "verdict": "Delivers on promised content with detailed explanations and actionable examples.",
                 "evidence": [
                   {
-                    "timestamp": "540-1400",
-                    "snippet": "In-depth coverage of five systems with examples and implementation tips.",
-                    "note": "Strong delivery of promised content."
-                  },
-                  {
-                    "timestamp": "1530-1555",
-                    "snippet": "Clear summary and call to action to learn more.",
-                    "note": "Effective closure and next step."
+                    "timestamp": "541-1540",
+                    "snippet": "Detailed breakdown of five systems with examples and personal anecdotes.",
+                    "note": "Comprehensive coverage fulfilling initial promise."
                   }
                 ]
               },
               "pacing": {
                 "score": 4,
-                "verdict": "Generally well-paced with clear sections, though sponsor segment slows momentum.",
+                "verdict": "Generally well-paced with clear segment transitions; some sections are dense but balanced with examples.",
                 "evidence": [
                   {
-                    "timestamp": "0-540",
-                    "snippet": "Smooth introduction and explanation of concepts.",
+                    "timestamp": "0-180",
+                    "snippet": "Intro and definitions are concise and clear.",
                     "note": "Good initial pacing."
                   },
                   {
-                    "timestamp": "360-420",
-                    "snippet": "Sponsor segment slows flow.",
-                    "note": "Pacing dip due to ad."
-                  },
-                  {
-                    "timestamp": "540-1555",
-                    "snippet": "Detailed but steady pacing through systems explanation.",
-                    "note": "Maintains viewer engagement."
+                    "timestamp": "541-1540",
+                    "snippet": "Detailed system explanations maintain steady pace with varied examples.",
+                    "note": "Sustains viewer interest through content depth."
                   }
                 ]
               },
               "humorSurpriseTensionConflict": {
                 "score": 2,
-                "verdict": "Minimal humor or tension; content is mostly informative and calm.",
+                "verdict": "Minimal humor or tension; content is mostly informative and straightforward.",
                 "evidence": [
                   {
-                    "timestamp": "0-1555",
-                    "snippet": "Tone is professional and explanatory with no notable humor or conflict.",
-                    "note": "Dominant drivers are absent."
+                    "timestamp": "0-1556",
+                    "snippet": "Tone is professional and educational without notable humor or conflict.",
+                    "note": "Dominant driver is informational clarity."
                   }
                 ],
-                "dominantDrivers": []
+                "dominantDrivers": [
+                  "none"
+                ]
               },
               "practicalUtilityDepth": {
                 "score": 5,
-                "verdict": "High practical utility with actionable systems and examples viewers can implement.",
+                "verdict": "High practical utility with actionable systems viewers can implement immediately.",
                 "evidence": [
                   {
-                    "timestamp": "540-1400",
-                    "snippet": "Five detailed systems covering goal setting, time management, health, relationships, and finances.",
-                    "note": "Concrete, actionable advice."
-                  },
-                  {
-                    "timestamp": "430-470",
-                    "snippet": "Personal example of weight training system improving results.",
-                    "note": "Relatable practical example."
+                    "timestamp": "541-1540",
+                    "snippet": "Five specific systems explained with steps and examples for goal setting, time management, health, relationships, and finance.",
+                    "note": "Provides concrete, applicable advice."
                   }
                 ]
               },
               "credibilityQuality": {
                 "score": 5,
-                "verdict": "High credibility from host's background, detailed explanations, and real-life examples.",
+                "verdict": "High credibility supported by presenter’s background and use of examples from aviation, medicine, and personal experience.",
                 "evidence": [
                   {
-                    "timestamp": "24-30",
-                    "snippet": "Host introduces himself as doctor turned entrepreneur and author.",
+                    "timestamp": "24-38",
+                    "snippet": "Presenter introduces himself as a doctor turned entrepreneur and author.",
                     "note": "Establishes authority."
                   },
                   {
-                    "timestamp": "210-300",
-                    "snippet": "Examples from aviation and medicine systems.",
-                    "note": "Uses respected fields to illustrate points."
-                  },
-                  {
-                    "timestamp": "430-470",
-                    "snippet": "Personal anecdote about weight training system.",
-                    "note": "Adds authenticity."
+                    "timestamp": "211-300",
+                    "snippet": "Uses aviation and medical systems as credible analogies.",
+                    "note": "Leverages respected fields to support argument."
                   }
                 ]
               },
@@ -237,89 +199,94 @@
                 "verdict": "Minimal filler; content is focused and relevant throughout.",
                 "evidence": [
                   {
-                    "timestamp": "Throughout",
-                    "snippet": "No significant off-topic or redundant content detected.",
-                    "note": "Consistent focus on systems and success."
+                    "timestamp": "0-1556",
+                    "snippet": "Nearly all content contributes to explaining or exemplifying systems.",
+                    "note": "No noticeable off-topic or redundant content."
                   }
                 ]
               },
               "repetition": {
                 "score": 2,
-                "verdict": "Some repetition of key ideas but mostly reinforcing rather than redundant.",
+                "verdict": "Some repetition of key ideas to reinforce concepts but not excessive.",
                 "evidence": [
                   {
-                    "timestamp": "0-100",
-                    "snippet": "Repeated emphasis on systems importance and success definition.",
-                    "note": "Reinforcement rather than excessive repetition."
-                  },
-                  {
-                    "timestamp": "540-600",
-                    "snippet": "Reiteration of system benefits in different contexts.",
-                    "note": "Supports understanding."
+                    "timestamp": "0-180",
+                    "snippet": "Repeated emphasis on systems leading to success and balanced life.",
+                    "note": "Reinforces core message without redundancy."
                   }
                 ]
               },
               "sponsorIntrusion": {
-                "score": 4,
-                "verdict": "Sponsor segment interrupts flow and delays content but is clearly marked and brief.",
+                "score": 3,
+                "verdict": "Sponsor segment is clearly marked but somewhat lengthy, briefly interrupting flow.",
                 "evidence": [
                   {
-                    "timestamp": "360-420",
-                    "snippet": "Sponsor message for Trading 212 investment platform.",
-                    "note": "Interrupts narrative and pacing."
+                    "timestamp": "362-428",
+                    "snippet": "Trading 212 sponsor message with detailed product features and sign-up incentive.",
+                    "note": "Sponsor content is informative but breaks content flow."
                   }
                 ]
               },
               "ctaOverload": {
                 "score": 2,
-                "verdict": "Single clear CTA at end; no overload detected.",
+                "verdict": "Single main CTA to subscribe and a sponsor CTA; not overwhelming.",
                 "evidence": [
                   {
-                    "timestamp": "1530-1555",
-                    "snippet": "Invitation to watch related video on GPS method.",
-                    "note": "Focused CTA."
+                    "timestamp": "37-38",
+                    "snippet": "Encourages viewers to subscribe early.",
+                    "note": "Clear but minimal CTA."
+                  },
+                  {
+                    "timestamp": "416-426",
+                    "snippet": "Sponsor CTA with sign-up link and bonus offer.",
+                    "note": "One sponsor CTA present but not repeated excessively."
                   }
                 ]
               },
               "titlePromiseVsTranscriptDelivery": {
                 "score": 5,
-                "verdict": "Video fully delivers on title promise about building systems for success.",
+                "verdict": "Video fully delivers on the title promise about building systems to overcome difficulty in success.",
                 "evidence": [
                   {
-                    "timestamp": "0-1555",
-                    "snippet": "Comprehensive explanation and examples of systems leading to success.",
-                    "note": "Content matches title exactly."
+                    "timestamp": "0-180",
+                    "snippet": "Explains why success is hard and how systems help overcome that.",
+                    "note": "Direct alignment with title."
+                  },
+                  {
+                    "timestamp": "541-1540",
+                    "snippet": "Provides five actionable systems to build success.",
+                    "note": "Fulfills title promise comprehensively."
                   }
                 ]
               },
               "thumbnailTitleComplementarity": {
-                "score": 5,
-                "verdict": "Thumbnail visually supports the title and content about goals and systems.",
+                "score": 4,
+                "verdict": "Thumbnail visually supports the title by showing a whiteboard with goals and systems, reinforcing the educational theme.",
                 "evidence": [
                   {
                     "timestamp": null,
-                    "snippet": "Image of presenter with whiteboard showing goals and systems.",
-                    "note": "Visual clearly complements title theme."
+                    "snippet": "Thumbnail shows presenter with a whiteboard labeled 'GOALS -> SYSTEMS' and related keywords.",
+                    "note": "Visual clearly relates to video topic."
                   }
                 ],
-                "visualRead": "Presenter smiling next to a whiteboard illustrating goals and systems, reinforcing video topic."
+                "visualRead": "Clear educational visual linking goals to systems, matching video theme."
               }
             },
             "strengths": [
-              "Clear and detailed explanation of systems concept.",
-              "Strong credibility with real-life and professional examples.",
-              "High practical utility with actionable advice.",
-              "Well-targeted to ambitious, productivity-focused audience."
+              "Clear and focused value proposition from the start.",
+              "Strong credibility through presenter background and real-world analogies.",
+              "High practical utility with detailed, actionable systems.",
+              "Well-structured content with open loops and payoff delivery."
             ],
             "risks": [
-              "Sponsor segment disrupts pacing and retention.",
-              "Minimal humor or tension may reduce engagement for some viewers.",
-              "Some repetition could feel redundant to returning viewers."
+              "Sponsor segment interrupts content flow and may disengage some viewers.",
+              "Minimal humor or tension may reduce emotional engagement for some audiences.",
+              "Some dense sections could challenge viewer retention without breaks."
             ],
             "recommendations": [
-              "Integrate sponsor message more smoothly to maintain flow.",
-              "Introduce light humor or storytelling to increase engagement.",
-              "Condense repetitive points to tighten delivery."
+              "Shorten or integrate sponsor message more smoothly to maintain flow.",
+              "Introduce light humor or relatable tension to increase engagement.",
+              "Use visual or segment breaks to ease dense content sections and maintain viewer attention."
             ]
           }
         },
@@ -733,185 +700,147 @@
             "method": "llm",
             "provider": "openai-compatible",
             "model": "gpt-4.1-mini",
-            "analyzedAt": "2026-05-25T19:48:19.091Z",
+            "analyzedAt": "2026-05-26T19:59:16.527Z",
             "transcriptCharacters": 45516,
             "transcriptCharactersSent": 45516,
             "transcriptExcerpted": false,
             "overview": {
-              "summary": "The video clearly explains how building systems in personal and professional life leads to success. It defines success, explains the importance of systems with examples, and shares five practical systems to implement. The content is structured and detailed, targeting viewers interested in productivity and self-improvement.",
-              "valueType": "Educational, motivational"
+              "summary": "The video explains how building systems in personal and professional life can increase success by enabling consistent, balanced, and enjoyable progress toward goals. It details five key systems: goal-setting, time management, health optimization, relationship maintenance, and personal finance automation. The presenter uses clear examples and personal anecdotes to illustrate the value of systems.",
+              "valueType": "educational self-improvement"
             },
             "dimensions": {
               "valuePropositionClarity": {
                 "score": 5,
-                "verdict": "Clear and consistent articulation of the value proposition throughout the video.",
+                "verdict": "Clear and well-articulated value proposition.",
                 "evidence": [
                   {
-                    "timestamp": "0:00-0:40",
+                    "timestamp": "0-180",
                     "snippet": "This video is all about how you can achieve more success in your personal or professional life by building systems.",
-                    "note": "Intro clearly states the video's purpose."
+                    "note": "Intro clearly states the video's purpose and value."
                   },
                   {
-                    "timestamp": "12:00-13:00",
-                    "snippet": "Five systems that drastically increase your chances of achieving success.",
-                    "note": "Clear promise of actionable content."
-                  },
-                  {
-                    "timestamp": "1530-1555",
-                    "snippet": "Summary and invitation to learn more about the GPS method for goal setting and systems.",
-                    "note": "Reinforces value and next steps."
+                    "timestamp": "171-204",
+                    "snippet": "Building more systems into your life makes you far more likely to achieve success, whatever that definition is for you.",
+                    "note": "Explicit statement linking systems to success."
                   }
                 ]
               },
               "audienceTargeting": {
                 "score": 5,
-                "verdict": "Well-targeted to ambitious individuals seeking productivity and balanced success.",
+                "verdict": "Strongly targeted to ambitious individuals seeking personal and professional growth.",
                 "evidence": [
                   {
-                    "timestamp": "24:00-38:00",
-                    "snippet": "Channel focus on books, ideas, and strategies for financial freedom and life on own terms.",
-                    "note": "Defines intended audience interested in self-improvement."
+                    "timestamp": "24-38",
+                    "snippet": "Channel is about books, ideas, strategies, and tools for financial freedom and living life on your own terms.",
+                    "note": "Targets self-improvement and productivity audience."
                   },
                   {
-                    "timestamp": "40:00-80:00",
-                    "snippet": "Discussion of balanced success including health, relationships, and enjoyment.",
-                    "note": "Targets viewers valuing holistic success."
-                  },
-                  {
-                    "timestamp": "549-580",
-                    "snippet": "Detailed explanation of goal-setting systems for motivated individuals.",
-                    "note": "Content matches audience seeking structured productivity."
+                    "timestamp": "787-794",
+                    "snippet": "Discusses limited time and the need to manage it effectively for busy people.",
+                    "note": "Targets busy adults balancing multiple responsibilities."
                   }
                 ],
-                "intendedAudience": "Ambitious adults seeking balanced personal and professional success",
-                "audienceLevel": "Intermediate to advanced in productivity concepts"
+                "intendedAudience": "Ambitious adults seeking productivity and life balance",
+                "audienceLevel": "Intermediate to advanced self-improvement enthusiasts"
               },
               "timeToValue": {
                 "score": 4,
-                "verdict": "Value is introduced early but full payoff requires watching substantial content.",
+                "verdict": "Value is communicated early and reinforced throughout, but full payoff requires watching substantial content.",
                 "evidence": [
                   {
-                    "timestamp": "0:00-1:00",
-                    "snippet": "Introduction to the concept of systems for success.",
-                    "note": "Early framing of value."
+                    "timestamp": "0-40",
+                    "snippet": "Intro and overview of systems and their importance.",
+                    "note": "Early clarity on topic and benefits."
                   },
                   {
-                    "timestamp": "12:00-13:00",
-                    "snippet": "Preview of five actionable systems to implement.",
-                    "note": "Clear indication of upcoming practical advice."
-                  },
-                  {
-                    "timestamp": "~300-400",
-                    "snippet": "Sponsor message interrupts flow, delaying full value delivery.",
-                    "note": "Sponsor segment adds friction."
+                    "timestamp": "171-204",
+                    "snippet": "Clear explanation of what a system is and why it matters.",
+                    "note": "Early conceptual payoff."
                   }
                 ],
-                "secondsToValue": 60
+                "secondsToValue": 40
               },
               "openLoopsRetentionStructure": {
                 "score": 4,
-                "verdict": "Open loops introduced early and mostly resolved by video end, maintaining interest.",
+                "verdict": "Uses open loops by promising five systems to improve success, maintaining viewer interest.",
                 "evidence": [
                   {
-                    "timestamp": "0:00-20:00",
-                    "snippet": "Promise to explain why systems matter and share five key systems.",
-                    "note": "Strong initial open loop."
+                    "timestamp": "12-23",
+                    "snippet": "Promises to cover five systems that drastically increase chances of success.",
+                    "note": "Sets expectation to keep watching."
                   },
                   {
-                    "timestamp": "1530-1555",
-                    "snippet": "Closing with link to deeper system on goal setting.",
-                    "note": "Partial loop closure with invitation for more."
-                  },
-                  {
-                    "timestamp": "360-420",
-                    "snippet": "Sponsor message interrupts narrative flow.",
-                    "note": "Sponsor segment creates minor retention friction."
+                    "timestamp": "1530-1554",
+                    "snippet": "Ends by linking to a follow-up video on the GPS method for deeper system building.",
+                    "note": "Provides a next step to maintain engagement."
                   }
                 ]
               },
               "payoffDelivery": {
                 "score": 5,
-                "verdict": "Payoff is thorough with detailed explanations and practical examples of systems.",
+                "verdict": "Delivers on promised content with detailed explanations and actionable examples.",
                 "evidence": [
                   {
-                    "timestamp": "540-1400",
-                    "snippet": "In-depth coverage of five systems with examples and implementation tips.",
-                    "note": "Strong delivery of promised content."
-                  },
-                  {
-                    "timestamp": "1530-1555",
-                    "snippet": "Clear summary and call to action to learn more.",
-                    "note": "Effective closure and next step."
+                    "timestamp": "541-1540",
+                    "snippet": "Detailed breakdown of five systems with examples and personal anecdotes.",
+                    "note": "Comprehensive coverage fulfilling initial promise."
                   }
                 ]
               },
               "pacing": {
                 "score": 4,
-                "verdict": "Generally well-paced with clear sections, though sponsor segment slows momentum.",
+                "verdict": "Generally well-paced with clear segment transitions; some sections are dense but balanced with examples.",
                 "evidence": [
                   {
-                    "timestamp": "0-540",
-                    "snippet": "Smooth introduction and explanation of concepts.",
+                    "timestamp": "0-180",
+                    "snippet": "Intro and definitions are concise and clear.",
                     "note": "Good initial pacing."
                   },
                   {
-                    "timestamp": "360-420",
-                    "snippet": "Sponsor segment slows flow.",
-                    "note": "Pacing dip due to ad."
-                  },
-                  {
-                    "timestamp": "540-1555",
-                    "snippet": "Detailed but steady pacing through systems explanation.",
-                    "note": "Maintains viewer engagement."
+                    "timestamp": "541-1540",
+                    "snippet": "Detailed system explanations maintain steady pace with varied examples.",
+                    "note": "Sustains viewer interest through content depth."
                   }
                 ]
               },
               "humorSurpriseTensionConflict": {
                 "score": 2,
-                "verdict": "Minimal humor or tension; content is mostly informative and calm.",
+                "verdict": "Minimal humor or tension; content is mostly informative and straightforward.",
                 "evidence": [
                   {
-                    "timestamp": "0-1555",
-                    "snippet": "Tone is professional and explanatory with no notable humor or conflict.",
-                    "note": "Dominant drivers are absent."
+                    "timestamp": "0-1556",
+                    "snippet": "Tone is professional and educational without notable humor or conflict.",
+                    "note": "Dominant driver is informational clarity."
                   }
                 ],
-                "dominantDrivers": []
+                "dominantDrivers": [
+                  "none"
+                ]
               },
               "practicalUtilityDepth": {
                 "score": 5,
-                "verdict": "High practical utility with actionable systems and examples viewers can implement.",
+                "verdict": "High practical utility with actionable systems viewers can implement immediately.",
                 "evidence": [
                   {
-                    "timestamp": "540-1400",
-                    "snippet": "Five detailed systems covering goal setting, time management, health, relationships, and finances.",
-                    "note": "Concrete, actionable advice."
-                  },
-                  {
-                    "timestamp": "430-470",
-                    "snippet": "Personal example of weight training system improving results.",
-                    "note": "Relatable practical example."
+                    "timestamp": "541-1540",
+                    "snippet": "Five specific systems explained with steps and examples for goal setting, time management, health, relationships, and finance.",
+                    "note": "Provides concrete, applicable advice."
                   }
                 ]
               },
               "credibilityQuality": {
                 "score": 5,
-                "verdict": "High credibility from host's background, detailed explanations, and real-life examples.",
+                "verdict": "High credibility supported by presenter’s background and use of examples from aviation, medicine, and personal experience.",
                 "evidence": [
                   {
-                    "timestamp": "24-30",
-                    "snippet": "Host introduces himself as doctor turned entrepreneur and author.",
+                    "timestamp": "24-38",
+                    "snippet": "Presenter introduces himself as a doctor turned entrepreneur and author.",
                     "note": "Establishes authority."
                   },
                   {
-                    "timestamp": "210-300",
-                    "snippet": "Examples from aviation and medicine systems.",
-                    "note": "Uses respected fields to illustrate points."
-                  },
-                  {
-                    "timestamp": "430-470",
-                    "snippet": "Personal anecdote about weight training system.",
-                    "note": "Adds authenticity."
+                    "timestamp": "211-300",
+                    "snippet": "Uses aviation and medical systems as credible analogies.",
+                    "note": "Leverages respected fields to support argument."
                   }
                 ]
               },
@@ -920,89 +849,94 @@
                 "verdict": "Minimal filler; content is focused and relevant throughout.",
                 "evidence": [
                   {
-                    "timestamp": "Throughout",
-                    "snippet": "No significant off-topic or redundant content detected.",
-                    "note": "Consistent focus on systems and success."
+                    "timestamp": "0-1556",
+                    "snippet": "Nearly all content contributes to explaining or exemplifying systems.",
+                    "note": "No noticeable off-topic or redundant content."
                   }
                 ]
               },
               "repetition": {
                 "score": 2,
-                "verdict": "Some repetition of key ideas but mostly reinforcing rather than redundant.",
+                "verdict": "Some repetition of key ideas to reinforce concepts but not excessive.",
                 "evidence": [
                   {
-                    "timestamp": "0-100",
-                    "snippet": "Repeated emphasis on systems importance and success definition.",
-                    "note": "Reinforcement rather than excessive repetition."
-                  },
-                  {
-                    "timestamp": "540-600",
-                    "snippet": "Reiteration of system benefits in different contexts.",
-                    "note": "Supports understanding."
+                    "timestamp": "0-180",
+                    "snippet": "Repeated emphasis on systems leading to success and balanced life.",
+                    "note": "Reinforces core message without redundancy."
                   }
                 ]
               },
               "sponsorIntrusion": {
-                "score": 4,
-                "verdict": "Sponsor segment interrupts flow and delays content but is clearly marked and brief.",
+                "score": 3,
+                "verdict": "Sponsor segment is clearly marked but somewhat lengthy, briefly interrupting flow.",
                 "evidence": [
                   {
-                    "timestamp": "360-420",
-                    "snippet": "Sponsor message for Trading 212 investment platform.",
-                    "note": "Interrupts narrative and pacing."
+                    "timestamp": "362-428",
+                    "snippet": "Trading 212 sponsor message with detailed product features and sign-up incentive.",
+                    "note": "Sponsor content is informative but breaks content flow."
                   }
                 ]
               },
               "ctaOverload": {
                 "score": 2,
-                "verdict": "Single clear CTA at end; no overload detected.",
+                "verdict": "Single main CTA to subscribe and a sponsor CTA; not overwhelming.",
                 "evidence": [
                   {
-                    "timestamp": "1530-1555",
-                    "snippet": "Invitation to watch related video on GPS method.",
-                    "note": "Focused CTA."
+                    "timestamp": "37-38",
+                    "snippet": "Encourages viewers to subscribe early.",
+                    "note": "Clear but minimal CTA."
+                  },
+                  {
+                    "timestamp": "416-426",
+                    "snippet": "Sponsor CTA with sign-up link and bonus offer.",
+                    "note": "One sponsor CTA present but not repeated excessively."
                   }
                 ]
               },
               "titlePromiseVsTranscriptDelivery": {
                 "score": 5,
-                "verdict": "Video fully delivers on title promise about building systems for success.",
+                "verdict": "Video fully delivers on the title promise about building systems to overcome difficulty in success.",
                 "evidence": [
                   {
-                    "timestamp": "0-1555",
-                    "snippet": "Comprehensive explanation and examples of systems leading to success.",
-                    "note": "Content matches title exactly."
+                    "timestamp": "0-180",
+                    "snippet": "Explains why success is hard and how systems help overcome that.",
+                    "note": "Direct alignment with title."
+                  },
+                  {
+                    "timestamp": "541-1540",
+                    "snippet": "Provides five actionable systems to build success.",
+                    "note": "Fulfills title promise comprehensively."
                   }
                 ]
               },
               "thumbnailTitleComplementarity": {
-                "score": 5,
-                "verdict": "Thumbnail visually supports the title and content about goals and systems.",
+                "score": 4,
+                "verdict": "Thumbnail visually supports the title by showing a whiteboard with goals and systems, reinforcing the educational theme.",
                 "evidence": [
                   {
                     "timestamp": null,
-                    "snippet": "Image of presenter with whiteboard showing goals and systems.",
-                    "note": "Visual clearly complements title theme."
+                    "snippet": "Thumbnail shows presenter with a whiteboard labeled 'GOALS -> SYSTEMS' and related keywords.",
+                    "note": "Visual clearly relates to video topic."
                   }
                 ],
-                "visualRead": "Presenter smiling next to a whiteboard illustrating goals and systems, reinforcing video topic."
+                "visualRead": "Clear educational visual linking goals to systems, matching video theme."
               }
             },
             "strengths": [
-              "Clear and detailed explanation of systems concept.",
-              "Strong credibility with real-life and professional examples.",
-              "High practical utility with actionable advice.",
-              "Well-targeted to ambitious, productivity-focused audience."
+              "Clear and focused value proposition from the start.",
+              "Strong credibility through presenter background and real-world analogies.",
+              "High practical utility with detailed, actionable systems.",
+              "Well-structured content with open loops and payoff delivery."
             ],
             "risks": [
-              "Sponsor segment disrupts pacing and retention.",
-              "Minimal humor or tension may reduce engagement for some viewers.",
-              "Some repetition could feel redundant to returning viewers."
+              "Sponsor segment interrupts content flow and may disengage some viewers.",
+              "Minimal humor or tension may reduce emotional engagement for some audiences.",
+              "Some dense sections could challenge viewer retention without breaks."
             ],
             "recommendations": [
-              "Integrate sponsor message more smoothly to maintain flow.",
-              "Introduce light humor or storytelling to increase engagement.",
-              "Condense repetitive points to tighten delivery."
+              "Shorten or integrate sponsor message more smoothly to maintain flow.",
+              "Introduce light humor or relatable tension to increase engagement.",
+              "Use visual or segment breaks to ease dense content sections and maintain viewer attention."
             ]
           }
         },

@@ -1,6 +1,6 @@
 'use client';
 
-import type { CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 import type { VideoTranscriptAnalysis } from '@/lib/types/analysis';
 import { StatusPill } from '@/components/ui/status-pill';
@@ -42,24 +42,74 @@ function analysisTileTone(score: number, invert = false): CSSProperties {
   };
 }
 
-function TranscriptEvidenceList({ evidence }: { evidence: VideoTranscriptAnalysis['dimensions'][keyof VideoTranscriptAnalysis['dimensions']]['evidence'] }) {
-  if (!evidence.length) {
-    return <p className="mt-3 text-xs text-zinc-500">No specific evidence was returned.</p>;
-  }
-
+function ReportSection({ title, children, meta }: { title: string; children: ReactNode; meta?: ReactNode }) {
   return (
-    <ul className="mt-3 space-y-2 text-xs text-zinc-300">
-      {evidence.map((item, index) => (
-        <li className="rounded-xl border border-white/10 bg-black/20 px-3 py-2" key={`${item.timestamp ?? 'na'}-${index}-${item.snippet}`}>
-          <p className="font-medium text-zinc-100">{item.timestamp ? `${item.timestamp} · ` : ''}{item.note}</p>
-          <p className="mt-1 text-zinc-400">“{item.snippet}”</p>
-        </li>
-      ))}
-    </ul>
+    <section className="space-y-4 border-t border-white/10 pt-8 first:border-t-0 first:pt-0">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <h2 className="text-lg font-bold text-white">{title}</h2>
+        {meta ? <div className="text-sm text-zinc-400">{meta}</div> : null}
+      </div>
+      {children}
+    </section>
   );
 }
 
-function TranscriptDimensionCard({
+function SectionList({ items }: { items: string[] }) {
+  return (
+    <div className="space-y-3">
+      {items.map((item) => (
+        <p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-[15px] leading-7 text-zinc-200" key={item}>
+          {item}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+function EvidenceQuote({
+  item,
+}: {
+  item: VideoTranscriptAnalysis['dimensions'][keyof VideoTranscriptAnalysis['dimensions']]['evidence'][number];
+}) {
+  return (
+    <li className="rounded-2xl border border-white/10 bg-black/25 px-4 py-4">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+        {item.timestamp ? (
+          <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-400">{item.timestamp}</span>
+        ) : null}
+        <p className="text-sm font-medium text-zinc-100">{item.note}</p>
+      </div>
+      <blockquote className="mt-3 border-l-2 border-white/10 pl-4 text-sm leading-7 text-zinc-200">“{item.snippet}”</blockquote>
+    </li>
+  );
+}
+
+function TranscriptEvidenceList({ evidence }: { evidence: VideoTranscriptAnalysis['dimensions'][keyof VideoTranscriptAnalysis['dimensions']]['evidence'] }) {
+  if (!evidence.length) {
+    return <p className="text-sm leading-6 text-zinc-500">No specific evidence was returned.</p>;
+  }
+
+  return (
+    <div className="space-y-3">
+      <ul className="space-y-3 text-zinc-300">
+        {evidence.map((item, index) => (
+          <EvidenceQuote item={item} key={`${item.timestamp ?? 'na'}-${index}-${item.snippet}`} />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function DetailFact({ label, value }: { label: string; value: ReactNode }) {
+  return (
+    <div className="rounded-xl border border-white/10 bg-black/20 px-3 py-3">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">{label}</p>
+      <div className="mt-2 text-sm leading-6 text-zinc-200">{value}</div>
+    </div>
+  );
+}
+
+function ReportSubsection({
   title,
   dimension,
   helper,
@@ -71,57 +121,51 @@ function TranscriptDimensionCard({
   invert?: boolean;
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 px-4 py-4" style={analysisTileTone(dimension.score, invert)}>
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-400">{title}</p>
-          {helper ? <p className="mt-1 text-xs text-zinc-500">{helper}</p> : null}
+    <article className="space-y-4 rounded-3xl border px-5 py-5" style={analysisTileTone(dimension.score, invert)}>
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div className="space-y-2">
+          <h3 className="text-base font-bold text-white">{title}</h3>
+          {helper ? <p className="text-sm leading-6 text-zinc-400">{helper}</p> : null}
         </div>
-        <div className="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs font-medium text-white">
+        <div className="rounded-full border border-white/10 bg-black/25 px-3 py-1 text-sm font-medium text-white">
           {formatScore(dimension.score)}
         </div>
       </div>
 
-      <p className="mt-3 text-sm font-medium text-zinc-200">{scoreHelper(dimension.score, invert)}</p>
-      <p className="mt-2 text-sm leading-6 text-zinc-300">{dimension.verdict}</p>
+      <div className="space-y-3">
+        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-zinc-300">{scoreHelper(dimension.score, invert)}</p>
+        <p className="text-[15px] leading-7 text-zinc-200">{dimension.verdict}</p>
+      </div>
 
       {'intendedAudience' in dimension ? (
-        <div className="mt-3 grid gap-2 text-xs text-zinc-300 sm:grid-cols-2">
-          <div className="rounded-xl border border-white/10 bg-black/20 px-3 py-2">
-            <p className="uppercase tracking-[0.16em] text-zinc-500">Audience</p>
-            <p className="mt-1 text-zinc-100">{dimension.intendedAudience}</p>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-black/20 px-3 py-2">
-            <p className="uppercase tracking-[0.16em] text-zinc-500">Level</p>
-            <p className="mt-1 text-zinc-100">{dimension.audienceLevel}</p>
-          </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <DetailFact label="Audience" value={dimension.intendedAudience} />
+          <DetailFact label="Audience level" value={dimension.audienceLevel} />
         </div>
       ) : null}
 
       {'secondsToValue' in dimension ? (
-        <div className="mt-3 rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-xs text-zinc-300">
-          <p className="uppercase tracking-[0.16em] text-zinc-500">Estimated time to value</p>
-          <p className="mt-1 text-zinc-100">{dimension.secondsToValue != null ? `${dimension.secondsToValue}s` : 'Unclear from transcript'}</p>
-        </div>
+        <DetailFact
+          label="Estimated time to value"
+          value={dimension.secondsToValue != null ? `${dimension.secondsToValue}s` : 'Unclear from transcript'}
+        />
       ) : null}
 
       {'dominantDrivers' in dimension && dimension.dominantDrivers.length ? (
-        <div className="mt-3 flex flex-wrap gap-2">
-          {dimension.dominantDrivers.map((driver) => (
-            <StatusPill key={driver} label={driver} tone="neutral" />
-          ))}
+        <div className="space-y-3">
+          <p className="text-sm font-semibold text-white">Primary engagement drivers</p>
+          <div className="flex flex-wrap gap-2">
+            {dimension.dominantDrivers.map((driver) => (
+              <StatusPill key={driver} label={driver} tone="neutral" />
+            ))}
+          </div>
         </div>
       ) : null}
 
-      {'visualRead' in dimension ? (
-        <div className="mt-3 rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-xs text-zinc-300">
-          <p className="uppercase tracking-[0.16em] text-zinc-500">Thumbnail read</p>
-          <p className="mt-1 text-zinc-100">{dimension.visualRead}</p>
-        </div>
-      ) : null}
+      {'visualRead' in dimension ? <DetailFact label="Thumbnail read" value={dimension.visualRead} /> : null}
 
       <TranscriptEvidenceList evidence={dimension.evidence} />
-    </div>
+    </article>
   );
 }
 
@@ -129,99 +173,77 @@ export function TranscriptAnalysisPanel({ analysis }: { analysis: VideoTranscrip
   const d = analysis.dimensions;
 
   return (
-    <div className="rounded-2xl p-4 sm:p-5">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <p className="text-lg uppercase tracking-[0.02em] text-white font-bold">Summary</p>
-          <p className="mt-4 text-sm leading-6 text-zinc-200">{analysis.overview.summary}</p>
-        </div>
-        <div className="text-right text-xs text-zinc-400">
-          <p className="mt-1">
+    <div className="space-y-8 rounded-2xl p-4 sm:p-5">
+      <ReportSection
+        meta={
+          <p>
             {analysis.transcriptExcerpted
               ? `Excerpted ${analysis.transcriptCharactersSent.toLocaleString()} / ${analysis.transcriptCharacters.toLocaleString()} chars`
               : `${analysis.transcriptCharacters.toLocaleString()} chars analyzed`}
           </p>
-        </div>
-      </div>
-
-      <div className="mt-3 flex flex-wrap gap-2">
-        <StatusPill label={`Value type: ${analysis.overview.valueType}`} tone="neutral" />
-        <StatusPill label={`Audience level: ${analysis.dimensions.audienceTargeting.audienceLevel}`} tone="neutral" />
-      </div>
-
-      <div className="mt-4 grid gap-3 xl:grid-cols-3">
-        <div className="rounded-2xl border border-white/10 bg-black/20 p-3">
-          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Strengths</p>
-          <ul className="mt-2 space-y-2 text-sm text-zinc-200">
-            {analysis.strengths.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-2xl border border-white/10 bg-black/20 p-3">
-          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Risks</p>
-          <ul className="mt-2 space-y-2 text-sm text-zinc-200">
-            {analysis.risks.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-2xl border border-white/10 bg-black/20 p-3">
-          <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">Recommendations</p>
-          <ul className="mt-2 space-y-2 text-sm text-zinc-200">
-            {analysis.recommendations.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="mt-8 space-y-4">
-        <div>
-          <p className="text-lg uppercase tracking-[0.02em] text-white font-bold">Value and audience</p>
-          <div className="mt-4 grid gap-3 xl:grid-cols-2">
-            <TranscriptDimensionCard dimension={d.valuePropositionClarity} title="Value proposition clarity" />
-            <TranscriptDimensionCard dimension={d.audienceTargeting} title="Audience targeting / level" />
+        }
+        title="Summary"
+      >
+        <div className="space-y-4">
+          <p className="text-[15px] leading-8 text-zinc-200">{analysis.overview.summary}</p>
+          <div className="flex flex-wrap gap-2">
+            <StatusPill label={`Value type: ${analysis.overview.valueType}`} tone="neutral" />
+            <StatusPill label={`Audience level: ${analysis.dimensions.audienceTargeting.audienceLevel}`} tone="neutral" />
           </div>
         </div>
+      </ReportSection>
 
-        <div className="mt-8 space-y-4">
-          <p className="text-lg uppercase tracking-[0.02em] text-white font-bold">Structure and payoff</p>
-          <div className="mt-2 grid gap-3 xl:grid-cols-2">
-            <TranscriptDimensionCard dimension={d.timeToValue} title="Time to value" />
-            <TranscriptDimensionCard dimension={d.openLoopsRetentionStructure} title="Open loops / retention structure" />
-            <TranscriptDimensionCard dimension={d.payoffDelivery} title="Payoff delivery" />
-            <TranscriptDimensionCard dimension={d.pacing} title="Pacing" />
-          </div>
-        </div>
+      <ReportSection title="Strengths">
+        <SectionList items={analysis.strengths} />
+      </ReportSection>
 
-        <div className="mt-8 space-y-4">
-          <p className="text-lg uppercase tracking-[0.02em] text-white font-bold">Engagement, utility, and trust</p>
-          <div className="mt-4 grid gap-3 xl:grid-cols-3">
-            <TranscriptDimensionCard dimension={d.humorSurpriseTensionConflict} title="Humor / surprise / tension / conflict" />
-            <TranscriptDimensionCard dimension={d.practicalUtilityDepth} title="Practical utility depth" />
-            <TranscriptDimensionCard dimension={d.credibilityQuality} title="Credibility quality" />
-          </div>
-        </div>
+      <ReportSection title="Risks">
+        <SectionList items={analysis.risks} />
+      </ReportSection>
 
-        <div className="mt-8 space-y-4">
-          <p className="text-lg uppercase tracking-[0.02em] text-white font-bold">Friction signals</p>
-          <div className="mt-2 grid gap-3 xl:grid-cols-2">
-            <TranscriptDimensionCard dimension={d.filler} invert title="Filler" />
-            <TranscriptDimensionCard dimension={d.repetition} invert title="Repetition" />
-            <TranscriptDimensionCard dimension={d.sponsorIntrusion} invert title="Sponsor intrusion" />
-            <TranscriptDimensionCard dimension={d.ctaOverload} invert title="CTA overload" />
-          </div>
-        </div>
+      <ReportSection title="Recommendations">
+        <SectionList items={analysis.recommendations} />
+      </ReportSection>
 
-        <div className="mt-8 space-y-4">
-          <p className="text-lg uppercase tracking-[0.02em] text-white font-bold">Packaging alignment</p>
-          <div className="mt-2 grid gap-3 xl:grid-cols-2">
-            <TranscriptDimensionCard dimension={d.titlePromiseVsTranscriptDelivery} title="Title promise vs transcript delivery" />
-            <TranscriptDimensionCard dimension={d.thumbnailTitleComplementarity} title="Thumbnail/title complementarity" />
-          </div>
+      <ReportSection title="Value and audience">
+        <div className="space-y-4">
+          <ReportSubsection dimension={d.valuePropositionClarity} title="Value proposition clarity" />
+          <ReportSubsection dimension={d.audienceTargeting} title="Audience targeting / level" />
         </div>
-      </div>
+      </ReportSection>
+
+      <ReportSection title="Structure and payoff">
+        <div className="space-y-4">
+          <ReportSubsection dimension={d.timeToValue} title="Time to value" />
+          <ReportSubsection dimension={d.openLoopsRetentionStructure} title="Open loops / retention structure" />
+          <ReportSubsection dimension={d.payoffDelivery} title="Payoff delivery" />
+          <ReportSubsection dimension={d.pacing} title="Pacing" />
+        </div>
+      </ReportSection>
+
+      <ReportSection title="Engagement, utility, and trust">
+        <div className="space-y-4">
+          <ReportSubsection dimension={d.humorSurpriseTensionConflict} title="Humor / surprise / tension / conflict" />
+          <ReportSubsection dimension={d.practicalUtilityDepth} title="Practical utility depth" />
+          <ReportSubsection dimension={d.credibilityQuality} title="Credibility quality" />
+        </div>
+      </ReportSection>
+
+      <ReportSection title="Friction signals">
+        <div className="space-y-4">
+          <ReportSubsection dimension={d.filler} invert title="Filler" />
+          <ReportSubsection dimension={d.repetition} invert title="Repetition" />
+          <ReportSubsection dimension={d.sponsorIntrusion} invert title="Sponsor intrusion" />
+          <ReportSubsection dimension={d.ctaOverload} invert title="CTA overload" />
+        </div>
+      </ReportSection>
+
+      <ReportSection title="Packaging alignment">
+        <div className="space-y-4">
+          <ReportSubsection dimension={d.titlePromiseVsTranscriptDelivery} title="Title promise vs transcript delivery" />
+          <ReportSubsection dimension={d.thumbnailTitleComplementarity} title="Thumbnail/title complementarity" />
+        </div>
+      </ReportSection>
     </div>
   );
 }
