@@ -108,7 +108,6 @@ export interface ChannelAnalysis {
   medianViews: number | null;
   medianEngagementPer1kViews: number | null;
   findings: string[];
-  experiments: string[];
   sourceWarnings?: string[];
   warnings: string[];
   viewWinners: AnalyzedVideo[];
@@ -125,17 +124,6 @@ export interface SavedChannelAnalysisSummary {
   aiTranscriptAnalysisCount: number;
   medianViews: number | null;
   topTakeaway: string | null;
-}
-
-export interface ChannelCompareResult {
-  leftAnalysisId: string;
-  rightAnalysisId: string;
-  generatedAt: string;
-  overlapPatterns: string[];
-  leftDoesMoreOf: string[];
-  rightDoesMoreOf: string[];
-  borrowingIdeas: string[];
-  warnings: string[];
 }
 
 export interface TranscriptSegment {

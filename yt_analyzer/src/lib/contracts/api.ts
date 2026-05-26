@@ -1,6 +1,5 @@
 import type {
   ChannelAnalysis,
-  ChannelCompareResult,
   SavedChannelAnalysisSummary,
 } from '@/lib/types/analysis';
 
@@ -43,11 +42,6 @@ export interface AnalyzeVideoTranscriptRequest {
   videoId: string;
 }
 
-export interface CompareSavedAnalysesRequest {
-  leftAnalysisId: string;
-  rightAnalysisId: string;
-}
-
 export interface SavedAnalysesResponseData {
   analyses: SavedChannelAnalysisSummary[];
   analysis?: ChannelAnalysis | null;
@@ -55,5 +49,4 @@ export interface SavedAnalysesResponseData {
 
 export type AnalyzeChannelResponse = ApiResponse<ChannelAnalysis>;
 export type AnalyzeVideoTranscriptResponse = ApiResponse<ChannelAnalysis>;
-export type CompareSavedAnalysesResponse = ApiResponse<ChannelCompareResult>;
 export type SavedAnalysesResponse = ApiResponse<SavedAnalysesResponseData>;

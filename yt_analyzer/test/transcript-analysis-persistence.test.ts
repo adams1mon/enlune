@@ -77,7 +77,6 @@ function buildAnalysis(): ChannelAnalysis {
     medianViews: 200,
     medianEngagementPer1kViews: 10,
     findings: [],
-    experiments: [],
     warnings: [],
     viewWinners: [],
     engagementStandouts: [],
