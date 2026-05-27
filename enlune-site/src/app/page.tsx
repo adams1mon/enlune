@@ -14,6 +14,8 @@ import { Starfield } from "@/components/ui/starfield";
 
 const navItems: Array<{ label: string; active?: boolean, href: string }> = [
   { label: "Services", href: "#services" },
+  { label: "Tools", href: "/tools/youtube-analyzer" },
+  { label: "Articles", href: "/articles" },
 ];
 
 const processSteps = [
@@ -399,7 +401,7 @@ export default function Home() {
                       Book a 30-minute intro call
                     </h4>
                     <p className="pricing-booker__body">
-                      Tell us your ideas, and we'll see if we can make it a reality.
+                      Tell us your ideas, and we&apos;ll see if we can make it a reality.
                     </p>
                   <a
                     href="mailto:contact@enlune.com"
