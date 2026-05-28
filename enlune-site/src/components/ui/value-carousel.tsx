@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, PointerEvent as ReactPointerEvent } from "react";
+import { RevealOnView } from "@/components/ui/reveal-on-view";
 
 type ValueCard = {
   title: string;
@@ -198,14 +199,15 @@ export function ValueCarousel({ cards }: ValueCarouselProps) {
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
       >
-        {cards.map((card) => (
-          <article
+        {cards.map((card, index) => (
+          <RevealOnView
             key={card.title}
             className="value-card"
             style={
               {
                 "--value-card-hue": `${card.hue}`,
                 "--value-card-stars-position": card.starsPosition,
+                transitionDelay: `${index * 110}ms`,
               } as CSSProperties
             }
           >
@@ -229,7 +231,7 @@ export function ValueCarousel({ cards }: ValueCarouselProps) {
                 {card.description}
               </p>
             </div>
-          </article>
+          </RevealOnView>
         ))}
       </div>
 

@@ -3,6 +3,7 @@ import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { NavChip } from "@/components/ui/nav-chip";
+import { RevealOnView } from "@/components/ui/reveal-on-view";
 import { ValueCarousel } from "@/components/ui/value-carousel";
 import Image from "next/image";
 import Booker from "@/components/ui/booker";
@@ -14,7 +15,6 @@ import { Starfield } from "@/components/ui/starfield";
 
 const navItems: Array<{ label: string; active?: boolean, href: string }> = [
   { label: "Services", href: "#services" },
-  { label: "Tools", href: "/tools/youtube-analyzer" },
   { label: "Articles", href: "/articles" },
 ];
 
@@ -178,7 +178,11 @@ export default function Home() {
       <Container className="px-4 sm:px-6">
         <header className="py-2 sm:py-6">
           <div className="flex flex-col items-center gap-2 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-start gap-0">
-            <BrandBadge />
+            <BrandBadge
+              className="w-fit bg-[rgb(120,120,120,0.1)] backdrop-blur-md"
+              textClassName="text-white/80"
+              logoClassName="text-white/80"
+            />
 
             <nav
               aria-label="Primary"
@@ -268,6 +272,7 @@ export default function Home() {
               <Button
                 className="mt-8 surf"
                 href="#book"
+                variant="primary"
               >
                 Book a 30-min call
               </Button>
@@ -288,10 +293,11 @@ export default function Home() {
           </div>
 
           <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">
-            {processSteps.map((step) => (
-              <article
+            {processSteps.map((step, index) => (
+              <RevealOnView
                 key={step.title}
                 className={`process-card ${step.cardClassName}`}
+                style={{ transitionDelay: `${index * 250}ms` }}
               >
                 <div className="process-card__content">
                   <h3 className="text-[1.65rem] font-medium tracking-tight text-inverse">
@@ -301,7 +307,7 @@ export default function Home() {
                     {step.description}
                   </p>
                 </div>
-              </article>
+              </RevealOnView>
             ))}
           </div>
         </section>
@@ -401,7 +407,9 @@ export default function Home() {
                       Book a 30-minute intro call
                     </h4>
                     <p className="pricing-booker__body">
-                      Tell us your ideas, and we&apos;ll see if we can make it a reality.
+                      Tell us your ideas, and let&apos;s see if we can make it a reality.
+                      <br/>
+                      Book an appointment below.
                     </p>
                   <a
                     href="mailto:contact@enlune.com"

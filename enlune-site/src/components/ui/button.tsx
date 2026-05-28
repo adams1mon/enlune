@@ -14,7 +14,7 @@ export function Button({
   className,
   href,
   size = "md",
-  variant = "primary",
+  variant,
   ...props
 }: ButtonProps) {
   return (
@@ -23,7 +23,8 @@ export function Button({
       className={[
         "button-pill",
         size === "sm" ? "button-pill--sm" : "button-pill--md",
-        variant === "surface" ? "button-pill--surface" : "button-pill--primary",
+        variant === "surface" ? "button-pill--surface" :
+        variant === "primary" ? "button-pill--primary" : "",
         className,
       ]
         .filter(Boolean)

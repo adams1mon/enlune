@@ -264,6 +264,17 @@
     min-height: 24.25rem;
     padding: 1.5rem;
     border-radius: var(--radius-card);
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .process-card[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .process-card::before {
@@ -296,6 +307,20 @@
     min-height: 100%;
     flex-direction: column;
     justify-content: flex-end;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .process-card {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .value-card {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 
   .value-carousel {
@@ -338,6 +363,17 @@
     border-radius: var(--radius-card);
     user-select: none;
     -webkit-user-select: none;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .value-card[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .value-card::before {

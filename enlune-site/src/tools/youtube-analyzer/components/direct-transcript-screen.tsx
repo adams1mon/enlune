@@ -14,7 +14,7 @@ export function DirectTranscriptScreen() {
   const mailtoHref = useMemo(() => {
     const subject = `Single-video access request${name ? ` — ${name}` : ''}`;
     const body = [
-      'Hi Enlune,',
+      'Hi,',
       '',
       'I’d like access to the single-video analysis tool.',
       '',

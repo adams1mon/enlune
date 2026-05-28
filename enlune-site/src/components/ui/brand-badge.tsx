@@ -1,9 +1,21 @@
-function BrandLogo() {
+import clsx from "clsx";
+
+type BrandLogoProps = {
+  className?: string;
+};
+
+type BrandBadgeProps = {
+  className?: string;
+  logoClassName?: string;
+  textClassName?: string;
+};
+
+function BrandLogo({ className }: BrandLogoProps) {
   return (
     <svg
       viewBox="0 0 28 28"
       aria-hidden="true"
-      className="h-4 w-4 text-white/80"
+      className={clsx("h-4 w-4", className)}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -19,11 +31,25 @@ function BrandLogo() {
   );
 }
 
-export function BrandBadge() {
+export function BrandBadge({
+  className,
+  logoClassName,
+  textClassName,
+}: BrandBadgeProps) {
   return (
-    <div className="flex items-center gap-2 rounded-full px-[0.85rem] py-[0.28rem]">
-      <BrandLogo />
-      <span className="font-display text-[1.2rem] font-bold tracking-tight text-white/80">
+    <div
+      className={clsx(
+        "flex items-center gap-2 rounded-full px-[0.85rem] py-[0.28rem]",
+        className,
+      )}
+    >
+      <BrandLogo className={logoClassName} />
+      <span
+        className={clsx(
+          "font-display text-[1.2rem] font-bold tracking-tight",
+          textClassName,
+        )}
+      >
         enlune
       </span>
     </div>
