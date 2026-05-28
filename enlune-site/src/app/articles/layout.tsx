@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { NavChip } from "@/components/ui/nav-chip";
 
-const navItems = [
+const navItems: Array<{ label: string; active?: boolean, href: string }> = [
   { label: "Services", href: "/#services" },
   { label: "Articles", href: "/articles", active: true },
 ] as const;
